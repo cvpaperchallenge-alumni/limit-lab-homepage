@@ -1,0 +1,13 @@
+name: limit-lab-homepage
+services:
+  frontend:
+    build:
+      context: ../
+      dockerfile: environments/Dockerfile
+    user: "node"
+    tty: true
+    init: true
+    volumes:
+        - ../:/home/node/limit-lab-homepage
+    ports:
+        - 3001:3000
