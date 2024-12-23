@@ -20,6 +20,7 @@ const eslintConfig = tseslint.config(
       'tailwind.config.ts',
       'buils/',
       '.next/',
+      'src/components/ui/',
     ]
   },
   {
