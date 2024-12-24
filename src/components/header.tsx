@@ -24,16 +24,13 @@ export function Header() {
   }, [theme])
 
   return (
-    <div className="w-full p-6 bg-secondary text-secondary-foreground">
+    <div className="w-full bg-secondary p-6 text-secondary-foreground">
       <div className="flex w-full items-center justify-between">
         {/* Left: Logo + Title */}
         <div className="flex items-center space-x-2">
           {/* Using shadcn/ui <Avatar> for the placeholder logo */}
           <Avatar className="size-8">
-            <AvatarImage
-              src="https://via.placeholder.com/32"
-              alt="Logo"
-            />
+            <AvatarImage src="https://via.placeholder.com/32" alt="Logo" />
             <AvatarFallback>AL</AvatarFallback>
           </Avatar>
           <span className="text-xl font-bold">Awesome Lab</span>
@@ -53,12 +50,13 @@ export function Header() {
         </div>
 
         {/* Theme Switcher */}
-        {isLoading ?
+        {isLoading ? (
           <div className="flex w-24 flex-row justify-center">
             <Spinner size="small" />
-          </div> :
+          </div>
+        ) : (
           <div className="flex items-center space-x-2">
-            <RxSun className="size-3"/>
+            <RxSun className="size-3" />
             <Switch
               id="theme-mode"
               checked={isDarkMode}
@@ -67,9 +65,9 @@ export function Header() {
                 setIsDarkMode(checked)
               }}
             />
-            <RxMoon className="size-3"/>
+            <RxMoon className="size-3" />
           </div>
-        }
+        )}
       </div>
     </div>
   )

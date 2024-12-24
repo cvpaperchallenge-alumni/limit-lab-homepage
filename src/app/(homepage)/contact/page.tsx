@@ -22,7 +22,7 @@ export default function ContactPage() {
   }
 
   return (
-    <div className='flex-1 space-y-8'>
+    <div className="flex-1 space-y-8">
       <Card className="max-w-md">
         <CardHeader>
           <h1>Contact Us</h1>

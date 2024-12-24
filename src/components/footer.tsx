@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 
 export function Footer() {
   return (
-    <div className="w-full p-6 flex flex-col items-center justify-between space-y-2 bg-muted text-muted-foreground md:flex-row md:space-y-0">
+    <div className="flex w-full flex-col items-center justify-between space-y-2 bg-muted p-6 text-muted-foreground md:flex-row md:space-y-0">
       {/* Placeholder logo */}
       <div className="flex items-center space-x-2">
         <Avatar className="size-6">
