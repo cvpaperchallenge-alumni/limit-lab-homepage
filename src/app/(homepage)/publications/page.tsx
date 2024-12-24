@@ -64,95 +64,97 @@ export default function PublicationsPage() {
   })
 
   return (
-    <Card>
-      <CardHeader>
-        <h1>Publications</h1>
-      </CardHeader>
-      <CardContent className="space-y-6">
-        {/* Filters */}
-        <div className="flex flex-wrap gap-4">
-          {/* Conference Filter */}
-          <Select
-            value={conferenceFilter}
-            onValueChange={(val) => setConferenceFilter(val)}
-          >
-            <SelectTrigger className="w-[180px]">
-              <SelectValue placeholder="Conference" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">All</SelectItem>
-              {conferences.map((conf) => (
-                <SelectItem key={conf} value={conf}>
-                  {conf}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+    <div className="flex-1 space-y-8">
+      <Card>
+        <CardHeader>
+          <h1>Publications</h1>
+        </CardHeader>
+        <CardContent className="space-y-6">
+          {/* Filters */}
+          <div className="flex flex-wrap gap-4">
+            {/* Conference Filter */}
+            <Select
+              value={conferenceFilter}
+              onValueChange={(val) => setConferenceFilter(val)}
+            >
+              <SelectTrigger className="w-[180px]">
+                <SelectValue placeholder="Conference" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">All</SelectItem>
+                {conferences.map((conf) => (
+                  <SelectItem key={conf} value={conf}>
+                    {conf}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
 
-          {/* Year Filter */}
-          <Select
-            value={yearFilter}
-            onValueChange={(val) => setYearFilter(val)}
-          >
-            <SelectTrigger className="w-[100px]">
-              <SelectValue placeholder="Year" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">All</SelectItem>
-              {years.map((y) => (
-                <SelectItem key={y} value={String(y)}>
-                  {y}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+            {/* Year Filter */}
+            <Select
+              value={yearFilter}
+              onValueChange={(val) => setYearFilter(val)}
+            >
+              <SelectTrigger className="w-[100px]">
+                <SelectValue placeholder="Year" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">All</SelectItem>
+                {years.map((y) => (
+                  <SelectItem key={y} value={String(y)}>
+                    {y}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
 
-          {/* Field Filter */}
-          <Select
-            value={fieldFilter}
-            onValueChange={(val) => setFieldFilter(val)}
-          >
-            <SelectTrigger className="w-[180px]">
-              <SelectValue placeholder="Field" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">All</SelectItem>
-              {fields.map((f) => (
-                <SelectItem key={f} value={f}>
-                  {f}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
+            {/* Field Filter */}
+            <Select
+              value={fieldFilter}
+              onValueChange={(val) => setFieldFilter(val)}
+            >
+              <SelectTrigger className="w-[180px]">
+                <SelectValue placeholder="Field" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">All</SelectItem>
+                {fields.map((f) => (
+                  <SelectItem key={f} value={f}>
+                    {f}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
 
-        {/* Publication List */}
-        <div className="space-y-4">
-          {filteredPublications.map((pub) => (
-            <Card key={pub.id} className="p-4">
-              <CardContent className="flex items-center space-x-4">
-                {/* Simple image or use an <Avatar> if you prefer */}
-                <Avatar className="size-24">
-                  <AvatarImage src={pub.imageUrl} alt={pub.title} />
-                  <AvatarFallback>?</AvatarFallback>
-                </Avatar>
-                <div className="space-y-1">
-                  <h2 className="text-base font-semibold">{pub.title}</h2>
-                  <div className="text-sm text-muted-foreground">
-                    Authors: {pub.authors}
+          {/* Publication List */}
+          <div className="space-y-4">
+            {filteredPublications.map((pub) => (
+              <Card key={pub.id} className="p-4">
+                <CardContent className="flex items-center space-x-4">
+                  {/* Simple image or use an <Avatar> if you prefer */}
+                  <Avatar className="size-24">
+                    <AvatarImage src={pub.imageUrl} alt={pub.title} />
+                    <AvatarFallback>?</AvatarFallback>
+                  </Avatar>
+                  <div className="space-y-1">
+                    <h2 className="text-base font-semibold">{pub.title}</h2>
+                    <div className="text-sm text-muted-foreground">
+                      Authors: {pub.authors}
+                    </div>
+                    <div className="text-sm text-muted-foreground">
+                      Conference: {pub.conference}, {pub.year}
+                    </div>
+                    <div className="text-sm text-muted-foreground">
+                      Field: {pub.field}
+                    </div>
                   </div>
-                  <div className="text-sm text-muted-foreground">
-                    Conference: {pub.conference}, {pub.year}
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    Field: {pub.field}
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </CardContent>
-    </Card>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
+    </div>
   )
 }

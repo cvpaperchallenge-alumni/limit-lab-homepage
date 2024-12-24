@@ -22,58 +22,60 @@ export default function ContactPage() {
   }
 
   return (
-    <Card className="max-w-md">
-      <CardHeader>
-        <h1>Contact Us</h1>
-      </CardHeader>
-      <CardContent>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          {/* Name */}
-          <div>
-            <Label htmlFor="name" className="mb-1">
-              Name
-            </Label>
-            <Input
-              id="name"
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-            />
-          </div>
+    <div className='flex-1 space-y-8'>
+      <Card className="max-w-md">
+        <CardHeader>
+          <h1>Contact Us</h1>
+        </CardHeader>
+        <CardContent>
+          <form onSubmit={handleSubmit} className="space-y-4">
+            {/* Name */}
+            <div>
+              <Label htmlFor="name" className="mb-1">
+                Name
+              </Label>
+              <Input
+                id="name"
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+              />
+            </div>
 
-          {/* Email */}
-          <div>
-            <Label htmlFor="email" className="mb-1">
-              Email
-            </Label>
-            <Input
-              id="email"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </div>
+            {/* Email */}
+            <div>
+              <Label htmlFor="email" className="mb-1">
+                Email
+              </Label>
+              <Input
+                id="email"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </div>
 
-          {/* Message */}
-          <div>
-            <Label htmlFor="message" className="mb-1">
-              Message
-            </Label>
-            <Textarea
-              id="message"
-              rows={5}
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              required
-            />
-          </div>
+            {/* Message */}
+            <div>
+              <Label htmlFor="message" className="mb-1">
+                Message
+              </Label>
+              <Textarea
+                id="message"
+                rows={5}
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                required
+              />
+            </div>
 
-          {/* Submit Button */}
-          <Button type="submit">Send</Button>
-        </form>
-      </CardContent>
-    </Card>
+            {/* Submit Button */}
+            <Button type="submit">Send</Button>
+          </form>
+        </CardContent>
+      </Card>
+    </div>
   )
 }
