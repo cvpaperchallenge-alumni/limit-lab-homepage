@@ -3,6 +3,138 @@
 @tailwind utilities;
 
 
+:root, .light, .light-theme {
+  --gray-1: #fcfcfd;
+  --gray-2: #f9f9fb;
+  --gray-3: #eff0f3;
+  --gray-4: #e7e8ec;
+  --gray-5: #e0e1e6;
+  --gray-6: #d8d9e0;
+  --gray-7: #cdced7;
+  --gray-8: #b9bbc6;
+  --gray-9: #8b8d98;
+  --gray-10: #80828d;
+  --gray-11: #62636c;
+  --gray-12: #1e1f24;
+
+  --gray-a1: #00005503;
+  --gray-a2: #00005506;
+  --gray-a3: #00104010;
+  --gray-a4: #000b3618;
+  --gray-a5: #0009321f;
+  --gray-a6: #00073527;
+  --gray-a7: #00063332;
+  --gray-a8: #00083046;
+  --gray-a9: #00051d74;
+  --gray-a10: #00051b7f;
+  --gray-a11: #0002119d;
+  --gray-a12: #000107e1;
+
+  --gray-contrast: #FFFFFF;
+  --gray-surface: #ffffffcc;
+  --gray-indicator: #8b8d98;
+  --gray-track: #8b8d98;
+}
+.dark, .dark-theme {
+  --gray-1: #111113;
+  --gray-2: #19191b;
+  --gray-3: #222325;
+  --gray-4: #292a2e;
+  --gray-5: #303136;
+  --gray-6: #393a40;
+  --gray-7: #46484f;
+  --gray-8: #5f606a;
+  --gray-9: #6c6e79;
+  --gray-10: #797b86;
+  --gray-11: #b2b3bd;
+  --gray-12: #eeeef0;
+
+  --gray-a1: #1111bb03;
+  --gray-a2: #cbcbf90b;
+  --gray-a3: #d6e2f916;
+  --gray-a4: #d1d9f920;
+  --gray-a5: #d7ddfd28;
+  --gray-a6: #d9defc33;
+  --gray-a7: #dae2fd43;
+  --gray-a8: #e0e3fd60;
+  --gray-a9: #e0e4fd70;
+  --gray-a10: #e3e7fd7e;
+  --gray-a11: #eff0feb9;
+  --gray-a12: #fdfdffef;
+
+  --gray-contrast: #FFFFFF;
+  --gray-surface: rgba(0, 0, 0, 0.05);
+  --gray-indicator: #6c6e79;
+  --gray-track: #6c6e79;
+}
+
+:root, .light, .light-theme {
+  --blue-1: #fcfdfe;
+  --blue-2: #f6f9ff;
+  --blue-3: #ecf2fe;
+  --blue-4: #dfeaff;
+  --blue-5: #cfe0ff;
+  --blue-6: #bcd2ff;
+  --blue-7: #a5c0f7;
+  --blue-8: #85a7ef;
+  --blue-9: #4375ea;
+  --blue-10: #3b69d5;
+  --blue-11: #3764d0;
+  --blue-12: #1b305f;
+
+  --blue-a1: #0055aa03;
+  --blue-a2: #0055ff09;
+  --blue-a3: #0051f213;
+  --blue-a4: #0058ff20;
+  --blue-a5: #005bff30;
+  --blue-a6: #0054ff43;
+  --blue-a7: #014de95a;
+  --blue-a8: #0148de7a;
+  --blue-a9: #0044e3bc;
+  --blue-a10: #003cc9c4;
+  --blue-a11: #003ac3c8;
+  --blue-a12: #00184ce4;
+
+  --blue-contrast: #fff;
+  --blue-surface: #f4f8ffcc;
+  --blue-indicator: #4375ea;
+  --blue-track: #4375ea;
+}
+
+.dark, .dark-theme {
+  --blue-1: #0b111d;
+  --blue-2: #101726;
+  --blue-3: #14254a;
+  --blue-4: #182f64;
+  --blue-5: #1f3977;
+  --blue-6: #274487;
+  --blue-7: #30519b;
+  --blue-8: #385eb5;
+  --blue-9: #4375ea;
+  --blue-10: #3767db;
+  --blue-11: #8cb5ff;
+  --blue-12: #d3e2ff;
+
+  --blue-a1: #0012fd0d;
+  --blue-a2: #0654fa17;
+  --blue-a3: #1e64fc3e;
+  --blue-a4: #2667ff59;
+  --blue-a5: #316efd6e;
+  --blue-a6: #3d77fd7f;
+  --blue-a7: #4780ff94;
+  --blue-a8: #4a81ffb0;
+  --blue-a9: #487fffe9;
+  --blue-a10: #3d76fed9;
+  --blue-a11: #8cb5ff;
+  --blue-a12: #d3e2ff;
+
+  --blue-contrast: #fff;
+  --blue-surface: #101d3b80;
+  --blue-indicator: #4375ea;
+  --blue-track: #4375ea;
+}
+
+
 @layer base {
   :root {
     /* original component variables */
