@@ -131,16 +131,19 @@ export function Header() {
               <DropdownMenuRadioGroup value={page} onValueChange={setPage}>
                 <DropdownMenuRadioItem
                   value="top"
+                  isDarkMode={isDarkMode}
                 >
                   Top
                 </DropdownMenuRadioItem>
                 <DropdownMenuRadioItem
                   value="publication"
+                  isDarkMode={isDarkMode}
                 >
                   Publications
                 </DropdownMenuRadioItem>
                 <DropdownMenuRadioItem
                   value="contact"
+                  isDarkMode={isDarkMode}
                 >
                   Contact
                 </DropdownMenuRadioItem>
