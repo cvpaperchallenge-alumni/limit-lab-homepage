@@ -63,7 +63,7 @@ export function Header() {
   }, [])
 
   return (
-    <div className="w-full bg-secondary p-6 text-secondary-foreground">
+    <div className="w-full h-24 bg-secondary p-6 flex items-center text-secondary-foreground">
       <div className="flex w-full justify-between">
         {/* Logo + Title */}
         <div className="flex md:min-w-[600px] justify-between">
