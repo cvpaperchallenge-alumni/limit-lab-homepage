@@ -1,0 +1,44 @@
+# config files
+.eslintignore
+.eslintrc.json
+.prettierrc.json
+.components.json
+next-env.d.ts
+next.config.mjs
+postcss.config.mjs
+tailwind.config.ts
+tsconfig.json
+package-lock.json
+package.json
+pnpm-lock.yaml
+
+# build directories
+build/
+bin/
+obj/
+out/
+.next/
+
+# other directories
+node_modules
+public
+
+# Storybook
+*.stories.ts
+*.stories.tsx
+
+# CSS files
+*.css
+
+# mdx files
+*.mdx
+
+# image files
+**/*.png
+**/*.jpg
+**/*.jpeg
+**/*.gif
+**/*.ico
+
+# shadcn/ui
+src/components/ui/
