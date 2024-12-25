@@ -66,17 +66,17 @@ export function Header() {
     <div className="w-full h-24 bg-secondary p-6 flex items-center text-secondary-foreground">
       <div className="flex w-full justify-between">
         {/* Logo + Title */}
-        <div className="flex md:min-w-[600px] justify-between">
-          <div className="flex items-center space-x-2">
+        <div className="flex md:min-w-[550px] justify-between">
+          <div className="flex items-center gap-2">
             {/* Using shadcn/ui <Avatar> for the placeholder logo */}
             <Avatar className="size-8">
               <AvatarImage src="https://via.placeholder.com/32" alt="Logo" />
               <AvatarFallback>AL</AvatarFallback>
             </Avatar>
             <span className="text-xl font-bold">LIMIT Lab</span>
+            <Separator orientation="vertical" className='hidden md:block ml-5 bg-muted-foreground'/>
           </div>
 
-          <Separator orientation="vertical" className='hidden md:block bg-muted-foreground'/>
           {/* Navigation Links */}
           <div className="hidden md:flex items-center space-x-5 justify-between">
             <div
@@ -94,8 +94,10 @@ export function Header() {
                   (hasHoveredTop ? 'animate-rotate-out-center' : 'invisible')
                 }
               />
-              <Button variant="link" asChild className="group-hover:animate-pulsate-fwd pl-0.5">
-                <Link href="/">Top</Link>
+              <Button variant="link" asChild className="group-hover:animate-pulsate-fwd pl-0.5 font-semibold hover:no-underline">
+                <Link href="/">
+                  <span className={page === "top" ? "text-accent-foreground underline" : "text-sub group-hover:text-secondary-foreground"}>Top</span>
+                </Link>
               </Button>
             </div>
             <div
@@ -113,8 +115,10 @@ export function Header() {
                   (hasHoveredPublications ? 'animate-rotate-out-center' : 'invisible')
                 }
               />
-              <Button variant="link" asChild className="hover:animate-pulsate-fwd pl-0.5">
-                <Link href="/publications">Publications</Link>
+              <Button variant="link" asChild className="hover:animate-pulsate-fwd pl-0.5 font-semibold hover:no-underline">
+                <Link href="/publications">
+                  <span className={page === "publication" ? "text-accent-foreground underline" : "text-sub group-hover:text-secondary-foreground"}>Publications</span>
+                </Link>
               </Button>
             </div>
             <div
@@ -132,8 +136,10 @@ export function Header() {
                   (hasHoveredContact ? 'animate-rotate-out-center' : 'invisible')
                 }
               />
-              <Button variant="link" asChild className="hover:animate-pulsate-fwd pl-0.5">
-                <Link href="/contact">Contact</Link>
+              <Button variant="link" asChild className="hover:animate-pulsate-fwd pl-0.5 font-semibold hover:no-underline">
+                <Link href="/contact">
+                  <span className={page === "contact" ? "text-accent-foreground underline" : "text-sub group-hover:text-secondary-foreground"}>Contact</span>
+                </Link>
               </Button>
             </div>
           </div>

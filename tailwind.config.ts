@@ -40,6 +40,7 @@ const config = {
         moon: {
           icon: 'var(--moon-icon)',
         },
+        sub: 'var(--sub)',
 
         // shadcn/ui colors
         background: {

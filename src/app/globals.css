@@ -148,6 +148,8 @@
     --sun-icon: hsl(29, 66%, 65%);
     --moon-icon: hsl(49, 76%, 43%);
 
+    --sub: var(--gray-9);
+
     /* shadcn/ui variables */
     --background: hsl(0 0% 100%);
     --foreground: hsl(224 71.4% 4.1%);
