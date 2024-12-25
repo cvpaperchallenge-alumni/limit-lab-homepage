@@ -6,10 +6,10 @@ import { useEffect, useState } from 'react'
 import { RxMoon, RxSun, RxHamburgerMenu } from 'react-icons/rx'
 import Link from 'next/link'
 import { useRouter, usePathname } from 'next/navigation'
-
-// shadcn/ui components
 import blackVAMark from '../../public/visual_atoms_1_black.png'
 import whiteVAMark from '../../public/visual_atoms_1_white.png'
+
+// shadcn/ui components
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import { Switch } from '@/components/ui/switch'
@@ -24,7 +24,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-
 
 export function Header() {
   const { theme, setTheme } = useTheme()
@@ -63,8 +62,8 @@ export function Header() {
   }, [])
 
   return (
-    <div className="flex h-24 w-full items-center bg-secondary p-6 text-secondary-foreground">
-      <div className="flex w-full justify-between">
+    <div className="flex h-24 w-full justify-center bg-secondary p-6 text-secondary-foreground">
+      <div className="flex w-full max-w-[1500px] justify-between">
         {/* Logo + Title */}
         <div className="flex justify-between md:min-w-[550px]">
           <div className="flex items-center gap-2">
