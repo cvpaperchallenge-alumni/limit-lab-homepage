@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { RxMoon, RxSun, RxHamburgerMenu  } from 'react-icons/rx'
 import Link from 'next/link'
+import { useRouter, usePathname } from 'next/navigation'
 
 // shadcn/ui components
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
@@ -30,6 +31,8 @@ export function Header() {
   const [isDarkMode, setIsDarkMode] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
   const [page, setPage] = useState("top")
+  const router = useRouter()
+  const pathname = usePathname()
 
   useEffect(() => {
     if (theme) {
@@ -37,6 +40,12 @@ export function Header() {
       setIsLoading(false)
     }
   }, [theme])
+
+  useEffect(() => {
+    if (pathname === '/') setPage('top')
+    else if (pathname.startsWith('/publications')) setPage('publication')
+    else if (pathname.startsWith('/contact')) setPage('contact')
+  }, [pathname])
 
   return (
     <div className="w-full bg-secondary p-6 text-secondary-foreground">
@@ -128,22 +137,25 @@ export function Header() {
             <DropdownMenuContent className="w-56">
               <DropdownMenuLabel>Pages</DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <DropdownMenuRadioGroup value={page} onValueChange={setPage}>
+              <DropdownMenuRadioGroup value={page}>
                 <DropdownMenuRadioItem
                   value="top"
                   isDarkMode={isDarkMode}
+                  onClick={() => router.push('/')}
                 >
                   Top
                 </DropdownMenuRadioItem>
                 <DropdownMenuRadioItem
                   value="publication"
                   isDarkMode={isDarkMode}
+                  onClick={() => router.push('/publications')}
                 >
                   Publications
                 </DropdownMenuRadioItem>
                 <DropdownMenuRadioItem
                   value="contact"
                   isDarkMode={isDarkMode}
+                  onClick={() => router.push('/contact')}
                 >
                   Contact
                 </DropdownMenuRadioItem>
