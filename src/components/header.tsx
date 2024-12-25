@@ -31,6 +31,9 @@ export function Header() {
   const [isDarkMode, setIsDarkMode] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
   const [page, setPage] = useState("top")
+  const [hasHoveredTop, setHasHoveredTop] = useState(false)
+  const [hasHoveredPublications, setHasHoveredPublications] = useState(false)
+  const [hasHoveredContact, setHasHoveredContact] = useState(false)
   const router = useRouter()
   const pathname = usePathname()
 
@@ -47,89 +50,118 @@ export function Header() {
     else if (pathname.startsWith('/contact')) setPage('contact')
   }, [pathname])
 
+  useEffect(() => {
+    function handleResize() {
+      if (window.innerWidth < 768) {
+        setHasHoveredTop(false)
+        setHasHoveredPublications(false)
+        setHasHoveredContact(false)
+      }
+    }
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
   return (
     <div className="w-full bg-secondary p-6 text-secondary-foreground">
       <div className="flex w-full justify-between">
         {/* Logo + Title */}
         <div className="flex md:min-w-[600px] justify-between">
-        <div className="flex items-center space-x-2">
-          {/* Using shadcn/ui <Avatar> for the placeholder logo */}
-          <Avatar className="size-8">
-            <AvatarImage src="https://via.placeholder.com/32" alt="Logo" />
-            <AvatarFallback>AL</AvatarFallback>
-          </Avatar>
+          <div className="flex items-center space-x-2">
+            {/* Using shadcn/ui <Avatar> for the placeholder logo */}
+            <Avatar className="size-8">
+              <AvatarImage src="https://via.placeholder.com/32" alt="Logo" />
+              <AvatarFallback>AL</AvatarFallback>
+            </Avatar>
             <span className="text-xl font-bold">LIMIT Lab</span>
-        </div>
+          </div>
 
           <Separator orientation="vertical" className='hidden md:block bg-muted-foreground'/>
           {/* Navigation Links */}
           <div className="hidden md:flex items-center space-x-5 justify-between">
-            {/* <Avatar>
-              <AvatarImage src='../../public/visual_atoms_1_black.png' />
-              <AvatarFallback>VA</AvatarFallback>
-            </Avatar> */}
-            <div className='flex group'>
+            <div
+              className='flex group'
+              onMouseEnter={() => setHasHoveredTop(true)}
+              onMouseLeave={() => {}}
+            >
               <Image
                 alt="VA mark"
                 src={isDarkMode ? whiteVAMark : blackVAMark}
                 width={32}
                 height={32}
-                className='animate-rotate-out-center group-hover:animate-rotate-in-center'
+                className={
+                  `group-hover:animate-rotate-in-center ` +
+                  (hasHoveredTop ? 'animate-rotate-out-center' : 'invisible')
+                }
               />
               <Button variant="link" asChild className="group-hover:animate-pulsate-fwd pl-0.5">
-            <Link href="/">Top</Link>
-          </Button>
+                <Link href="/">Top</Link>
+              </Button>
             </div>
-            <div className='flex group'>
+            <div
+              className='flex group'
+              onMouseEnter={() => setHasHoveredPublications(true)}
+              onMouseLeave={() => {}}
+            >
               <Image
                 alt="VA mark"
                 src={isDarkMode ? whiteVAMark : blackVAMark}
                 width={32}
                 height={32}
-                className='animate-rotate-out-center group-hover:animate-rotate-in-center'
+                className={
+                  `group-hover:animate-rotate-in-center ` +
+                  (hasHoveredPublications ? 'animate-rotate-out-center' : 'invisible')
+                }
               />
               <Button variant="link" asChild className="hover:animate-pulsate-fwd pl-0.5">
-            <Link href="/publications">Publications</Link>
-          </Button>
+                <Link href="/publications">Publications</Link>
+              </Button>
             </div>
-            <div className='flex group'>
-            <Image
+            <div
+              className='flex group'
+              onMouseEnter={() => setHasHoveredContact(true)}
+              onMouseLeave={() => {}}
+            >
+              <Image
                 alt="VA mark"
                 src={isDarkMode ? whiteVAMark : blackVAMark}
                 width={32}
                 height={32}
-                className='animate-rotate-out-center group-hover:animate-rotate-in-center'
+                className={
+                  `group-hover:animate-rotate-in-center ` +
+                  (hasHoveredContact ? 'animate-rotate-out-center' : 'invisible')
+                }
               />
               <Button variant="link" asChild className="hover:animate-pulsate-fwd pl-0.5">
-            <Link href="/contact">Contact</Link>
-          </Button>
+                <Link href="/contact">Contact</Link>
+              </Button>
             </div>
           </div>
         </div>
 
         {/* Theme Switcher */}
         <div className="flex items-center space-x-6">
-        {isLoading ? (
-          <div className="flex w-24 flex-row justify-center">
-            <Spinner size="small" />
-          </div>
-        ) : (
-          <div className="flex items-center space-x-2">
+          {isLoading ? (
+            <div className="flex w-24 flex-row justify-center">
+              <Spinner size="small" />
+            </div>
+          ) : (
+            <div className="flex items-center space-x-2">
               <RxSun className="size-4 text-sun-icon" />
-            <Switch
-              id="theme-mode"
-              checked={isDarkMode}
-              onCheckedChange={(checked) => {
-                setTheme(checked ? 'dark' : 'light')
-                setIsDarkMode(checked)
-              }}
+              <Switch
+                id="theme-mode"
+                checked={isDarkMode}
+                onCheckedChange={(checked) => {
+                  setTheme(checked ? 'dark' : 'light')
+                  setIsDarkMode(checked)
+                }}
                 style={{
                   backgroundColor: isDarkMode ? 'var(--moon-icon)' : 'var(--sun-icon)'
                 }}
-            />
+              />
               <RxMoon className="size-4 text-moon-icon" />
-          </div>
-        )}
+            </div>
+          )}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <RxHamburgerMenu className="size-6 md:hidden" />
