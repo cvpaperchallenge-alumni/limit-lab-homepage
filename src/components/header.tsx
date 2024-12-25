@@ -3,11 +3,13 @@
 import { useTheme } from 'next-themes'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
-import { RxMoon, RxSun, RxHamburgerMenu  } from 'react-icons/rx'
+import { RxMoon, RxSun, RxHamburgerMenu } from 'react-icons/rx'
 import Link from 'next/link'
 import { useRouter, usePathname } from 'next/navigation'
 
 // shadcn/ui components
+import blackVAMark from '../../public/visual_atoms_1_black.png'
+import whiteVAMark from '../../public/visual_atoms_1_white.png'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import { Switch } from '@/components/ui/switch'
@@ -21,16 +23,14 @@ import {
   DropdownMenuRadioItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from '@/components/ui/dropdown-menu'
 
-import blackVAMark from '../../public/visual_atoms_1_black.png'
-import whiteVAMark from '../../public/visual_atoms_1_white.png'
 
 export function Header() {
   const { theme, setTheme } = useTheme()
   const [isDarkMode, setIsDarkMode] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
-  const [page, setPage] = useState("top")
+  const [page, setPage] = useState('top')
   const [hasHoveredTop, setHasHoveredTop] = useState(false)
   const [hasHoveredPublications, setHasHoveredPublications] = useState(false)
   const [hasHoveredContact, setHasHoveredContact] = useState(false)
@@ -63,10 +63,10 @@ export function Header() {
   }, [])
 
   return (
-    <div className="w-full h-24 bg-secondary p-6 flex items-center text-secondary-foreground">
+    <div className="flex h-24 w-full items-center bg-secondary p-6 text-secondary-foreground">
       <div className="flex w-full justify-between">
         {/* Logo + Title */}
-        <div className="flex md:min-w-[550px] justify-between">
+        <div className="flex justify-between md:min-w-[550px]">
           <div className="flex items-center gap-2">
             {/* Using shadcn/ui <Avatar> for the placeholder logo */}
             <Avatar className="size-8">
@@ -74,13 +74,16 @@ export function Header() {
               <AvatarFallback>AL</AvatarFallback>
             </Avatar>
             <span className="text-xl font-bold">LIMIT Lab</span>
-            <Separator orientation="vertical" className='hidden md:block ml-5 bg-muted-foreground'/>
+            <Separator
+              orientation="vertical"
+              className="ml-5 hidden bg-muted-foreground md:block"
+            />
           </div>
 
           {/* Navigation Links */}
-          <div className="hidden md:flex items-center space-x-5 justify-between">
+          <div className="hidden items-center justify-between space-x-5 md:flex">
             <div
-              className='flex group'
+              className="group flex"
               onMouseEnter={() => setHasHoveredTop(true)}
               onMouseLeave={() => {}}
             >
@@ -94,14 +97,26 @@ export function Header() {
                   (hasHoveredTop ? 'animate-rotate-out-center' : 'invisible')
                 }
               />
-              <Button variant="link" asChild className="group-hover:animate-pulsate-fwd pl-0.5 font-semibold hover:no-underline">
+              <Button
+                variant="link"
+                asChild
+                className="pl-0.5 font-semibold hover:no-underline group-hover:animate-pulsate-fwd"
+              >
                 <Link href="/">
-                  <span className={page === "top" ? "text-accent-foreground underline" : "text-sub group-hover:text-secondary-foreground"}>Top</span>
+                  <span
+                    className={
+                      page === 'top'
+                        ? 'text-accent-foreground underline'
+                        : 'text-sub group-hover:text-secondary-foreground'
+                    }
+                  >
+                    Top
+                  </span>
                 </Link>
               </Button>
             </div>
             <div
-              className='flex group'
+              className="group flex"
               onMouseEnter={() => setHasHoveredPublications(true)}
               onMouseLeave={() => {}}
             >
@@ -112,17 +127,31 @@ export function Header() {
                 height={32}
                 className={
                   `group-hover:animate-rotate-in-center ` +
-                  (hasHoveredPublications ? 'animate-rotate-out-center' : 'invisible')
+                  (hasHoveredPublications
+                    ? 'animate-rotate-out-center'
+                    : 'invisible')
                 }
               />
-              <Button variant="link" asChild className="hover:animate-pulsate-fwd pl-0.5 font-semibold hover:no-underline">
+              <Button
+                variant="link"
+                asChild
+                className="pl-0.5 font-semibold hover:animate-pulsate-fwd hover:no-underline"
+              >
                 <Link href="/publications">
-                  <span className={page === "publication" ? "text-accent-foreground underline" : "text-sub group-hover:text-secondary-foreground"}>Publications</span>
+                  <span
+                    className={
+                      page === 'publication'
+                        ? 'text-accent-foreground underline'
+                        : 'text-sub group-hover:text-secondary-foreground'
+                    }
+                  >
+                    Publications
+                  </span>
                 </Link>
               </Button>
             </div>
             <div
-              className='flex group'
+              className="group flex"
               onMouseEnter={() => setHasHoveredContact(true)}
               onMouseLeave={() => {}}
             >
@@ -133,12 +162,26 @@ export function Header() {
                 height={32}
                 className={
                   `group-hover:animate-rotate-in-center ` +
-                  (hasHoveredContact ? 'animate-rotate-out-center' : 'invisible')
+                  (hasHoveredContact
+                    ? 'animate-rotate-out-center'
+                    : 'invisible')
                 }
               />
-              <Button variant="link" asChild className="hover:animate-pulsate-fwd pl-0.5 font-semibold hover:no-underline">
+              <Button
+                variant="link"
+                asChild
+                className="pl-0.5 font-semibold hover:animate-pulsate-fwd hover:no-underline"
+              >
                 <Link href="/contact">
-                  <span className={page === "contact" ? "text-accent-foreground underline" : "text-sub group-hover:text-secondary-foreground"}>Contact</span>
+                  <span
+                    className={
+                      page === 'contact'
+                        ? 'text-accent-foreground underline'
+                        : 'text-sub group-hover:text-secondary-foreground'
+                    }
+                  >
+                    Contact
+                  </span>
                 </Link>
               </Button>
             </div>
@@ -162,7 +205,9 @@ export function Header() {
                   setIsDarkMode(checked)
                 }}
                 style={{
-                  backgroundColor: isDarkMode ? 'var(--moon-icon)' : 'var(--sun-icon)'
+                  backgroundColor: isDarkMode
+                    ? 'var(--moon-icon)'
+                    : 'var(--sun-icon)',
                 }}
               />
               <RxMoon className="size-4 text-moon-icon" />
