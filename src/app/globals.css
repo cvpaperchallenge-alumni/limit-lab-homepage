@@ -13,6 +13,9 @@
     --tab-background: var(--gray-4);
     --tab-background-selected: var(--gray-1);
 
+    --sun-icon: hsl(29, 66%, 65%);
+    --moon-icon: hsl(49, 76%, 43%);
+
     /* shadcn/ui variables */
     --background: hsl(0 0% 100%);
     --foreground: hsl(224 71.4% 4.1%);
@@ -51,6 +54,9 @@
     --tab-border: var(--teal-10);
     --tab-background: var(--gray-4);
     --tab-background-selected: var(--gray-1);
+
+    --sun-icon: hsl(29, 70%, 67%);
+    --moon-icon: hsl(49, 40%, 65%);
 
     /* shadcn/ui variables */
     --background: hsl(224 71.4% 4.1%);

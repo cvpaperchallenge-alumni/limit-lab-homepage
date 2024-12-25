@@ -34,6 +34,12 @@ const config = {
             selected: 'var(--tab-background-selected)',
           },
         },
+        sun: {
+          icon: 'var(--sun-icon)',
+        },
+        moon: {
+          icon: 'var(--moon-icon)',
+        },
 
         // shadcn/ui colors
         background: {
@@ -104,6 +110,41 @@ const config = {
         xxxl: ["1.625rem", { lineHeight: "1.6", letterSpacing: "0.05em" }],
         xxxxl: ["2rem", { lineHeight: "1.6", letterSpacing: "0.05em" }],
       },
+      animation: {
+        "pulsate-fwd": "pulsate-fwd 0.2s linear   both",
+        "rotate-in-center": "rotate-in-center 0.4s cubic-bezier(0.455, 0.030, 0.515, 0.955)   both",
+        "rotate-out-center": "rotate-out-center 0.4s cubic-bezier(0.645, 0.045, 0.355, 1.000)   both",
+      },
+      keyframes: {
+          "pulsate-fwd": {
+              "0%,to": {
+                  transform: "scale(1)"
+              },
+              "50%": {
+                  transform: "scale(1.1)"
+              }
+          },
+          "rotate-in-center": {
+              "0%": {
+                  transform: "rotate(-360deg)",
+                  opacity: "0"
+              },
+              to: {
+                  transform: "rotate(0)",
+                  opacity: "1"
+              }
+          },
+          "rotate-out-center": {
+              "0%": {
+                  transform: "rotate(0)",
+                  opacity: "1"
+              },
+              to: {
+                  transform: "rotate(-360deg)",
+                  opacity: "0"
+              }
+          },
+      }
     },
   },
   plugins: [require('tailwindcss-animated')],
