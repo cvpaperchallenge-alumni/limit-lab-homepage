@@ -3,7 +3,7 @@
 import { useTheme } from 'next-themes'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
-import { RxMoon, RxSun } from 'react-icons/rx'
+import { RxMoon, RxSun, RxHamburgerMenu  } from 'react-icons/rx'
 import Link from 'next/link'
 
 // shadcn/ui components
@@ -12,6 +12,15 @@ import { Button } from '@/components/ui/button'
 import { Switch } from '@/components/ui/switch'
 import { Spinner } from '@/components/ui/spinner'
 import { Separator } from '@/components/ui/separator'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuLabel,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 
 import blackVAMark from '../../public/visual_atoms_1_black.png'
 import whiteVAMark from '../../public/visual_atoms_1_white.png'
@@ -20,7 +29,7 @@ export function Header() {
   const { theme, setTheme } = useTheme()
   const [isDarkMode, setIsDarkMode] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
-  const [position, setPosition] = useState("bottom")
+  const [page, setPage] = useState("top")
 
   useEffect(() => {
     if (theme) {
@@ -90,6 +99,7 @@ export function Header() {
         </div>
 
         {/* Theme Switcher */}
+        <div className="flex items-center space-x-6">
         {isLoading ? (
           <div className="flex w-24 flex-row justify-center">
             <Spinner size="small" />
@@ -111,6 +121,33 @@ export function Header() {
               <RxMoon className="size-4 text-moon-icon" />
           </div>
         )}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <RxHamburgerMenu className="size-6 md:hidden" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="w-56">
+              <DropdownMenuLabel>Pages</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuRadioGroup value={page} onValueChange={setPage}>
+                <DropdownMenuRadioItem
+                  value="top"
+                >
+                  Top
+                </DropdownMenuRadioItem>
+                <DropdownMenuRadioItem
+                  value="publication"
+                >
+                  Publications
+                </DropdownMenuRadioItem>
+                <DropdownMenuRadioItem
+                  value="contact"
+                >
+                  Contact
+                </DropdownMenuRadioItem>
+              </DropdownMenuRadioGroup>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
       </div>
     </div>
   )
