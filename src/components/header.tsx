@@ -105,7 +105,7 @@ export function Header() {
                   <span
                     className={
                       page === 'top'
-                        ? 'text-accent-foreground underline'
+                        ? 'text-accent-foreground'
                         : 'text-sub group-hover:text-secondary-foreground'
                     }
                   >
@@ -140,7 +140,7 @@ export function Header() {
                   <span
                     className={
                       page === 'publication'
-                        ? 'text-accent-foreground underline'
+                        ? 'text-accent-foreground'
                         : 'text-sub group-hover:text-secondary-foreground'
                     }
                   >
@@ -175,7 +175,7 @@ export function Header() {
                   <span
                     className={
                       page === 'contact'
-                        ? 'text-accent-foreground underline'
+                        ? 'text-accent-foreground'
                         : 'text-sub group-hover:text-secondary-foreground'
                     }
                   >
