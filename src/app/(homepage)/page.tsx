@@ -72,7 +72,7 @@ export default function TopPage() {
             and industrial impact. Together, we redefine the very concept of
             limits.
           </p>
-          <h2 className="text-m font-semibold">See the past events</h2>
+          <h2 className="text-m font-semibold">Check out the past events</h2>
           <div className="flex gap-4">
             <Button
               className="rounded-2xl bg-button-background text-button-foreground hover:animate-scale-up-center hover:bg-accent hover:text-accent-foreground"
