@@ -45,7 +45,7 @@ export default function TopPage() {
       {/* Lab Description */}
       <div className='flex items-center max-w-[1000px] px-10 pb-10 pt-16 '>
         <div className="flex flex-col items-start">
-          {/* If you have a custom TypographyH1 component, use it; otherwise a <div> or <p> might be unavoidable */}
+            {/* If you have a custom TypographyH1 component, use it; otherwise a <div> or <p> might be unavoidable */}
           <h1 className='mb-2 text-xl font-semibold tracking-wider leading-8 text-foreground shadow-background drop-shadow-md'>
             Unleash our LIMITless potential
           </h1>
@@ -53,12 +53,30 @@ export default function TopPage() {
           At LIMIT Lab., we embrace the power of collaboration to transcend limits in AI and computer vision research. By connecting globally and reimagining boundaries, we transform challenges into opportunities, unlocking limitless innovation with profound societal and industrial impact. Together, we redefine the very concept of limits.
           </p>
         </div>
-        <Image
+        {/* <Image
           src="https://via.placeholder.com/256"
           alt="stylish image"
           width={256}
           height={256}
-        />
+        /> */}
+        <div className="relative w-full h-[500px] overflow-hidden">
+          <div className="absolute top-1/2 left-1/2 w-8 h-8 bg-blue-500 rounded-full
+                      -translate-x-1/2 -translate-y-1/2">
+          </div>
+          <div className="particle-1"></div>
+          <div className="particle-1"></div>
+          <div className="particle-1"></div>
+          <div className="particle-2"></div>
+          <div className="particle-2"></div>
+          <div className="particle-2"></div>
+          <div className="particle-3"></div>
+          <div className="particle-3"></div>
+          <div className="particle-3"></div>
+          <div className="particle-4"></div>
+          <div className="particle-4"></div>
+          <div className="particle-4"></div>
+        </div>
+      </div>
 
       {/* Recent News */}
       <Card>
