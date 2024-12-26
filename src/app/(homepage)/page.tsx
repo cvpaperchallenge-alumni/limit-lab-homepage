@@ -3,6 +3,11 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { HiCursorClick } from 'react-icons/hi'
+import { Geist_Mono } from 'next/font/google'
+
+const geistMono = Geist_Mono({
+  subsets: ['latin'],
+})
 
 // shadcn/ui components
 import { Card, CardHeader, CardContent } from '@/components/ui/card'
@@ -57,24 +62,24 @@ export default function TopPage() {
   return (
     <div className="flex-1 flex flex-col items-center gap-8 w-full bg-gradient-to-br from-background from-20% via-background-gradation-1 via-50% to-background-gradation-2 to-90%">
       <div className='flex gap-8 items-center max-w-[1000px] px-20 pb-10 pt-16'>
-        <div className="flex flex-col gap-3 items-start">
-          <h1 className='mb-2 text-xxxl font-semibold tracking-wider leading-8 text-foreground shadow-background drop-shadow-md'>
+        <div className="flex flex-col gap-3 items-start text-foreground ">
+          <h1 className='mb-2 text-xxxl font-semibold tracking-wider leading-8'>
             Unleash our LIMITless potential
           </h1>
-          <p className="mb-5 w-11/12 text-m text-wrap text-card-foreground">
+          <p className="mb-5 w-11/12 text-m text-wrap">
             At LIMIT Lab., we embrace the power of collaboration to transcend limits in AI and computer vision research. By connecting globally and reimagining boundaries, we transform challenges into opportunities, unlocking limitless innovation with profound societal and industrial impact. Together, we redefine the very concept of limits.
           </p>
           <h2 className='font-semibold text-m'>
             See the past events
           </h2>
           <div className='flex gap-4'>
-            <Button className="rounded-2xl bg-sub hover:bg-accent hover:text-accent-foreground hover:animate-scale-up-center" size="lg" asChild>
+            <Button className="rounded-2xl text-button-foreground bg-button-background hover:bg-accent hover:text-accent-foreground hover:animate-scale-up-center" size="lg" asChild>
               <Link href="https://lsfsl.net/limit23/" target='_blank'>
                 <span className='text-sm font-semibold tracking-wider'>LIMIT @ICCV2023</span>
                 <HiCursorClick className="size-5" />
               </Link>
             </Button>
-            <Button className="rounded-2xl bg-sub hover:bg-accent hover:text-accent-foreground hover:animate-scale-up-center" size="lg" asChild>
+            <Button className="rounded-2xl text-button-foreground bg-button-background hover:bg-accent hover:text-accent-foreground hover:animate-scale-up-center" size="lg" asChild>
               <Link href="https://hirokatsukataoka16.github.io/CVPR-2024-LIMIT/" target='_blank'>
                 <span className='text-sm font-semibold tracking-wider'>LIMIT @CVPR2024</span>
                 <HiCursorClick className="size-5" />
@@ -82,12 +87,7 @@ export default function TopPage() {
             </Button>
           </div>
         </div>
-        {/* <Image
-          src="https://via.placeholder.com/256"
-          alt="stylish image"
-          width={256}
-          height={256}
-        /> */}
+
         {/* <div className="relative w-full h-[500px] overflow-hidden">
           <div className="absolute top-1/2 left-1/2 w-8 h-8 bg-blue-500 rounded-full
                       -translate-x-1/2 -translate-y-1/2">
@@ -152,24 +152,31 @@ export default function TopPage() {
         </div>
       </div>
 
+      <Separator orientation="horizontal" className="w-full h-px bg-muted-foreground" />
 
       {/* Recent News */}
-      <div className='flex flex-col gap-3 w-full max-w-[1000px]'>
-        <Separator orientation="horizontal" className="w-full h-px bg-muted-foreground" />
-        <div className='flex flex-col gap-3 items-start w-full px-20 py-16 '>
+      <div className='flex gap-14 w-full max-w-[1000px] px-20 py-16 '>
+        <Image
+          src="https://via.placeholder.com/256"
+          alt="stylish image"
+          width={256}
+          height={256}
+        />
+        <div className='flex flex-col gap-3 items-start w-full'>
           <h1 className='mb-2 text-xxxl font-semibold tracking-wider leading-8 text-foreground shadow-background drop-shadow-md'>
             Recent News
           </h1>
           <div className="space-y-2">
             {newsItems.map((item, index) => (
-              <div key={index} className="text-s">
-                <strong>{item.date}:</strong> {item.description}
+              <div key={index} className="text-m">
+                <strong className={`${geistMono.className}`}>{item.date}:</strong> {item.description}
               </div>
             ))}
           </div>
         </div>
-        <Separator orientation="horizontal" className="w-full h-px bg-muted-foreground" />
       </div>
+
+      <Separator orientation="horizontal" className="w-full h-px bg-muted-foreground" />
 
       {/* Member Information */}
       <div className='flex flex-col gap-3 items-center w-full max-w-[1000px] px-20 py-16'>
@@ -180,7 +187,7 @@ export default function TopPage() {
         <div className='flex flex-col w-full items-center'>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
             {members.map((member, idx) => (
-              <Card key={idx} className="pb-3 pt-5 shadow backdrop-blur-md">
+              <Card key={idx} className="pb-1 pt-5 shadow backdrop-blur-md">
                 <CardContent>
                   <div className="flex justify-center">
                     <Avatar className="size-16">
@@ -188,7 +195,7 @@ export default function TopPage() {
                       <AvatarFallback>?</AvatarFallback>
                     </Avatar>
                   </div>
-                  <div className="space-y-1 text-center">
+                  <div className="space-y-1 text-center pt-3">
                     <div className="font-semibold">{member.name}</div>
                     <div className="text-sm text-muted-foreground">
                       {member.affiliation}

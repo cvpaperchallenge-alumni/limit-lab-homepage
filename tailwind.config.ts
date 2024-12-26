@@ -34,6 +34,11 @@ const config = {
             selected: 'var(--tab-background-selected)',
           },
         },
+        button: {
+          background: 'var(--button-background)',
+          foreground: 'var(--button-foreground)',
+          border: 'var(--button-border)',
+        },
         sun: {
           icon: 'var(--sun-icon)',
         },

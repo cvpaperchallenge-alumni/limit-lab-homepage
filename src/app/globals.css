@@ -321,7 +321,11 @@
 
     --sub: var(--gray-9);
 
-    --orbit: var(--blue-6);
+    --button-background: var(--gray-5);
+    --button-foreground: var(--gray-11);
+    --button-border: var(--gray-6);
+
+    --orbit: var(--blue-7);
     --particle-glow: var(--blue-9);
 
     --background-gradation-1: var(--blue-1);
@@ -329,7 +333,7 @@
 
     /* shadcn/ui variables */
     --background: var(--gray-1);
-    --foreground: hsl(224 71.4% 4.1%);
+    --foreground: var(--gray-12);
     --card: var(--gray-a2);
     --card-foreground: hsl(224 71.4% 4.1%);
     --popover: hsl(0 0% 100%);
@@ -371,7 +375,6 @@
     --moon-icon: hsl(49, 40%, 65%);
 
     /* shadcn/ui variables */
-    --foreground: hsl(210 20% 98%);
     --card-foreground: hsl(210 20% 98%);
     --popover: hsl(224 71.4% 4.1%);
     --popover-foreground: hsl(210 20% 98%);
