@@ -1,9 +1,14 @@
 "use client";
 
 import Image from 'next/image'
+import Link from 'next/link'
+import { HiCursorClick } from 'react-icons/hi'
+
 // shadcn/ui components
 import { Card, CardHeader, CardContent } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { Separator } from '@radix-ui/react-separator';
 
 import visualAtomsImage from '../../../public/visual_atoms_orbit.svg'
 
@@ -37,21 +42,45 @@ export default function TopPage() {
       affiliation: 'Research Assistant',
       photoUrl: 'https://via.placeholder.com/150',
     },
+    {
+      name: 'Eve Wilson',
+      affiliation: 'Undergraduate Intern',
+      photoUrl: 'https://via.placeholder.com/150',
+    },
+    {
+      name: 'Frank White',
+      affiliation: 'Visiting Scholar',
+      photoUrl: 'https://via.placeholder.com/150',
+    }
   ]
 
   return (
-    <div className="flex-1 w-full justify-items-center space-y-8 bg-gradient-to-br from-background from-20% via-background-gradation-1 via-50% to-background-gradation-2 to-90%">
-    {/* <div className="flex-1 space-y-8 bg-background"> */}
-      {/* Lab Description */}
-      <div className='flex items-center max-w-[1000px] px-10 pb-10 pt-16 '>
-        <div className="flex flex-col items-start">
-            {/* If you have a custom TypographyH1 component, use it; otherwise a <div> or <p> might be unavoidable */}
-          <h1 className='mb-2 text-xl font-semibold tracking-wider leading-8 text-foreground shadow-background drop-shadow-md'>
+    <div className="flex-1 flex flex-col items-center gap-8 w-full bg-gradient-to-br from-background from-20% via-background-gradation-1 via-50% to-background-gradation-2 to-90%">
+      <div className='flex gap-8 items-center max-w-[1000px] px-20 pb-10 pt-16'>
+        <div className="flex flex-col gap-3 items-start">
+          <h1 className='mb-2 text-xxxl font-semibold tracking-wider leading-8 text-foreground shadow-background drop-shadow-md'>
             Unleash our LIMITless potential
           </h1>
           <p className="mb-5 w-11/12 text-m text-wrap text-card-foreground">
-          At LIMIT Lab., we embrace the power of collaboration to transcend limits in AI and computer vision research. By connecting globally and reimagining boundaries, we transform challenges into opportunities, unlocking limitless innovation with profound societal and industrial impact. Together, we redefine the very concept of limits.
+            At LIMIT Lab., we embrace the power of collaboration to transcend limits in AI and computer vision research. By connecting globally and reimagining boundaries, we transform challenges into opportunities, unlocking limitless innovation with profound societal and industrial impact. Together, we redefine the very concept of limits.
           </p>
+          <h2 className='font-semibold text-m'>
+            See the past events
+          </h2>
+          <div className='flex gap-4'>
+            <Button className="rounded-2xl bg-sub hover:bg-accent hover:text-accent-foreground hover:animate-scale-up-center" size="lg" asChild>
+              <Link href="https://lsfsl.net/limit23/" target='_blank'>
+                <span className='text-sm font-semibold tracking-wider'>LIMIT @ICCV2023</span>
+                <HiCursorClick className="size-5" />
+              </Link>
+            </Button>
+            <Button className="rounded-2xl bg-sub hover:bg-accent hover:text-accent-foreground hover:animate-scale-up-center" size="lg" asChild>
+              <Link href="https://hirokatsukataoka16.github.io/CVPR-2024-LIMIT/" target='_blank'>
+                <span className='text-sm font-semibold tracking-wider'>LIMIT @CVPR2024</span>
+                <HiCursorClick className="size-5" />
+              </Link>
+            </Button>
+          </div>
         </div>
         {/* <Image
           src="https://via.placeholder.com/256"
@@ -123,12 +152,14 @@ export default function TopPage() {
         </div>
       </div>
 
+
       {/* Recent News */}
-      <Card>
-        <CardHeader>
-          <h2>Recent News</h2>
-        </CardHeader>
-        <CardContent>
+      <div className='flex flex-col gap-3 w-full max-w-[1000px]'>
+        <Separator orientation="horizontal" className="w-full h-px bg-muted-foreground" />
+        <div className='flex flex-col gap-3 items-start w-full px-20 py-16 '>
+          <h1 className='mb-2 text-xxxl font-semibold tracking-wider leading-8 text-foreground shadow-background drop-shadow-md'>
+            Recent News
+          </h1>
           <div className="space-y-2">
             {newsItems.map((item, index) => (
               <div key={index} className="text-s">
@@ -136,22 +167,23 @@ export default function TopPage() {
               </div>
             ))}
           </div>
-        </CardContent>
-      </Card>
+        </div>
+        <Separator orientation="horizontal" className="w-full h-px bg-muted-foreground" />
+      </div>
 
       {/* Member Information */}
-      <Card>
-        <CardHeader>
-          <h2>Our Members</h2>
-        </CardHeader>
-        <CardContent>
-          {/* Grid-like layout using Tailwind, but still inside a shadcn/ui <CardContent> */}
+      <div className='flex flex-col gap-3 items-center w-full max-w-[1000px] px-20 py-16'>
+        <h1 className='mb-2 text-xxxl font-semibold tracking-wider leading-8 text-foreground shadow-background drop-shadow-md'>
+          Our Members
+        </h1>
+        {/* Grid-like layout using Tailwind, but still inside a shadcn/ui <CardContent> */}
+        <div className='flex flex-col w-full items-center'>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
             {members.map((member, idx) => (
-              <Card key={idx} className="p-4">
+              <Card key={idx} className="pb-3 pt-5 shadow backdrop-blur-md">
                 <CardContent>
-                  <div className="mb-3 flex justify-center">
-                    <Avatar className="size-24">
+                  <div className="flex justify-center">
+                    <Avatar className="size-16">
                       <AvatarImage src={member.photoUrl} alt={member.name} />
                       <AvatarFallback>?</AvatarFallback>
                     </Avatar>
@@ -166,8 +198,8 @@ export default function TopPage() {
               </Card>
             ))}
           </div>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
     </div>
   )
 }

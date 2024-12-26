@@ -138,6 +138,7 @@ const config = {
         'spin-fast-2': 'spin 8s linear infinite',
         'spin-fast-3': 'spin 4s linear infinite',
         'spin-fast-4': 'spin 2.5s linear infinite',
+        "scale-up-center": "scale-up-center 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000)   both"
       },
       keyframes: {
         "pulsate-fwd": {
@@ -322,6 +323,14 @@ const config = {
           '100%': {
             'width': '0',
           },
+        },
+        "scale-up-center": {
+            "0%": {
+                transform: "scale(1)"
+            },
+            to: {
+                transform: "scale(1.05)"
+            }
         }
       },
     },

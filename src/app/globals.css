@@ -330,7 +330,7 @@
     /* shadcn/ui variables */
     --background: var(--gray-1);
     --foreground: hsl(224 71.4% 4.1%);
-    --card: hsl(0 0% 100%);
+    --card: var(--gray-a2);
     --card-foreground: hsl(224 71.4% 4.1%);
     --popover: hsl(0 0% 100%);
     --popover-foreground: hsl(224 71.4% 4.1%);
@@ -340,7 +340,7 @@
     --secondary-foreground: var(--gray-12);
     --muted: hsl(220 14.3% 95.9%);
     --muted-foreground: var(--gray-7);
-    --accent: hsl(220 14.3% 95.9%);
+    --accent: var(--blue-6);
     --accent-foreground: var(--blue-11);
     --destructive: hsl(0 84.2% 60.2%);
     --destructive-foreground: hsl(210 20% 98%);
@@ -371,22 +371,17 @@
     --moon-icon: hsl(49, 40%, 65%);
 
     /* shadcn/ui variables */
-    --background: hsl(224 71.4% 4.1%);
     --foreground: hsl(210 20% 98%);
-    --card: hsl(224 71.4% 4.1%);
     --card-foreground: hsl(210 20% 98%);
     --popover: hsl(224 71.4% 4.1%);
     --popover-foreground: hsl(210 20% 98%);
     --primary: hsl(210 20% 98%);
     --primary-foreground: hsl(220.9 39.3% 11%);
     --muted: hsl(215 27.9% 16.9%);
-    --accent: hsl(215 27.9% 16.9%);
     --destructive: hsl(0 62.8% 30.6%);
     --destructive-foreground: hsl(210 20% 98%);
     --border: hsl(215 27.9% 16.9%);
     --input: hsl(215 27.9% 16.9%);
-    --input-border: var(--gray-6);
-    --input-background: var(--gray-3);
     --ring: hsl(216 12.2% 83.9%);
     --chart-1: hsl(220 70% 50%);
     --chart-2: hsl(160 60% 45%);
