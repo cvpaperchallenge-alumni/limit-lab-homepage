@@ -8,10 +8,6 @@ const geistSans = Geist({
   subsets: ['latin'],
 })
 
-// const geistMono = Geist_Mono({
-//   subsets: ['latin'],
-// })
-
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
