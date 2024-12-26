@@ -1,5 +1,6 @@
-// "use client";
+"use client";
 
+import Image from 'next/image'
 // shadcn/ui components
 import { Card, CardHeader, CardContent } from '@/components/ui/card'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
@@ -39,22 +40,25 @@ export default function TopPage() {
   ]
 
   return (
-    <div className="flex-1 space-y-8">
+    <div className="flex-1 w-full justify-items-center space-y-8 bg-gradient-to-br from-background from-20% via-background-gradation-1 via-50% to-background-gradation-2 to-90%">
+    {/* <div className="flex-1 space-y-8 bg-background"> */}
       {/* Lab Description */}
-      <Card>
-        <CardHeader>
+      <div className='flex items-center max-w-[1000px] px-10 pb-10 pt-16 '>
+        <div className="flex flex-col items-start">
           {/* If you have a custom TypographyH1 component, use it; otherwise a <div> or <p> might be unavoidable */}
-          <h1>Welcome to Awesome Lab</h1>
-        </CardHeader>
-        <CardContent>
-          <p>
-            We are a research laboratory focused on cutting-edge technologies in
-            artificial intelligence, human-computer interaction, and data
-            science. Our mission is to innovate and collaborate on
-            forward-thinking projects that shape the future.
+          <h1 className='mb-2 text-xl font-semibold tracking-wider leading-8 text-foreground shadow-background drop-shadow-md'>
+            Unleash our LIMITless potential
+          </h1>
+          <p className="mb-5 w-11/12 text-m text-wrap text-card-foreground">
+          At LIMIT Lab., we embrace the power of collaboration to transcend limits in AI and computer vision research. By connecting globally and reimagining boundaries, we transform challenges into opportunities, unlocking limitless innovation with profound societal and industrial impact. Together, we redefine the very concept of limits.
           </p>
-        </CardContent>
-      </Card>
+        </div>
+        <Image
+          src="https://via.placeholder.com/256"
+          alt="stylish image"
+          width={256}
+          height={256}
+        />
 
       {/* Recent News */}
       <Card>

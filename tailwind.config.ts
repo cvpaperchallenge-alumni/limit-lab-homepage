@@ -45,6 +45,10 @@ const config = {
         // shadcn/ui colors
         background: {
           DEFAULT: 'var(--background)',
+          gradation: {
+            1: 'var(--background-gradation-1)',
+            2: 'var(--background-gradation-2)',
+          }
         },
         foreground: {
           DEFAULT: 'var(--foreground)',

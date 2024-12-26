@@ -150,8 +150,11 @@
 
     --sub: var(--gray-9);
 
+    --background-gradation-1: var(--blue-1);
+    --background-gradation-2: var(--blue-2);
+
     /* shadcn/ui variables */
-    --background: hsl(0 0% 100%);
+    --background: var(--gray-1);
     --foreground: hsl(224 71.4% 4.1%);
     --card: hsl(0 0% 100%);
     --card-foreground: hsl(224 71.4% 4.1%);
