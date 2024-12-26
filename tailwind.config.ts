@@ -41,7 +41,10 @@ const config = {
           icon: 'var(--moon-icon)',
         },
         sub: 'var(--sub)',
-        startail: 'var(--startail)',
+        orbit: 'var(--orbit)',
+        particle:{
+          glow: 'var(--particle-grow)',
+        },
 
         // shadcn/ui colors
         background: {
@@ -125,6 +128,16 @@ const config = {
         'obit-wave-2': 'obit-wave-2 1s linear infinite',
         'obit-wave-3': 'obit-wave-3 1s linear infinite',
         'obit-wave-4': 'obit-wave-4 1s linear infinite',
+        'orbit-wave': 'orbit-wave 5s linear infinite',
+        'shining': 'shining 1.5s ease-in-out infinite',
+        'spin-slow-1': 'spin 40s linear infinite',
+        'spin-slow-2': 'spin 32s linear infinite',
+        'spin-slow-3': 'spin 15s linear infinite',
+        'spin-slow-4': 'spin 10s linear infinite',
+        'spin-fast-1': 'spin 10s linear infinite',
+        'spin-fast-2': 'spin 8s linear infinite',
+        'spin-fast-3': 'spin 4s linear infinite',
+        'spin-fast-4': 'spin 2.5s linear infinite',
       },
       keyframes: {
         "pulsate-fwd": {
@@ -291,6 +304,25 @@ const config = {
             transform: 'rotate(360deg) translateX(50px) rotate(-360deg)',
           },
         },
+        'orbit-wave': {
+          '0%': {
+            'offset-distance': '0',
+          },
+          '100%': {
+            'offset-distance': '100%',
+          },
+        },
+        'shining' : {
+          '0%': {
+            'width': '0',
+          },
+          '50%' : {
+            'width': '30px',
+          },
+          '100%': {
+            'width': '0',
+          },
+        }
       },
     },
   },
