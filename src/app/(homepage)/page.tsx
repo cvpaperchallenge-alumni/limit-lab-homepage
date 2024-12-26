@@ -58,7 +58,7 @@ export default function TopPage() {
   ]
 
   return (
-    <div className="flex-1 flex flex-col items-center gap-8 w-full bg-gradient-to-br from-background from-20% via-background-gradation-1 via-50% to-background-gradation-2 to-90%">
+    <div className="flex-1 flex flex-col items-center gap-8 w-full bg-animated simple-grid bg-gradient-to-br from-background from-20% via-background-gradation-1 via-50% to-background-gradation-2 to-90%">
       <div className='flex gap-8 items-center max-w-[1000px] px-20 pb-10 pt-16'>
         <div className="flex flex-col gap-3 items-start text-foreground ">
           <h1 className='mb-2 text-xxxl font-semibold tracking-wider leading-8'>
@@ -129,7 +129,7 @@ export default function TopPage() {
         </div>
       </div>
 
-      <Separator orientation="horizontal" className="w-full h-px bg-muted-foreground" />
+      <Separator orientation="horizontal" className="w-full h-0.5 bg-muted-foreground" />
 
       {/* Recent News */}
       <div className='flex gap-14 w-full max-w-[1000px] px-20 py-16 '>
@@ -153,7 +153,7 @@ export default function TopPage() {
         </div>
       </div>
 
-      <Separator orientation="horizontal" className="w-full h-px bg-muted-foreground" />
+      <Separator orientation="horizontal" className="w-full h-0.5 bg-muted-foreground" />
 
       {/* Member Information */}
       <div className='flex flex-col gap-3 items-center w-full max-w-[1000px] px-20 py-16'>
@@ -164,7 +164,7 @@ export default function TopPage() {
         <div className='flex flex-col w-full items-center'>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
             {members.map((member, idx) => (
-              <Card key={idx} className="pb-1 pt-5 shadow backdrop-blur-md">
+              <Card key={idx} className="pb-1 pt-5 shadow backdrop-blur-sm">
                 <CardContent>
                   <div className="flex justify-center">
                     <Avatar className="size-16">

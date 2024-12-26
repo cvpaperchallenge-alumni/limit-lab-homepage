@@ -26,6 +26,18 @@
   transform: translateX(50%) rotateZ(-45deg);
 }
 
+.bg-animated {
+  @apply animate-bg-animated;
+  background-size: 400% 400%;
+}
+
+.simple-grid {
+  @apply animate-simple-grid;
+  background-image: linear-gradient(var(--background-line) 1px, transparent 1px),
+                    linear-gradient(90deg, var(--background-line) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
 :root, .light, .light-theme {
   --gray-1: #fcfcfd;
   --gray-2: #f9f9fb;
@@ -243,11 +255,13 @@
     --button-foreground: var(--gray-11);
     --button-border: var(--gray-6);
 
-    --orbit: var(--blue-7);
+    --orbit: var(--blue-8);
     --particle-glow: var(--blue-9);
 
     --background-gradation-1: var(--blue-1);
     --background-gradation-2: var(--blue-2);
+
+    --background-line: var(--gray-3);
 
     /* shadcn/ui variables */
     --background: var(--gray-1);
@@ -291,6 +305,9 @@
 
     --sun-icon: hsl(29, 70%, 67%);
     --moon-icon: hsl(49, 40%, 65%);
+
+    --orbit: var(--blue-8);
+    --particle-glow: var(--blue-11);
 
     /* shadcn/ui variables */
     --card-foreground: hsl(210 20% 98%);

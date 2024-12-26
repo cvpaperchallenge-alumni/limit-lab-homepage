@@ -57,7 +57,8 @@ const config = {
           gradation: {
             1: 'var(--background-gradation-1)',
             2: 'var(--background-gradation-2)',
-          }
+          },
+          line: 'var(--background-line)',
         },
         foreground: {
           DEFAULT: 'var(--foreground)',
@@ -137,7 +138,9 @@ const config = {
         'spin-fast-2': 'spin 8s linear infinite',
         'spin-fast-3': 'spin 4s linear infinite',
         'spin-fast-4': 'spin 2.5s linear infinite',
-        "scale-up-center": "scale-up-center 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000)   both"
+        "scale-up-center": "scale-up-center 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000)   both",
+        "bg-animated": "bg-animated 1s ease infinite",
+        "simple-grid": "simple-grid 1s linear infinite",
       },
       keyframes: {
         "pulsate-fwd": {
@@ -186,7 +189,26 @@ const config = {
             to: {
                 transform: "scale(1.05)"
             }
-        }
+        },
+        "bg-animated": {
+            "0%": {
+                backgroundPosition: "0% 50%"
+            },
+            "50%": {
+                backgroundPosition: "100% 50%"
+            },
+            "100%": {
+                backgroundPosition: "0% 50%"
+            }
+        },
+        "simple-grid": {
+            "0%": {
+                backgroundPosition: "0 0"
+            },
+            "100%": {
+                backgroundPosition: "20px 20px"
+            }
+        },
       },
     },
   },
