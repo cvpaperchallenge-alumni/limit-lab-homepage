@@ -39,7 +39,7 @@ export default function TopPage() {
   ]
 
   return (
-    <div className="space-y-8">
+    <div className="flex-1 space-y-8">
       {/* Lab Description */}
       <Card>
         <CardHeader>
