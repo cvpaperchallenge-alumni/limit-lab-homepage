@@ -128,7 +128,7 @@ const config = {
         "pulsate-fwd": "pulsate-fwd 0.2s linear   both",
         "rotate-in-center": "rotate-in-center 0.4s cubic-bezier(0.455, 0.030, 0.515, 0.955)   both",
         "rotate-out-center": "rotate-out-center 0.4s cubic-bezier(0.645, 0.045, 0.355, 1.000)   both",
-        'shining': 'shining 1.5s ease-in-out infinite',
+        'shining': 'shining 1.2s ease-in-out infinite',
         'spin-slow-1': 'spin 40s linear infinite',
         'spin-slow-2': 'spin 32s linear infinite',
         'spin-slow-3': 'spin 15s linear infinite',
