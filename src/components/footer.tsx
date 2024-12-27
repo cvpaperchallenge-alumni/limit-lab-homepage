@@ -7,8 +7,8 @@ import { PiXLogo } from 'react-icons/pi'
 import { RxGithubLogo } from 'react-icons/rx'
 import { RiGlobalLine } from 'react-icons/ri'
 import Link from 'next/link'
-import blackAlumniLogo from '../../public/alumni-logo-with-wide-black-trimmed.png'
-import whiteAlumniLogo from '../../public/alumni-logo-with-wide-white-trimmed.png'
+import blackAlumniLogo from '../../public/alumni-logo-with-wide-black.png'
+import whiteAlumniLogo from '../../public/alumni-logo-with-wide-white.png'
 
 // shadcn/ui components
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
