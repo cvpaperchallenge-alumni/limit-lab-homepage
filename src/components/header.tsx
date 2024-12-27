@@ -67,7 +67,6 @@ export function Header() {
         {/* Logo + Title */}
         <div className="flex gap-7 justify-between md:min-w-[550px]">
           <div className="flex items-center gap-2">
-            {/* Using shadcn/ui <Avatar> for the placeholder logo */}
             <Avatar className="size-8">
               <AvatarImage src="https://via.placeholder.com/32" alt="Logo" />
               <AvatarFallback>AL</AvatarFallback>

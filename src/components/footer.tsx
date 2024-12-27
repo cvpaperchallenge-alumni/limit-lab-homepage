@@ -41,10 +41,6 @@ export function Footer() {
           </div>
         </div>
 
-        {/* <div className="hidden text-sub md:mt-0 md:block md:text-s">
-          © 2024 LIMIT Lab. All rights reserved.
-        </div> */}
-
         <div className="flex flex-col-reverse items-center gap-2 md:mr-10 md:flex-col md:items-start md:gap-0">
           <div className="flex gap-2 text-xxxs md:pl-2 md:text-xxs">
             Developed by{' '}

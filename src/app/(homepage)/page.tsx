@@ -21,6 +21,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 export default function TopPage() {
   return (
     <div className="bg-animated simple-grid flex w-full flex-1 flex-col items-center gap-8 bg-gradient-to-br from-background from-20% via-background-gradation-1 via-50% to-background-gradation-2 to-90%">
+      {/* About Us */}
       <div className="flex max-w-[1000px] items-center gap-8 px-20 pb-10 pt-16">
         <div className="flex flex-col items-start gap-3 text-foreground">
           <h1 className="mb-2 text-xxxl font-semibold leading-8 tracking-wider">
@@ -108,7 +109,6 @@ export default function TopPage() {
         <h1 className="mb-2 text-xxxl font-semibold leading-8 tracking-wider text-foreground shadow-background drop-shadow-md">
           Our Members
         </h1>
-        {/* Grid-like layout using Tailwind, but still inside a shadcn/ui <CardContent> */}
         <div className="flex w-full flex-col items-center">
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
             {members.map((member, idx) => (
