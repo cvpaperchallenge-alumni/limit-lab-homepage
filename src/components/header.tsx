@@ -203,38 +203,40 @@ export function Header() {
               <RxMoon className="size-4 text-moon-icon" />
             </div>
           )}
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <RxHamburgerMenu className="size-6 md:hidden" />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-56">
-              <DropdownMenuLabel>Pages</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuRadioGroup value={page}>
-                <DropdownMenuRadioItem
-                  value="top"
-                  isDarkMode={isDarkMode}
-                  onClick={() => router.push('/')}
-                >
-                  Top
-                </DropdownMenuRadioItem>
-                <DropdownMenuRadioItem
-                  value="publication"
-                  isDarkMode={isDarkMode}
-                  onClick={() => router.push('/publications')}
-                >
-                  Publications
-                </DropdownMenuRadioItem>
-                <DropdownMenuRadioItem
-                  value="contact"
-                  isDarkMode={isDarkMode}
-                  onClick={() => router.push('/contact')}
-                >
-                  Contact
-                </DropdownMenuRadioItem>
-              </DropdownMenuRadioGroup>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <div className='md:hidden'>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <RxHamburgerMenu className="size-6" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-56">
+                <DropdownMenuLabel>Pages</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuRadioGroup value={page}>
+                  <DropdownMenuRadioItem
+                    value="top"
+                    isDarkMode={isDarkMode}
+                    onClick={() => router.push('/')}
+                  >
+                    Top
+                  </DropdownMenuRadioItem>
+                  <DropdownMenuRadioItem
+                    value="publication"
+                    isDarkMode={isDarkMode}
+                    onClick={() => router.push('/publications')}
+                  >
+                    Publications
+                  </DropdownMenuRadioItem>
+                  <DropdownMenuRadioItem
+                    value="contact"
+                    isDarkMode={isDarkMode}
+                    onClick={() => router.push('/contact')}
+                  >
+                    Contact
+                  </DropdownMenuRadioItem>
+                </DropdownMenuRadioGroup>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
         </div>
       </div>
     </div>

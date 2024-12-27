@@ -41,45 +41,52 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col-reverse items-center gap-2 md:mr-10 md:flex-col md:items-start md:gap-0">
+        <div className='block md:hidden'>
           <div className="flex gap-2 text-xxxs md:pl-2 md:text-xxs">
             Developed by{' '}
-            <span className="inline md:hidden">
+            <span className="inline">
               cvpaper.challenge alumni community
             </span>
           </div>
-          <div className="flex flex-col items-center gap-2 text-sub">
-            <Image
-              alt="alumni logo"
-              className="hidden h-auto w-40 md:block"
-              priority={true}
-              sizes="100vw"
-              src={isDarkMode ? whiteAlumniLogo : blackAlumniLogo}
-            />
-            <div className="flex items-center gap-2">
-              <Link
-                href="https://github.com/cvpaperchallenge-alumni"
-                target="_blank"
-              >
-                <RxGithubLogo className="size-5" />
-              </Link>
-              <Separator
-                orientation="vertical"
-                className="hidden h-5 bg-muted-foreground md:block"
+        </div>
+
+        <div className="md:flex hidden md:mr-10 md:flex-col md:items-start md:gap-0">
+          <div className="pl-2 text-xxs">
+            Developed by{' '}
+          </div>
+          <div className='flex items-start gap-5'>
+            <div className="flex flex-col items-center gap-2 text-sub">
+              <Image
+                alt="alumni logo"
+                className="h-auto w-40"
+                priority={true}
+                src={isDarkMode ? whiteAlumniLogo : blackAlumniLogo}
               />
-              <Link href="https://twitter.com/cvpcalumni" target="_blank">
-                <PiXLogo className="size-5" />
-              </Link>
-              <Separator
-                orientation="vertical"
-                className="hidden h-5 bg-muted-foreground md:block"
-              />
-              <Link
-                href="https://note.com/gatheluck/n/nc469f2f35426"
-                target="_blank"
-              >
-                <RiGlobalLine className="size-5" />
-              </Link>
+              <div className="flex items-center gap-2">
+                <Link
+                  href="https://github.com/cvpaperchallenge-alumni"
+                  target="_blank"
+                >
+                  <RxGithubLogo className="size-5" />
+                </Link>
+                <Separator
+                  orientation="vertical"
+                  className="h-5 bg-muted-foreground"
+                />
+                <Link href="https://twitter.com/cvpcalumni" target="_blank">
+                  <PiXLogo className="size-5" />
+                </Link>
+                <Separator
+                  orientation="vertical"
+                  className="h-5 bg-muted-foreground"
+                />
+                <Link
+                  href="https://note.com/gatheluck/n/nc469f2f35426"
+                  target="_blank"
+                >
+                  <RiGlobalLine className="size-5" />
+                </Link>
+              </div>
             </div>
           </div>
         </div>
