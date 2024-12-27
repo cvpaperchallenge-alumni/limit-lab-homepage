@@ -6,9 +6,12 @@ import { useEffect, useState } from 'react'
 import { PiXLogo } from 'react-icons/pi'
 import { RxGithubLogo } from 'react-icons/rx'
 import { RiGlobalLine } from 'react-icons/ri'
+import { SiGitconnected } from "react-icons/si";
 import Link from 'next/link'
 import blackAlumniLogo from '../../public/alumni-logo-with-wide-black.png'
 import whiteAlumniLogo from '../../public/alumni-logo-with-wide-white.png'
+import blackCCLogo from '../../public/cvpaper-logo-black.png'
+import whiteCCLogo from '../../public/cvpaper-logo-white.png'
 
 // shadcn/ui components
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
@@ -54,39 +57,48 @@ export function Footer() {
           <div className="pl-2 text-xxs">
             Developed by{' '}
           </div>
-          <div className='flex items-start gap-5'>
-            <div className="flex flex-col items-center gap-2 text-sub">
-              <Image
-                alt="alumni logo"
-                className="h-auto w-40"
-                priority={true}
-                src={isDarkMode ? whiteAlumniLogo : blackAlumniLogo}
+          <div className='grid grid-cols-3 justify-items-center gap-x-0 gap-y-2'>
+            <Image
+              alt="alumni logo"
+              className="h-auto w-40 col-span-2"
+              priority={true}
+              src={isDarkMode ? whiteAlumniLogo : blackAlumniLogo}
+            />
+            <div className='flex items-center gap-2'>
+              <SiGitconnected className='size-5'/>
+              <Link href="https://xpaperchallenge.org/cv/" target="_blank">
+                <Image
+                  alt="cvpaper challenge logo"
+                  className="h-auto w-14"
+                  priority={true}
+                  src={isDarkMode ? whiteCCLogo : blackCCLogo}
+                />
+              </Link>
+            </div>
+            <div className="flex items-center col-span-2 gap-2 text-sub">
+              <Link
+                href="https://github.com/cvpaperchallenge-alumni"
+                target="_blank"
+              >
+                <RxGithubLogo className="size-5" />
+              </Link>
+              <Separator
+                orientation="vertical"
+                className="h-5 bg-muted-foreground"
               />
-              <div className="flex items-center gap-2">
-                <Link
-                  href="https://github.com/cvpaperchallenge-alumni"
-                  target="_blank"
-                >
-                  <RxGithubLogo className="size-5" />
-                </Link>
-                <Separator
-                  orientation="vertical"
-                  className="h-5 bg-muted-foreground"
-                />
-                <Link href="https://twitter.com/cvpcalumni" target="_blank">
-                  <PiXLogo className="size-5" />
-                </Link>
-                <Separator
-                  orientation="vertical"
-                  className="h-5 bg-muted-foreground"
-                />
-                <Link
-                  href="https://note.com/gatheluck/n/nc469f2f35426"
-                  target="_blank"
-                >
-                  <RiGlobalLine className="size-5" />
-                </Link>
-              </div>
+              <Link href="https://twitter.com/cvpcalumni" target="_blank">
+                <PiXLogo className="size-5" />
+              </Link>
+              <Separator
+                orientation="vertical"
+                className="h-5 bg-muted-foreground"
+              />
+              <Link
+                href="https://note.com/gatheluck/n/nc469f2f35426"
+                target="_blank"
+              >
+                <RiGlobalLine className="size-5" />
+              </Link>
             </div>
           </div>
         </div>
