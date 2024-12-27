@@ -11,6 +11,7 @@ const geistMono = Geist_Mono({
 
 import { VisualAtomDesign } from '@/components/visual-atom-design'
 import { members, newsItems } from '@/data/topPageData'
+import { PaperOceanDesign } from '@/components/paper-ocean-design'
 
 // shadcn/ui components
 import { Separator } from '@radix-ui/react-separator'
@@ -82,6 +83,7 @@ export default function TopPage() {
           width={256}
           height={256}
         />
+        <PaperOceanDesign/>
         <div className="flex w-full flex-col items-start gap-3">
           <h1 className="mb-2 text-xxxl font-semibold leading-8 tracking-wider text-foreground shadow-background drop-shadow-md">
             Recent News
