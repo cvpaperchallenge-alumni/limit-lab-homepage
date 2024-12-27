@@ -141,6 +141,8 @@ const config = {
         "scale-up-center": "scale-up-center 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000)   both",
         "bg-animated": "bg-animated 1s ease infinite",
         "simple-grid": "simple-grid 1s linear infinite",
+        "fade-in-top": "fade-in-top 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000)   both",
+        "fade-out-top": "fade-out-top 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000)   both",
       },
       keyframes: {
         "pulsate-fwd": {
@@ -207,6 +209,26 @@ const config = {
             },
             "100%": {
                 backgroundPosition: "20px 20px"
+            }
+        },
+        "fade-in-top": {
+            "0%": {
+                transform: "translateY(-10px)",
+                opacity: "0"
+            },
+            to: {
+                transform: "translateY(0)",
+                opacity: "1"
+            }
+        },
+        "fade-out-top": {
+            "0%": {
+                transform: "translateY(0)",
+                opacity: "1"
+            },
+            to: {
+                transform: "translateY(-10px)",
+                opacity: "0"
             }
         },
       },
