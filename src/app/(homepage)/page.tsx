@@ -9,7 +9,7 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 })
 
-import { VisualAtomDesign } from '@/components/visual-atom-desin'
+import { VisualAtomDesign } from '@/components/visual-atom-design'
 import { members, newsItems } from '@/data/topPageData'
 
 // shadcn/ui components
