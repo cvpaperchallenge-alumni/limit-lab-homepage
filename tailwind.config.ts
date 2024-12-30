@@ -116,6 +116,9 @@ const config = {
       screens: {
         xs: '350px'
       },
+      backdropBlur: {
+        xs: '2px',
+      },
       fontFamily: {
         sans: ['var(--font-geist-sans)'],
         mono: ['var(--font-geist-mono)']

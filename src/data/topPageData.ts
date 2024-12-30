@@ -1,5 +1,3 @@
-import { link } from "fs"
-
 // Sample data for recent news
 export const newsItems = [
   { date: '2024-10-01', description: 'Launched our new AI project.' },

@@ -98,7 +98,7 @@ export default function TopPage() {
         <div className="flex w-full flex-col items-center">
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
             {members.map((member, idx) => (
-              <Card key={idx} className="pb-1 pt-5 shadow backdrop-blur-[1px]">
+              <Card key={idx} className="pb-1 pt-5 shadow backdrop-blur-xs">
                 <CardContent>
                   <div className="flex justify-center">
                     <Avatar className="size-16">
@@ -115,13 +115,13 @@ export default function TopPage() {
                   <div className="flex justify-center pt-3">
                     <div className="flex gap-4 text-icon-fill">
                       <Link href={member.githubUrl} target="_blank">
-                        <RxGithubLogo className="size-5 hover:text-icon-accent hover:animate-scale-up-md hover:animate-duration-200" />
+                        <RxGithubLogo className="size-5 hover:animate-scale-up-md hover:text-icon-accent hover:animate-duration-200" />
                       </Link>
                       <Link href={member.XUrl} target="_blank">
-                        <PiXLogo className="size-5 hover:text-icon-accent hover:animate-scale-up-md hover:animate-duration-200" />
+                        <PiXLogo className="size-5 hover:animate-scale-up-md hover:text-icon-accent hover:animate-duration-200" />
                       </Link>
                       <Link href={member.linkedinUrl} target="_blank">
-                        <RxLinkedinLogo className="size-5 hover:text-icon-accent hover:animate-scale-up-md hover:animate-duration-200" />
+                        <RxLinkedinLogo className="size-5 hover:animate-scale-up-md hover:text-icon-accent hover:animate-duration-200" />
                       </Link>
                     </div>
                   </div>
