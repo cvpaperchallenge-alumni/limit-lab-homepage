@@ -83,7 +83,7 @@ export function Header() {
             <Button
               variant="link"
               asChild
-              className="group pl-0.5 font-semibold group-hover:animate-pulsate-fwd group-hover:no-underline"
+              className="group pl-0.5 font-semibold hover:animate-pulsate-fwd hover:no-underline"
             >
               <Link
                 href="/"
@@ -114,7 +114,7 @@ export function Header() {
             <Button
               variant="link"
               asChild
-              className="group pl-0.5 font-semibold group-hover:animate-pulsate-fwd group-hover:no-underline"
+              className="group pl-0.5 font-semibold hover:animate-pulsate-fwd hover:no-underline"
             >
               <Link
                 href="/publications"
@@ -147,7 +147,7 @@ export function Header() {
             <Button
               variant="link"
               asChild
-              className="group pl-0.5 font-semibold group-hover:animate-pulsate-fwd group-hover:no-underline"
+              className="group pl-0.5 font-semibold hover:animate-pulsate-fwd hover:no-underline"
             >
               <Link
                 href="/contact"
