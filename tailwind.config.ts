@@ -50,6 +50,9 @@ const config = {
         particle:{
           glow: 'var(--particle-grow)',
         },
+        block: {
+          border: 'var(--block-border)',
+        },
 
         // shadcn/ui colors
         background: {

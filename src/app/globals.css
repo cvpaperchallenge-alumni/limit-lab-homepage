@@ -263,6 +263,8 @@
 
     --background-line: var(--gray-3);
 
+    --block-border: var(--gray-8);
+
     /* shadcn/ui variables */
     --background: var(--gray-1);
     --foreground: var(--gray-12);
