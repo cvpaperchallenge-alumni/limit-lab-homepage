@@ -54,7 +54,7 @@ export function Footer() {
         </div>
 
         <div className="hidden md:mr-10 md:flex md:flex-col md:items-start md:gap-0">
-          <div className="pl-2 text-xxs">Developed by </div>
+          <div className="pl-2 text-xxs">Supported by </div>
           <div
             className="flex items-center gap-4"
             onMouseEnter={() => setHasHoveredAlumni(true)}
