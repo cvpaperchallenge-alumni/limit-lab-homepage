@@ -27,8 +27,8 @@ export function PaperOceanDesign() {
         src={testImage}
         alt="paper ocean"
         className={
-          "pointer-events-none absolute h-64 w-80 rounded-2xl object-cover "
-          + (isIdle ? "animate-scale-up-md" : "")
+          'pointer-events-none absolute h-64 w-80 rounded-2xl object-cover ' +
+          (isIdle ? 'animate-scale-up-md' : '')
         }
         style={{
           clipPath: isIdle
