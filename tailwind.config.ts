@@ -148,6 +148,8 @@ const config = {
         "simple-grid": "simple-grid 1s linear infinite",
         "fade-in-top": "fade-in-top 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000)   both",
         "fade-out-top": "fade-out-top 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000)   both",
+        "slide-in-left": "slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940)   both",
+        "slide-in-right": "slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940)   both",
       },
       keyframes: {
         "pulsate-fwd": {
@@ -190,67 +192,87 @@ const config = {
           },
         },
         "scale-up-sm": {
-            "0%": {
-                transform: "scale(1)"
-            },
-            to: {
-                transform: "scale(1.05)"
-            }
+          "0%": {
+            transform: "scale(1)"
+          },
+          to: {
+            transform: "scale(1.05)"
+          }
         },
         "scale-up-md": {
-            "0%": {
-                transform: "scale(1)"
-            },
-            to: {
-                transform: "scale(1.2)"
-            }
+          "0%": {
+            transform: "scale(1)"
+          },
+          to: {
+            transform: "scale(1.2)"
+          }
         },
         "scale-down-md": {
-            "0%": {
-                transform: "scale(1.2)"
-            },
-            to: {
-                transform: "scale(1)"
-            }
+          "0%": {
+            transform: "scale(1.2)"
+          },
+          to: {
+            transform: "scale(1)"
+          }
         },
         "bg-animated": {
-            "0%": {
-                backgroundPosition: "0% 50%"
-            },
-            "50%": {
-                backgroundPosition: "100% 50%"
-            },
-            "100%": {
-                backgroundPosition: "0% 50%"
-            }
+          "0%": {
+            backgroundPosition: "0% 50%"
+          },
+          "50%": {
+            backgroundPosition: "100% 50%"
+          },
+          "100%": {
+            backgroundPosition: "0% 50%"
+          }
         },
         "simple-grid": {
-            "0%": {
-                backgroundPosition: "0 0"
-            },
-            "100%": {
-                backgroundPosition: "20px 20px"
-            }
+          "0%": {
+            backgroundPosition: "0 0"
+          },
+          "100%": {
+            backgroundPosition: "20px 20px"
+          }
         },
         "fade-in-top": {
-            "0%": {
-                transform: "translateY(-10px)",
-                opacity: "0"
-            },
-            to: {
-                transform: "translateY(0)",
-                opacity: "1"
-            }
+          "0%": {
+            transform: "translateY(-10px)",
+            opacity: "0"
+          },
+          to: {
+            transform: "translateY(0)",
+            opacity: "1"
+          }
         },
         "fade-out-top": {
-            "0%": {
-                transform: "translateY(0)",
-                opacity: "1"
-            },
-            to: {
-                transform: "translateY(-10px)",
-                opacity: "0"
-            }
+          "0%": {
+            transform: "translateY(0)",
+            opacity: "1"
+          },
+          to: {
+            transform: "translateY(-10px)",
+            opacity: "0"
+          }
+        },
+        "slide-in-left": {
+          "0%": {
+            transform: "translateX(-1000px)",
+            opacity: "0"
+          },
+          to: {
+            transform: "translateX(0)",
+            opacity: "1"
+          }
+        },
+        "slide-in-right": {
+          "0%": {
+            transform: "translateX(1000px)",
+            opacity: "0"
+          },
+          to: {
+            transform: "translateX(0)",
+            opacity: "1"
+          }
         },
       },
     },
