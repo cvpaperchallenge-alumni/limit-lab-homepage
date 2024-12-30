@@ -249,6 +249,9 @@
     --sun-icon: hsl(29, 66%, 65%);
     --moon-icon: hsl(49, 76%, 43%);
 
+    --icon-fill: var(--gray-9);
+    --icon-accent: var(--blue-8);
+
     --sub: var(--gray-9);
 
     --button-background: var(--gray-5);

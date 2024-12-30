@@ -2,6 +2,8 @@
 
 import Link from 'next/link'
 import { HiCursorClick } from 'react-icons/hi'
+import { PiXLogo } from 'react-icons/pi'
+import { RxGithubLogo, RxLinkedinLogo } from 'react-icons/rx'
 import { Geist_Mono } from 'next/font/google'
 
 const geistMono = Geist_Mono({
@@ -108,6 +110,19 @@ export default function TopPage() {
                     <div className="font-semibold">{member.name}</div>
                     <div className="text-sm text-muted-foreground">
                       {member.affiliation}
+                    </div>
+                  </div>
+                  <div className="flex justify-center pt-3">
+                    <div className="flex gap-4 text-icon-fill">
+                      <Link href={member.githubUrl} target="_blank">
+                        <RxGithubLogo className="size-5 hover:text-icon-accent hover:animate-scale-up-md hover:animate-duration-200" />
+                      </Link>
+                      <Link href={member.XUrl} target="_blank">
+                        <PiXLogo className="size-5 hover:text-icon-accent hover:animate-scale-up-md hover:animate-duration-200" />
+                      </Link>
+                      <Link href={member.linkedinUrl} target="_blank">
+                        <RxLinkedinLogo className="size-5 hover:text-icon-accent hover:animate-scale-up-md hover:animate-duration-200" />
+                      </Link>
                     </div>
                   </div>
                 </CardContent>

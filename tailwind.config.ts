@@ -45,6 +45,10 @@ const config = {
         moon: {
           icon: 'var(--moon-icon)',
         },
+        icon: {
+          fill: 'var(--icon-fill)',
+          accent: 'var(--icon-accent)',
+        },
         sub: 'var(--sub)',
         orbit: 'var(--orbit)',
         particle:{
