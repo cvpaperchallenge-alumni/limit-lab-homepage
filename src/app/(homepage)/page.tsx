@@ -37,7 +37,7 @@ export default function TopPage() {
           <h2 className="text-m font-semibold">Check out the past events</h2>
           <div className="flex gap-4">
             <Button
-              className="rounded-2xl bg-button-background text-button-foreground hover:animate-scale-up-center hover:bg-accent hover:text-accent-foreground"
+              className="rounded-2xl bg-button-background text-button-foreground hover:animate-scale-up-sm hover:bg-accent hover:text-accent-foreground"
               size="lg"
               asChild
             >
@@ -49,7 +49,7 @@ export default function TopPage() {
               </Link>
             </Button>
             <Button
-              className="rounded-2xl bg-button-background text-button-foreground hover:animate-scale-up-center hover:bg-accent hover:text-accent-foreground"
+              className="rounded-2xl bg-button-background text-button-foreground hover:animate-scale-up-sm hover:bg-accent hover:text-accent-foreground"
               size="lg"
               asChild
             >

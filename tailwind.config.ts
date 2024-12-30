@@ -141,6 +141,7 @@ const config = {
         'spin-fast-2': 'spin 8s linear infinite',
         'spin-fast-3': 'spin 4s linear infinite',
         'spin-fast-4': 'spin 2.5s linear infinite',
+        "scale-up-sm": "scale-up-sm 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000)   both",
         "scale-up-md": "scale-up-md 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000)   both",
         "scale-down-md": "scale-down-md 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000)   both",
         "bg-animated": "bg-animated 1s ease infinite",
@@ -188,7 +189,7 @@ const config = {
             'width': '0',
           },
         },
-        "scale-up-center": {
+        "scale-up-sm": {
             "0%": {
                 transform: "scale(1)"
             },
