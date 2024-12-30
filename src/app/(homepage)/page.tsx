@@ -98,7 +98,7 @@ export default function TopPage() {
         <div className="flex w-full flex-col items-center">
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
             {members.map((member, idx) => (
-              <Card key={idx} className="pb-1 pt-5 shadow backdrop-blur-sm">
+              <Card key={idx} className="pb-1 pt-5 shadow backdrop-blur-[1px]">
                 <CardContent>
                   <div className="flex justify-center">
                     <Avatar className="size-16">
