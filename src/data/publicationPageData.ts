@@ -1,4 +1,3 @@
-
 export const samplePublications = [
   {
     id: 1,

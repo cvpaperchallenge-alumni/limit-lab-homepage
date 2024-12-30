@@ -65,7 +65,7 @@ export function Header() {
     <div className="flex h-24 w-full justify-center bg-secondary p-6 text-secondary-foreground">
       <div className="flex w-full max-w-[1500px] justify-between">
         {/* Logo + Title */}
-        <div className="flex gap-7 justify-between md:min-w-[550px]">
+        <div className="flex justify-between gap-7 md:min-w-[550px]">
           <div className="flex items-center gap-2">
             <Avatar className="size-8">
               <AvatarImage src="https://via.placeholder.com/32" alt="Logo" />
@@ -83,7 +83,7 @@ export function Header() {
             <Button
               variant="link"
               asChild
-              className="pl-0.5 group font-semibold group-hover:animate-pulsate-fwd group-hover:no-underline"
+              className="group pl-0.5 font-semibold group-hover:animate-pulsate-fwd group-hover:no-underline"
             >
               <Link
                 href="/"
@@ -114,7 +114,7 @@ export function Header() {
             <Button
               variant="link"
               asChild
-              className="pl-0.5 group font-semibold group-hover:animate-pulsate-fwd group-hover:no-underline"
+              className="group pl-0.5 font-semibold group-hover:animate-pulsate-fwd group-hover:no-underline"
             >
               <Link
                 href="/publications"
@@ -147,7 +147,7 @@ export function Header() {
             <Button
               variant="link"
               asChild
-              className="pl-0.5 group font-semibold group-hover:animate-pulsate-fwd group-hover:no-underline"
+              className="group pl-0.5 font-semibold group-hover:animate-pulsate-fwd group-hover:no-underline"
             >
               <Link
                 href="/contact"
@@ -161,7 +161,9 @@ export function Header() {
                   height={32}
                   className={
                     `group-hover:animate-rotate-in-center ` +
-                    (hasHoveredContact ? 'animate-rotate-out-center' : 'invisible')
+                    (hasHoveredContact
+                      ? 'animate-rotate-out-center'
+                      : 'invisible')
                   }
                 />
                 <span
@@ -203,7 +205,7 @@ export function Header() {
               <RxMoon className="size-4 text-moon-icon" />
             </div>
           )}
-          <div className='md:hidden'>
+          <div className="md:hidden">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <RxHamburgerMenu className="size-6" />

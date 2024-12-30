@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 import { PiXLogo } from 'react-icons/pi'
 import { RxGithubLogo } from 'react-icons/rx'
 import { RiGlobalLine } from 'react-icons/ri'
-import { SiGitconnected } from "react-icons/si";
+import { SiGitconnected } from 'react-icons/si'
 import Link from 'next/link'
 import blackAlumniLogo from '../../public/alumni-logo-with-wide-black.png'
 import whiteAlumniLogo from '../../public/alumni-logo-with-wide-white.png'
@@ -46,34 +46,31 @@ export function Footer() {
           </div>
         </div>
 
-        <div className='block md:hidden'>
+        <div className="block md:hidden">
           <div className="flex gap-2 text-xxxs md:pl-2 md:text-xxs">
             Developed by{' '}
-            <span className="inline">
-              cvpaper.challenge alumni community
-            </span>
+            <span className="inline">cvpaper.challenge alumni community</span>
           </div>
         </div>
 
-        <div className="md:flex hidden md:mr-10 md:flex-col md:items-start md:gap-0">
-          <div className="pl-2 text-xxs">
-            Developed by{' '}
-          </div>
+        <div className="hidden md:mr-10 md:flex md:flex-col md:items-start md:gap-0">
+          <div className="pl-2 text-xxs">Developed by </div>
           <div
-            className='flex items-center gap-4'
+            className="flex items-center gap-4"
             onMouseEnter={() => setHasHoveredAlumni(true)}
           >
-            <div className='flex flex-col group items-center gap-2'>
+            <div className="group flex flex-col items-center gap-2">
               <Image
                 alt="alumni logo"
                 className="h-16 w-auto"
                 priority={true}
                 src={isDarkMode ? whiteAlumniLogo : blackAlumniLogo}
               />
-              <div className={
-                "flex items-center gap-2 text-sub group-hover:animate-fade-in-top " +
-                (hasHoverdAlumni ? 'animate-fade-out-top' : 'invisible')
-              }
+              <div
+                className={
+                  'flex items-center gap-2 text-sub group-hover:animate-fade-in-top ' +
+                  (hasHoverdAlumni ? 'animate-fade-out-top' : 'invisible')
+                }
               >
                 <Link
                   href="https://github.com/cvpaperchallenge-alumni"
@@ -100,9 +97,9 @@ export function Footer() {
                 </Link>
               </div>
             </div>
-            <SiGitconnected className='size-5 -translate-y-3'/>
+            <SiGitconnected className="size-5 -translate-y-3" />
             <div
-              className='group flex flex-col items-center gap-2'
+              className="group flex flex-col items-center gap-2"
               onMouseEnter={() => setHasHoveredCC(true)}
             >
               <Image
@@ -111,9 +108,10 @@ export function Footer() {
                 priority={true}
                 src={isDarkMode ? whiteCCLogo : blackCCLogo}
               />
-              <div className={
-                "flex items-center gap-2 text-sub group-hover:animate-fade-in-top " +
-                (hasHoverdCC ? 'animate-fade-out-top' : 'invisible')
+              <div
+                className={
+                  'flex items-center gap-2 text-sub group-hover:animate-fade-in-top ' +
+                  (hasHoverdCC ? 'animate-fade-out-top' : 'invisible')
                 }
               >
                 <Link
@@ -133,10 +131,7 @@ export function Footer() {
                   orientation="vertical"
                   className="h-5 bg-muted-foreground"
                 />
-                <Link
-                  href="https://xpaperchallenge.org/cv/"
-                  target="_blank"
-                >
+                <Link href="https://xpaperchallenge.org/cv/" target="_blank">
                   <RiGlobalLine className="size-5" />
                 </Link>
               </div>

@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import Link from 'next/link'
 import { HiCursorClick } from 'react-icons/hi'
 import { Geist_Mono } from 'next/font/google'
@@ -13,7 +12,6 @@ import { VisualAtomDesign } from '@/components/visual-atom-design'
 import { members, newsItems } from '@/data/topPageData'
 import { PaperOceanDesign } from '@/components/paper-ocean-design'
 
-
 // shadcn/ui components
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
@@ -21,9 +19,9 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 
 export default function TopPage() {
   return (
-    <div className="w-4/5 flex-1 flex flex-col justify-start items-center gap-20">
+    <div className="flex w-4/5 flex-1 flex-col items-center justify-start gap-20">
       {/* About Us */}
-      <div className="flex max-w-[1000px] items-center gap-8 px-20 py-14 mt-16 relative before:block before:z-0 before:absolute before:inset-y-0 before:-left-full before:w-[200%] before:rounded-r-3xl before:border before:border-block-border">
+      <div className="relative mt-16 flex max-w-[1000px] items-center gap-8 px-20 py-14 before:absolute before:inset-y-0 before:-left-full before:z-0 before:block before:w-[200%] before:rounded-r-3xl before:border before:border-block-border">
         <div className="relative flex flex-col items-start gap-3 text-foreground">
           <h1 className="mb-2 text-xxxl font-semibold leading-8 tracking-wider">
             Unleash our LIMITless potential
@@ -67,12 +65,12 @@ export default function TopPage() {
             </Button>
           </div>
         </div>
-        <VisualAtomDesign/>
+        <VisualAtomDesign />
       </div>
 
       {/* Recent News */}
-      <div className="flex w-full max-w-[1000px] gap-14 px-20 py-16 relative before:block before:z-0 before:absolute before:inset-y-0 before:-right-full before:w-[200%] before:rounded-l-3xl before:border before:border-block-border">
-        <PaperOceanDesign/>
+      <div className="relative flex w-full max-w-[1000px] gap-14 px-20 py-16 before:absolute before:inset-y-0 before:-right-full before:z-0 before:block before:w-[200%] before:rounded-l-3xl before:border before:border-block-border">
+        <PaperOceanDesign />
         <div className="flex w-full flex-col items-start gap-3">
           <h1 className="mb-2 text-xxxl font-semibold leading-8 tracking-wider text-foreground shadow-background drop-shadow-md">
             Recent News
@@ -91,7 +89,7 @@ export default function TopPage() {
       </div>
 
       {/* Member Information */}
-      <div className="flex w-full max-w-[1000px] flex-col items-center gap-3 px-20 py-16 mb-16 border border-block-border rounded-3xl">
+      <div className="mb-16 flex w-full max-w-[1000px] flex-col items-center gap-3 rounded-3xl border border-block-border px-20 py-16">
         <h1 className="mb-2 text-xxxl font-semibold leading-8 tracking-wider text-foreground shadow-background drop-shadow-md">
           Our Members
         </h1>

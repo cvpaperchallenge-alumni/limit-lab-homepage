@@ -10,7 +10,7 @@ export default function SharedUILayout({
 }) {
   return (
     <div className="min-h-screen bg-gradient-to-br from-background from-20% via-background-gradation-1 via-50% to-background-gradation-2 to-90%">
-      <div className='flex flex-col items-center bg-animated simple-grid w-full min-h-screen overflow-x-hidden'>
+      <div className="bg-animated simple-grid flex min-h-screen w-full flex-col items-center overflow-x-hidden">
         <Header />
         {children}
         <Footer />
