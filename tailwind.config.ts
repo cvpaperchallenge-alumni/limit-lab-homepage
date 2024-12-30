@@ -141,7 +141,8 @@ const config = {
         'spin-fast-2': 'spin 8s linear infinite',
         'spin-fast-3': 'spin 4s linear infinite',
         'spin-fast-4': 'spin 2.5s linear infinite',
-        "scale-up-center": "scale-up-center 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000)   both",
+        "scale-up-md": "scale-up-md 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000)   both",
+        "scale-down-md": "scale-down-md 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000)   both",
         "bg-animated": "bg-animated 1s ease infinite",
         "simple-grid": "simple-grid 1s linear infinite",
         "fade-in-top": "fade-in-top 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000)   both",
@@ -193,6 +194,22 @@ const config = {
             },
             to: {
                 transform: "scale(1.05)"
+            }
+        },
+        "scale-up-md": {
+            "0%": {
+                transform: "scale(1)"
+            },
+            to: {
+                transform: "scale(1.2)"
+            }
+        },
+        "scale-down-md": {
+            "0%": {
+                transform: "scale(1.2)"
+            },
+            to: {
+                transform: "scale(1)"
             }
         },
         "bg-animated": {
