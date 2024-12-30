@@ -68,7 +68,7 @@ export function Footer() {
               />
               <div
                 className={
-                  'flex items-center gap-2 text-sub group-hover:animate-fade-in-top ' +
+                  'flex items-center gap-2 text-icon-fill group-hover:animate-fade-in-top ' +
                   (hasHoverdAlumni ? 'animate-fade-out-top' : 'invisible')
                 }
               >
@@ -76,14 +76,14 @@ export function Footer() {
                   href="https://github.com/cvpaperchallenge-alumni"
                   target="_blank"
                 >
-                  <RxGithubLogo className="size-5" />
+                  <RxGithubLogo className="size-5 hover:text-icon-accent" />
                 </Link>
                 <Separator
                   orientation="vertical"
                   className="h-5 bg-muted-foreground"
                 />
                 <Link href="https://twitter.com/cvpcalumni" target="_blank">
-                  <PiXLogo className="size-5" />
+                  <PiXLogo className="size-5 hover:text-icon-accent" />
                 </Link>
                 <Separator
                   orientation="vertical"
@@ -93,7 +93,7 @@ export function Footer() {
                   href="https://note.com/gatheluck/n/nc469f2f35426"
                   target="_blank"
                 >
-                  <RiGlobalLine className="size-5" />
+                  <RiGlobalLine className="size-5 hover:text-icon-accent" />
                 </Link>
               </div>
             </div>
@@ -110,7 +110,7 @@ export function Footer() {
               />
               <div
                 className={
-                  'flex items-center gap-2 text-sub group-hover:animate-fade-in-top ' +
+                  'flex items-center gap-2 text-icon-fill group-hover:animate-fade-in-top ' +
                   (hasHoverdCC ? 'animate-fade-out-top' : 'invisible')
                 }
               >
@@ -118,21 +118,21 @@ export function Footer() {
                   href="https://github.com/cvpaperchallenge"
                   target="_blank"
                 >
-                  <RxGithubLogo className="size-5" />
+                  <RxGithubLogo className="size-5 hover:text-icon-accent" />
                 </Link>
                 <Separator
                   orientation="vertical"
                   className="h-5 bg-muted-foreground"
                 />
                 <Link href="https://x.com/CVpaperChalleng" target="_blank">
-                  <PiXLogo className="size-5" />
+                  <PiXLogo className="size-5 hover:text-icon-accent" />
                 </Link>
                 <Separator
                   orientation="vertical"
                   className="h-5 bg-muted-foreground"
                 />
                 <Link href="https://xpaperchallenge.org/cv/" target="_blank">
-                  <RiGlobalLine className="size-5" />
+                  <RiGlobalLine className="size-5 hover:text-icon-accent" />
                 </Link>
               </div>
             </div>
