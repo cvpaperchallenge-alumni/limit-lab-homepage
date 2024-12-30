@@ -65,9 +65,8 @@ export function Header() {
     <div className="flex h-24 w-full justify-center bg-secondary p-6 text-secondary-foreground">
       <div className="flex w-full max-w-[1500px] justify-between">
         {/* Logo + Title */}
-        <div className="flex justify-between md:min-w-[550px]">
+        <div className="flex justify-between gap-7 md:min-w-[550px]">
           <div className="flex items-center gap-2">
-            {/* Using shadcn/ui <Avatar> for the placeholder logo */}
             <Avatar className="size-8">
               <AvatarImage src="https://via.placeholder.com/32" alt="Logo" />
               <AvatarFallback>AL</AvatarFallback>
@@ -81,109 +80,103 @@ export function Header() {
 
           {/* Navigation Links */}
           <div className="hidden items-center justify-between space-x-5 md:flex">
-            <div
-              className="group flex"
-              onMouseEnter={() => setHasHoveredTop(true)}
-              onMouseLeave={() => {}}
+            <Button
+              variant="link"
+              asChild
+              className="group pl-0.5 font-semibold hover:animate-pulsate-fwd hover:no-underline"
             >
-              <Image
-                alt="VA mark"
-                src={isDarkMode ? whiteVAMark : blackVAMark}
-                width={32}
-                height={32}
-                className={
-                  `group-hover:animate-rotate-in-center ` +
-                  (hasHoveredTop ? 'animate-rotate-out-center' : 'invisible')
-                }
-              />
-              <Button
-                variant="link"
-                asChild
-                className="pl-0.5 font-semibold hover:no-underline group-hover:animate-pulsate-fwd"
+              <Link
+                href="/"
+                onMouseEnter={() => setHasHoveredTop(true)}
+                onMouseLeave={() => {}}
               >
-                <Link href="/">
-                  <span
-                    className={
-                      page === 'top'
-                        ? 'text-accent-foreground'
-                        : 'text-sub group-hover:text-secondary-foreground'
-                    }
-                  >
-                    Top
-                  </span>
-                </Link>
-              </Button>
-            </div>
-            <div
-              className="group flex"
-              onMouseEnter={() => setHasHoveredPublications(true)}
-              onMouseLeave={() => {}}
+                <Image
+                  alt="VA mark"
+                  src={isDarkMode ? whiteVAMark : blackVAMark}
+                  width={32}
+                  height={32}
+                  className={
+                    `group-hover:animate-rotate-in-center ` +
+                    (hasHoveredTop ? 'animate-rotate-out-center' : 'invisible')
+                  }
+                />
+                <span
+                  className={
+                    page === 'top'
+                      ? 'text-accent-foreground'
+                      : 'text-sub group-hover:text-secondary-foreground'
+                  }
+                >
+                  Top
+                </span>
+              </Link>
+            </Button>
+            <Button
+              variant="link"
+              asChild
+              className="group pl-0.5 font-semibold hover:animate-pulsate-fwd hover:no-underline"
             >
-              <Image
-                alt="VA mark"
-                src={isDarkMode ? whiteVAMark : blackVAMark}
-                width={32}
-                height={32}
-                className={
-                  `group-hover:animate-rotate-in-center ` +
-                  (hasHoveredPublications
-                    ? 'animate-rotate-out-center'
-                    : 'invisible')
-                }
-              />
-              <Button
-                variant="link"
-                asChild
-                className="pl-0.5 font-semibold hover:animate-pulsate-fwd hover:no-underline"
+              <Link
+                href="/publications"
+                onMouseEnter={() => setHasHoveredPublications(true)}
+                onMouseLeave={() => {}}
               >
-                <Link href="/publications">
-                  <span
-                    className={
-                      page === 'publication'
-                        ? 'text-accent-foreground'
-                        : 'text-sub group-hover:text-secondary-foreground'
-                    }
-                  >
-                    Publications
-                  </span>
-                </Link>
-              </Button>
-            </div>
-            <div
-              className="group flex"
-              onMouseEnter={() => setHasHoveredContact(true)}
-              onMouseLeave={() => {}}
+                <Image
+                  alt="VA mark"
+                  src={isDarkMode ? whiteVAMark : blackVAMark}
+                  width={32}
+                  height={32}
+                  className={
+                    `group-hover:animate-rotate-in-center ` +
+                    (hasHoveredPublications
+                      ? 'animate-rotate-out-center'
+                      : 'invisible')
+                  }
+                />
+                <span
+                  className={
+                    page === 'publication'
+                      ? 'text-accent-foreground'
+                      : 'text-sub group-hover:text-secondary-foreground'
+                  }
+                >
+                  Publications
+                </span>
+              </Link>
+            </Button>
+            <Button
+              variant="link"
+              asChild
+              className="group pl-0.5 font-semibold hover:animate-pulsate-fwd hover:no-underline"
             >
-              <Image
-                alt="VA mark"
-                src={isDarkMode ? whiteVAMark : blackVAMark}
-                width={32}
-                height={32}
-                className={
-                  `group-hover:animate-rotate-in-center ` +
-                  (hasHoveredContact
-                    ? 'animate-rotate-out-center'
-                    : 'invisible')
-                }
-              />
-              <Button
-                variant="link"
-                asChild
-                className="pl-0.5 font-semibold hover:animate-pulsate-fwd hover:no-underline"
+              <Link
+                href="/contact"
+                onMouseEnter={() => setHasHoveredContact(true)}
+                onMouseLeave={() => {}}
               >
-                <Link href="/contact">
-                  <span
-                    className={
-                      page === 'contact'
-                        ? 'text-accent-foreground'
-                        : 'text-sub group-hover:text-secondary-foreground'
-                    }
-                  >
-                    Contact
-                  </span>
-                </Link>
-              </Button>
-            </div>
+                <Image
+                  alt="VA mark"
+                  src={isDarkMode ? whiteVAMark : blackVAMark}
+                  width={32}
+                  height={32}
+                  className={
+                    `group-hover:animate-rotate-in-center ` +
+                    (hasHoveredContact
+                      ? 'animate-rotate-out-center'
+                      : 'invisible')
+                  }
+                />
+                <span
+                  className={
+                    page === 'contact'
+                      ? 'text-accent-foreground'
+                      : 'text-sub group-hover:text-secondary-foreground'
+                  }
+                >
+                  Contact
+                </span>
+              </Link>
+            </Button>
           </div>
         </div>
 
@@ -212,38 +205,40 @@ export function Header() {
               <RxMoon className="size-4 text-moon-icon" />
             </div>
           )}
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <RxHamburgerMenu className="size-6 md:hidden" />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-56">
-              <DropdownMenuLabel>Pages</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuRadioGroup value={page}>
-                <DropdownMenuRadioItem
-                  value="top"
-                  isDarkMode={isDarkMode}
-                  onClick={() => router.push('/')}
-                >
-                  Top
-                </DropdownMenuRadioItem>
-                <DropdownMenuRadioItem
-                  value="publication"
-                  isDarkMode={isDarkMode}
-                  onClick={() => router.push('/publications')}
-                >
-                  Publications
-                </DropdownMenuRadioItem>
-                <DropdownMenuRadioItem
-                  value="contact"
-                  isDarkMode={isDarkMode}
-                  onClick={() => router.push('/contact')}
-                >
-                  Contact
-                </DropdownMenuRadioItem>
-              </DropdownMenuRadioGroup>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <div className="md:hidden">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <RxHamburgerMenu className="size-6" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-56">
+                <DropdownMenuLabel>Pages</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuRadioGroup value={page}>
+                  <DropdownMenuRadioItem
+                    value="top"
+                    isDarkMode={isDarkMode}
+                    onClick={() => router.push('/')}
+                  >
+                    Top
+                  </DropdownMenuRadioItem>
+                  <DropdownMenuRadioItem
+                    value="publication"
+                    isDarkMode={isDarkMode}
+                    onClick={() => router.push('/publications')}
+                  >
+                    Publications
+                  </DropdownMenuRadioItem>
+                  <DropdownMenuRadioItem
+                    value="contact"
+                    isDarkMode={isDarkMode}
+                    onClick={() => router.push('/contact')}
+                  >
+                    Contact
+                  </DropdownMenuRadioItem>
+                </DropdownMenuRadioGroup>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
         </div>
       </div>
     </div>

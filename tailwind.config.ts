@@ -45,10 +45,17 @@ const config = {
         moon: {
           icon: 'var(--moon-icon)',
         },
+        icon: {
+          fill: 'var(--icon-fill)',
+          accent: 'var(--icon-accent)',
+        },
         sub: 'var(--sub)',
         orbit: 'var(--orbit)',
         particle:{
           glow: 'var(--particle-grow)',
+        },
+        block: {
+          border: 'var(--block-border)',
         },
 
         // shadcn/ui colors
@@ -109,6 +116,9 @@ const config = {
       screens: {
         xs: '350px'
       },
+      backdropBlur: {
+        xs: '2px',
+      },
       fontFamily: {
         sans: ['var(--font-geist-sans)'],
         mono: ['var(--font-geist-mono)']
@@ -138,9 +148,15 @@ const config = {
         'spin-fast-2': 'spin 8s linear infinite',
         'spin-fast-3': 'spin 4s linear infinite',
         'spin-fast-4': 'spin 2.5s linear infinite',
-        "scale-up-center": "scale-up-center 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000)   both",
+        "scale-up-sm": "scale-up-sm 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000)   both",
+        "scale-up-md": "scale-up-md 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000)   both",
+        "scale-down-md": "scale-down-md 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000)   both",
         "bg-animated": "bg-animated 1s ease infinite",
         "simple-grid": "simple-grid 1s linear infinite",
+        "fade-in-top": "fade-in-top 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000)   both",
+        "fade-out-top": "fade-out-top 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000)   both",
+        "slide-in-left": "slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940)   both",
+        "slide-in-right": "slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940)   both",
       },
       keyframes: {
         "pulsate-fwd": {
@@ -148,7 +164,7 @@ const config = {
             transform: "scale(1)"
           },
           "50%": {
-            transform: "scale(1.1)"
+            transform: "scale(1.2)"
           }
         },
         "rotate-in-center": {
@@ -182,32 +198,88 @@ const config = {
             'width': '0',
           },
         },
-        "scale-up-center": {
-            "0%": {
-                transform: "scale(1)"
-            },
-            to: {
-                transform: "scale(1.05)"
-            }
+        "scale-up-sm": {
+          "0%": {
+            transform: "scale(1)"
+          },
+          to: {
+            transform: "scale(1.05)"
+          }
+        },
+        "scale-up-md": {
+          "0%": {
+            transform: "scale(1)"
+          },
+          to: {
+            transform: "scale(1.2)"
+          }
+        },
+        "scale-down-md": {
+          "0%": {
+            transform: "scale(1.2)"
+          },
+          to: {
+            transform: "scale(1)"
+          }
         },
         "bg-animated": {
-            "0%": {
-                backgroundPosition: "0% 50%"
-            },
-            "50%": {
-                backgroundPosition: "100% 50%"
-            },
-            "100%": {
-                backgroundPosition: "0% 50%"
-            }
+          "0%": {
+            backgroundPosition: "0% 50%"
+          },
+          "50%": {
+            backgroundPosition: "100% 50%"
+          },
+          "100%": {
+            backgroundPosition: "0% 50%"
+          }
         },
         "simple-grid": {
-            "0%": {
-                backgroundPosition: "0 0"
-            },
-            "100%": {
-                backgroundPosition: "20px 20px"
-            }
+          "0%": {
+            backgroundPosition: "0 0"
+          },
+          "100%": {
+            backgroundPosition: "20px 20px"
+          }
+        },
+        "fade-in-top": {
+          "0%": {
+            transform: "translateY(-10px)",
+            opacity: "0"
+          },
+          to: {
+            transform: "translateY(0)",
+            opacity: "1"
+          }
+        },
+        "fade-out-top": {
+          "0%": {
+            transform: "translateY(0)",
+            opacity: "1"
+          },
+          to: {
+            transform: "translateY(-10px)",
+            opacity: "0"
+          }
+        },
+        "slide-in-left": {
+          "0%": {
+            transform: "translateX(-1000px)",
+            opacity: "0"
+          },
+          to: {
+            transform: "translateX(0)",
+            opacity: "1"
+          }
+        },
+        "slide-in-right": {
+          "0%": {
+            transform: "translateX(1000px)",
+            opacity: "0"
+          },
+          to: {
+            transform: "translateX(0)",
+            opacity: "1"
+          }
         },
       },
     },
