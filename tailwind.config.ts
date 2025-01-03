@@ -38,6 +38,33 @@ const config = {
           background: 'var(--button-background)',
           foreground: 'var(--button-foreground)',
           border: 'var(--button-border)',
+          pdf: {
+            DEFAULT: 'var(--button-pdf)',
+            hovered: 'var(--button-pdf-hovered)',
+            foreground: {
+              DEFAULT: 'var(--button-pdf-foreground)',
+              hovered: 'var(--button-pdf-foreground-hovered)',
+            },
+            edge: 'var(--button-pdf-edge)',
+          },
+          project: {
+            DEFAULT: 'var(--button-project)',
+            hovered: 'var(--button-project-hovered)',
+            foreground: {
+              DEFAULT: 'var(--button-project-foreground)',
+              hovered: 'var(--button-project-foreground-hovered)',
+            },
+            edge: 'var(--button-project-edge)',
+          },
+          github: {
+            DEFAULT: 'var(--button-github)',
+            hovered: 'var(--button-github-hovered)',
+            foreground: {
+              DEFAULT: 'var(--button-github-foreground)',
+              hovered: 'var(--button-github-foreground-hovered)',
+            },
+            edge: 'var(--button-github-edge)',
+          }
         },
         sun: {
           icon: 'var(--sun-icon)',
@@ -56,6 +83,9 @@ const config = {
         },
         block: {
           border: 'var(--block-border)',
+        },
+        underline: {
+          DEFAULT: 'var(--underline)',
         },
 
         // shadcn/ui colors
