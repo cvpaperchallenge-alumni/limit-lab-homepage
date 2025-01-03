@@ -37,20 +37,19 @@ export default function PublicationsPage() {
   })
 
   return (
-    <div className="flex-1 space-y-8">
-      <Card>
-        <CardHeader>
-          <h1>Publications</h1>
-        </CardHeader>
-        <CardContent className="space-y-6">
+    <div className="flex w-4/5 flex-col items-center flex-1 gap-8">
+      <h1 className='text-3xl font-semibold leading-8 tracking-wider mt-16'>Publications</h1>
+      <div className='flex w-full max-w-[1000px] flex-col items-center gap-7 rounded-3xl border border-block-border px-10 pt-10 pb-16'>
           {/* Filters */}
-          <div className="flex flex-wrap gap-4">
+        <div className="flex gap-4 self-end">
             {/* Conference Filter */}
+          <div className='flex gap-2 flex-col items-start'>
+            <div className='text-s font-semibold'>Conference</div>
             <Select
               value={conferenceFilter}
               onValueChange={(val) => setConferenceFilter(val)}
             >
-              <SelectTrigger className="w-[180px]">
+              <SelectTrigger className="w-[100px]">
                 <SelectValue placeholder="Conference" />
               </SelectTrigger>
               <SelectContent>
@@ -62,8 +61,11 @@ export default function PublicationsPage() {
                 ))}
               </SelectContent>
             </Select>
+          </div>
 
             {/* Year Filter */}
+          <div className='flex gap-2 flex-col items-start'>
+            <div className='text-s font-semibold'>Year</div>
             <Select
               value={yearFilter}
               onValueChange={(val) => setYearFilter(val)}
@@ -80,8 +82,11 @@ export default function PublicationsPage() {
                 ))}
               </SelectContent>
             </Select>
+          </div>
 
             {/* Field Filter */}
+          <div className='flex gap-2 flex-col items-start'>
+            <div className='text-s font-semibold'>Field</div>
             <Select
               value={fieldFilter}
               onValueChange={(val) => setFieldFilter(val)}
@@ -98,6 +103,7 @@ export default function PublicationsPage() {
                 ))}
               </SelectContent>
             </Select>
+          </div>
           </div>
 
           {/* Publication List */}
@@ -126,8 +132,7 @@ export default function PublicationsPage() {
               </Card>
             ))}
           </div>
-        </CardContent>
-      </Card>
+      </div>
     </div>
   )
 }
