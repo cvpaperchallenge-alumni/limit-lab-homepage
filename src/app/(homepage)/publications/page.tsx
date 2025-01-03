@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 
 import { samplePublications } from '@/data/publicationPageData'
 
@@ -14,6 +15,7 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { AspectRatio } from "@/components/ui/aspect-ratio"
 
 export default function PublicationsPage() {
   const [conferenceFilter, setConferenceFilter] = useState<string>('all')
@@ -107,15 +109,20 @@ export default function PublicationsPage() {
           </div>
 
           {/* Publication List */}
-          <div className="space-y-4">
+        <div className="space-y-4 w-full">
             {filteredPublications.map((pub) => (
               <Card key={pub.id} className="p-4">
-                <CardContent className="flex items-center space-x-4">
-                  {/* Simple image or use an <Avatar> if you prefer */}
-                  <Avatar className="size-24">
-                    <AvatarImage src={pub.imageUrl} alt={pub.title} />
-                    <AvatarFallback>?</AvatarFallback>
-                  </Avatar>
+              <CardContent className="flex items-center space-x-4 p-0">
+                <div className="min-w-80">
+                  <AspectRatio ratio={16 / 9}>
+                    <Image
+                      src={pub.imageUrl}
+                      alt={pub.title}
+                      fill
+                      className="rounded-md object-cover"
+                    />
+                  </AspectRatio>
+                </div>
                   <div className="space-y-1">
                     <h2 className="text-base font-semibold">{pub.title}</h2>
                     <div className="text-sm text-muted-foreground">
