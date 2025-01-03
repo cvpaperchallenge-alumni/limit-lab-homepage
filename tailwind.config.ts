@@ -124,16 +124,7 @@ const config = {
         mono: ['var(--font-geist-mono)']
       },
       fontSize: {
-        xxxs: ["0.65rem", { lineHeight: "1.6", letterSpacing: "0.05em" }],
-        xxs: ["0.75rem", { lineHeight: "1.6", letterSpacing: "0.05em" }],
-        xs: ["0.8125rem", { lineHeight: "1.6", letterSpacing: "0.05em" }],
-        s: ["0.875rem", { lineHeight: "1.6", letterSpacing: "0.05em" }],
-        m: ["1rem", { lineHeight: "1.6", letterSpacing: "0.05em" }],
-        l: ["1.125rem", { lineHeight: "1.6", letterSpacing: "0.05em" }],
-        xl: ["1.25rem", { lineHeight: "1.6", letterSpacing: "0.05em" }],
-        xxl: ["1.5rem", { lineHeight: "1.6", letterSpacing: "0.05em" }],
-        xxxl: ["1.625rem", { lineHeight: "1.6", letterSpacing: "0.05em" }],
-        xxxxl: ["2rem", { lineHeight: "1.6", letterSpacing: "0.05em" }],
+        xxs: ["0.65rem", { lineHeight: "1.6", letterSpacing: "0.05em" }],
       },
       animation: {
         "pulsate-fwd": "pulsate-fwd 0.2s linear   both",
