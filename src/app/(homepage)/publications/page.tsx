@@ -1,12 +1,14 @@
 'use client'
 
-import { useState } from 'react'
+import { useTheme } from 'next-themes'
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { RxFile, RxGithubLogo } from 'react-icons/rx'
 import { RiGlobalLine } from 'react-icons/ri'
 import Link from 'next/link'
 import { Separator } from '@radix-ui/react-separator'
 import tagIconBlack from '../../../../public/tag-icon-black.png'
+import tagIconWhite from '../../../../public/tag-icon-white.png'
 
 import { samplePublications } from '@/data/publicationPageData'
 
@@ -25,6 +27,8 @@ export default function PublicationsPage() {
   const [conferenceFilter, setConferenceFilter] = useState<string>('all')
   const [yearFilter, setYearFilter] = useState<string>('all')
   const [fieldFilter, setFieldFilter] = useState<string>('all')
+  const { theme } = useTheme()
+  const [isDarkMode, setIsDarkMode] = useState(false)
 
   // Extract unique options
   const conferences = Array.from(
@@ -32,6 +36,12 @@ export default function PublicationsPage() {
   )
   const years = Array.from(new Set(samplePublications.map((p) => p.year)))
   const fields = Array.from(new Set(samplePublications.map((p) => p.field)))
+
+  useEffect(() => {
+    if (theme) {
+      setIsDarkMode(theme === 'dark')
+    }
+  }, [theme])
 
   // Filter the publications
   const filteredPublications = samplePublications.filter((pub) => {
@@ -133,7 +143,7 @@ export default function PublicationsPage() {
                   <div className="flex h-6 w-fit gap-3 self-end">
                     <div className="relative h-full w-20">
                       <Image
-                        src={tagIconBlack}
+                        src={isDarkMode ? tagIconBlack : tagIconWhite}
                         alt="conference icon"
                         className="absolute inset-y-0 right-0 h-6 w-auto"
                       />
@@ -143,7 +153,7 @@ export default function PublicationsPage() {
                     </div>
                     <div className="relative h-full w-20">
                       <Image
-                        src={tagIconBlack}
+                        src={isDarkMode ? tagIconBlack : tagIconWhite}
                         alt="year icon"
                         className="absolute inset-y-0 right-0 h-6 w-auto"
                       />
