@@ -271,7 +271,7 @@
     /* shadcn/ui variables */
     --background: var(--gray-1);
     --foreground: var(--gray-12);
-    --card: var(--gray-a2);
+    --card: var(--gray-a3);
     --card-foreground: hsl(224 71.4% 4.1%);
     --popover: hsl(0 0% 100%);
     --popover-foreground: hsl(224 71.4% 4.1%);
