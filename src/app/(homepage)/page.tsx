@@ -28,7 +28,7 @@ export default function TopPage() {
           <h1 className="mb-2 text-3xl font-semibold leading-8 tracking-wider text-foreground shadow-background drop-shadow-md">
             Unleash our LIMITless potential
           </h1>
-          <p className="mb-5 w-11/12 text-wrap text-m">
+          <p className="text-m mb-5 w-11/12 text-wrap">
             At LIMIT Lab., we embrace the power of collaboration to transcend
             limits in AI and computer vision research. By connecting globally
             and reimagining boundaries, we transform challenges into
