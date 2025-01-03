@@ -326,20 +326,20 @@
 
     --button-pdf: var(--red-a3);
     --button-pdf-hovered: var(--red-a4);
-    --button-pdf-foreground: var(--red-10);
-    --button-pdf-foreground-hovered: var(--red-11);
+    --button-pdf-foreground: var(--red-11);
+    --button-pdf-foreground-hovered: var(--red-12);
     --button-pdf-edge: var(--red-6);
 
     --button-project: var(--blue-a4);
     --button-project-hovered: var(--blue-a5);
-    --button-project-foreground: var(--blue-10);
-    --button-project-foreground-hovered: var(--blue-11);
+    --button-project-foreground: var(--blue-11);
+    --button-project-foreground-hovered: var(--blue-12);
     --button-project-edge: var(--blue-6);
 
     --button-github: var(--gray-a4);
     --button-github-hovered: var(--gray-a5);
-    --button-github-foreground: var(--gray-10);
-    --button-github-foreground-hovered: var(--gray-11);
+    --button-github-foreground: var(--gray-11);
+    --button-github-foreground-hovered: var(--gray-12);
     --button-github-edge: var(--gray-6);
 
     --orbit: var(--blue-8);
