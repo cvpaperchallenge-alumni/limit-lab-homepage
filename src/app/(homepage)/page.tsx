@@ -28,7 +28,7 @@ export default function TopPage() {
           <h1 className="mb-2 text-3xl font-semibold leading-8 tracking-wider text-foreground shadow-background drop-shadow-md">
             Unleash our LIMITless potential
           </h1>
-          <p className="text-m mb-5 w-11/12 text-wrap">
+          <p className="text-base mb-5 w-11/12 text-wrap">
             At LIMIT Lab., we embrace the power of collaboration to transcend
             limits in AI and computer vision research. By connecting globally
             and reimagining boundaries, we transform challenges into
@@ -36,7 +36,7 @@ export default function TopPage() {
             and industrial impact. Together, we redefine the very concept of
             limits.
           </p>
-          <h2 className="text-m font-semibold">Check out the past events</h2>
+          <h2 className="text-base font-semibold">Check out the past events</h2>
           <div className="flex gap-4">
             <Button
               className="rounded-2xl bg-button-background text-button-foreground hover:animate-scale-up-sm hover:bg-accent hover:text-accent-foreground"
@@ -79,7 +79,7 @@ export default function TopPage() {
           </h1>
           <div className="space-y-2">
             {newsItems.map((item, index) => (
-              <div key={index} className="text-m">
+              <div key={index} className="text-base">
                 <strong className={`${geistMono.className}`}>
                   {item.date}:
                 </strong>{' '}
