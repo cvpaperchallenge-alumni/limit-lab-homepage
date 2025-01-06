@@ -78,7 +78,7 @@ The `shared` resources are shared among all environments which include following
 > The ACM certificate is created in `us-east-1` because it is required for CloudFront distribution.
 
 ```bash
-cd terraform/environments/shared
+cd terraform/shared
 
 terraform init
 terraform plan
@@ -93,7 +93,7 @@ The `prod` environment includes following resources.
 - Route 53 record set for domain.
 
 ```bash
-cd terraform/environments/prod
+cd terraform/prod
 
 terraform init
 terraform plan
@@ -106,7 +106,7 @@ terraform apply
 ### Undeploy `prod` resources
 
 ```bash
-cd terraform/environments/prod
+cd terraform/prod
 
 terraform init
 terraform destroy
@@ -115,7 +115,7 @@ terraform destroy
 ### Undeploy `shared` resources
 
 ```bash
-cd terraform/environments/shared
+cd terraform/shared
 
 terraform init
 terraform destroy

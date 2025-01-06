@@ -16,7 +16,7 @@ data "aws_route53_zone" "host_domain" {
 }
 
 module "s3_cloudfront" {
-  source = "../../modules/s3_cloudfront"
+  source = "../modules/s3_cloudfront"
 
   bucket_name                = local.bucket_name
   origin_access_control_name = local.origin_access_control_name
