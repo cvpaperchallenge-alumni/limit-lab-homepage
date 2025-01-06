@@ -1,0 +1,14 @@
+ARG BASE_IMAGE=hashicorp/terraform:1.10.3
+FROM ${BASE_IMAGE}
+
+ARG APPLICATION_DIRECTORY=/home/limit-lab-homepage
+
+ENV DEBIAN_FRONTEND="noninteractive" \
+    LC_ALL="C.UTF-8" \
+    LANG="C.UTF-8"
+
+# Install tflint. bash is required for the installation script.
+RUN apk add --no-cache bash curl 
+RUN curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash
+
+WORKDIR ${APPLICATION_DIRECTORY}
