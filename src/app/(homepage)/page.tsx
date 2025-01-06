@@ -25,10 +25,10 @@ export default function TopPage() {
       {/* About Us */}
       <div className="relative mt-16 flex max-w-[1000px] animate-slide-in-left items-center gap-8 px-20 py-14 before:absolute before:inset-y-0 before:-left-full before:z-0 before:block before:w-[200%] before:rounded-r-3xl before:border before:border-block-border">
         <div className="relative flex animate-fade-in-top flex-col items-start gap-3 text-foreground animate-delay-700 animate-duration-500">
-          <h1 className="mb-2 text-xxxl font-semibold leading-8 tracking-wider">
+          <h1 className="mb-2 text-3xl font-semibold leading-8 tracking-wider text-foreground shadow-background drop-shadow-md">
             Unleash our LIMITless potential
           </h1>
-          <p className="mb-5 w-11/12 text-wrap text-m">
+          <p className="mb-5 w-11/12 text-wrap text-base">
             At LIMIT Lab., we embrace the power of collaboration to transcend
             limits in AI and computer vision research. By connecting globally
             and reimagining boundaries, we transform challenges into
@@ -36,7 +36,7 @@ export default function TopPage() {
             and industrial impact. Together, we redefine the very concept of
             limits.
           </p>
-          <h2 className="text-m font-semibold">Check out the past events</h2>
+          <h2 className="text-base font-semibold">Check out the past events</h2>
           <div className="flex gap-4">
             <Button
               className="rounded-2xl bg-button-background text-button-foreground hover:animate-scale-up-sm hover:bg-accent hover:text-accent-foreground"
@@ -74,12 +74,12 @@ export default function TopPage() {
       <div className="relative flex w-full max-w-[1000px] animate-slide-in-right gap-14 px-20 py-16 before:absolute before:inset-y-0 before:-right-full before:z-0 before:block before:w-[200%] before:rounded-l-3xl before:border before:border-block-border">
         <PaperOceanDesign />
         <div className="flex w-full animate-fade-in-top flex-col items-start gap-3 animate-delay-700 animate-duration-500">
-          <h1 className="mb-2 text-xxxl font-semibold leading-8 tracking-wider text-foreground shadow-background drop-shadow-md">
+          <h1 className="mb-2 text-3xl font-semibold leading-8 tracking-wider text-foreground shadow-background drop-shadow-md">
             Recent News
           </h1>
           <div className="space-y-2">
             {newsItems.map((item, index) => (
-              <div key={index} className="text-m">
+              <div key={index} className="text-base">
                 <strong className={`${geistMono.className}`}>
                   {item.date}:
                 </strong>{' '}
@@ -92,7 +92,7 @@ export default function TopPage() {
 
       {/* Member Information */}
       <div className="mb-16 flex w-full max-w-[1000px] animate-fade-in-top flex-col items-center gap-3 rounded-3xl border border-block-border px-20 py-16 animate-delay-700 animate-duration-500">
-        <h1 className="mb-2 text-xxxl font-semibold leading-8 tracking-wider text-foreground shadow-background drop-shadow-md">
+        <h1 className="mb-2 text-3xl font-semibold leading-8 tracking-wider text-foreground shadow-background drop-shadow-md">
           Our Members
         </h1>
         <div className="flex w-full flex-col items-center">

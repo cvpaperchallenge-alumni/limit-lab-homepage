@@ -235,6 +235,72 @@
   --yellow-track: #e1ea66;
 }
 
+:root, .light, .light-theme {
+  --red-1: #fffcfc;
+  --red-2: #fff8f7;
+  --red-3: #feebe7;
+  --red-4: #ffdcd3;
+  --red-5: #ffcdc1;
+  --red-6: #fdbdae;
+  --red-7: #f5a997;
+  --red-8: #ec8f7a;
+  --red-9: #e54d2e;
+  --red-10: #d73d1d;
+  --red-11: #cf3716;
+  --red-12: #5c281c;
+
+  --red-a1: #ff000003;
+  --red-a2: #ff200008;
+  --red-a3: #f52b0018;
+  --red-a4: #ff35002c;
+  --red-a5: #ff32003e;
+  --red-a6: #f9300051;
+  --red-a7: #e72d0068;
+  --red-a8: #db290085;
+  --red-a9: #df2600d1;
+  --red-a10: #d22400e2;
+  --red-a11: #cb2400e9;
+  --red-a12: #480e00e3;
+
+  --red-contrast: #fff;
+  --red-surface: #fff6f5cc;
+  --red-indicator: #e54d2e;
+  --red-track: #e54d2e;
+}
+
+.dark, .dark-theme {
+  --red-1: #160f0e;
+  --red-2: #1e1512;
+  --red-3: #381710;
+  --red-4: #4e160b;
+  --red-5: #5e1d10;
+  --red-6: #6d2a1c;
+  --red-7: #853b2b;
+  --red-8: #ac4d39;
+  --red-9: #e54d2e;
+  --red-10: #d63e1f;
+  --red-11: #ff9277;
+  --red-12: #fbd3ca;
+
+  --red-a1: #e6000006;
+  --red-a2: #fe5a240e;
+  --red-a3: #fe360b2a;
+  --red-a4: #fd240042;
+  --red-a5: #fe360e53;
+  --red-a6: #fe522e63;
+  --red-a7: #fd67467d;
+  --red-a8: #fe6d4ea7;
+  --red-a9: #fe5431e4;
+  --red-a10: #fe4722d4;
+  --red-a11: #ff9277;
+  --red-a12: #ffd6cdfb;
+
+  --red-contrast: #fff;
+  --red-surface: #2b191380;
+  --red-indicator: #e54d2e;
+  --red-track: #e54d2e;
+}
+
 
 @layer base {
   :root {
@@ -258,20 +324,40 @@
     --button-foreground: var(--gray-11);
     --button-border: var(--gray-6);
 
+    --button-pdf: var(--red-a3);
+    --button-pdf-hovered: var(--red-a4);
+    --button-pdf-foreground: var(--red-11);
+    --button-pdf-foreground-hovered: var(--red-12);
+    --button-pdf-edge: var(--red-6);
+
+    --button-project: var(--blue-a4);
+    --button-project-hovered: var(--blue-a5);
+    --button-project-foreground: var(--blue-11);
+    --button-project-foreground-hovered: var(--blue-12);
+    --button-project-edge: var(--blue-6);
+
+    --button-github: var(--gray-a4);
+    --button-github-hovered: var(--gray-a5);
+    --button-github-foreground: var(--gray-11);
+    --button-github-foreground-hovered: var(--gray-12);
+    --button-github-edge: var(--gray-6);
+
     --orbit: var(--blue-8);
     --particle-glow: var(--blue-9);
 
     --background-gradation-1: var(--blue-1);
     --background-gradation-2: var(--blue-2);
-
     --background-line: var(--gray-3);
 
     --block-border: var(--gray-8);
 
+    --underline: var(--gray-10);
+
+
     /* shadcn/ui variables */
     --background: var(--gray-1);
     --foreground: var(--gray-12);
-    --card: var(--gray-a2);
+    --card: var(--gray-a3);
     --card-foreground: hsl(224 71.4% 4.1%);
     --popover: hsl(0 0% 100%);
     --popover-foreground: hsl(224 71.4% 4.1%);

@@ -41,20 +41,20 @@ export function Footer() {
             </Avatar>
             <span className="text-xl font-bold">LIMIT Lab</span>
           </div>
-          <div className="text-xxs text-sub">
+          <div className="text-xs text-sub">
             © 2024 LIMIT Lab. All rights reserved.
           </div>
         </div>
 
         <div className="block md:hidden">
-          <div className="flex gap-2 text-xxxs md:pl-2 md:text-xxs">
+          <div className="flex gap-2 text-xxs md:pl-2 md:text-xs">
             Developed by{' '}
             <span className="inline">cvpaper.challenge alumni community</span>
           </div>
         </div>
 
         <div className="hidden md:mr-10 md:flex md:flex-col md:items-start md:gap-0">
-          <div className="pl-2 text-xxs">Supported by </div>
+          <div className="pl-2 text-xs">Supported by </div>
           <div
             className="flex items-center gap-4"
             onMouseEnter={() => setHasHoveredAlumni(true)}
