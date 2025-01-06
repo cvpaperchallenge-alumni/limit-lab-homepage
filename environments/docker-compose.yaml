@@ -8,6 +8,15 @@ services:
     tty: true
     init: true
     volumes:
-        - ../:/home/node/limit-lab-homepage
+      - ../:/home/node/limit-lab-homepage
     ports:
-        - 3001:3000
+      - 3001:3000
+  
+  terraform:
+    build:
+      context: ../
+      dockerfile: environments/Dockerfile.terraform
+    tty: true
+    entrypoint: bash
+    volumes:
+      - ../:/home/limit-lab-homepage
