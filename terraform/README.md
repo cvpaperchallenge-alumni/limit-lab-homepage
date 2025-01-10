@@ -85,6 +85,25 @@ terraform plan
 terraform apply
 ```
 
+### Deploy `dev` resources
+
+> [!NOTE]
+> Currently, `dev` resources are deployed in the same AWS account (`664418960222`) as `prod` and `shared`.
+> This is to minimize operational costs, but ideally, `dev` resources should be deployed in a separate AWS account.
+
+The `dev` environment includes following resources.
+- S3 bucket for static website hosting.
+- CloudFront distribution for CDN.
+- Route 53 record set for sub-domain.
+
+```bash
+cd terraform/dev
+
+terraform init
+terraform plan
+terraform apply
+```
+
 ### Deploy `prod` resources
 
 The `prod` environment includes following resources.
@@ -107,6 +126,15 @@ terraform apply
 
 ```bash
 cd terraform/prod
+
+terraform init
+terraform destroy
+```
+
+### Undeploy `dev` resources
+
+```bash
+cd terraform/dev
 
 terraform init
 terraform destroy
