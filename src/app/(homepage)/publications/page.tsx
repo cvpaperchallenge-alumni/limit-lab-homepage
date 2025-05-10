@@ -44,13 +44,15 @@ export default function PublicationsPage() {
   }, [theme])
 
   // Filter the publications
-  const filteredPublications = samplePublications.filter((pub) => {
-    const confMatch =
-      conferenceFilter === 'all' || pub.conference === conferenceFilter
-    const yearMatch = yearFilter === 'all' || String(pub.year) === yearFilter
-    const fieldMatch = fieldFilter === 'all' || pub.field === fieldFilter
-    return confMatch && yearMatch && fieldMatch
-  })
+  const filteredPublications = samplePublications
+    .filter((pub) => {
+      const confMatch =
+        conferenceFilter === 'all' || pub.conference === conferenceFilter
+      const yearMatch = yearFilter === 'all' || String(pub.year) === yearFilter
+      const fieldMatch = fieldFilter === 'all' || pub.field === fieldFilter
+      return confMatch && yearMatch && fieldMatch
+    })
+    .sort((a, b) => b.id - a.id) // Sort by ID in descending order to add new publications at the top
 
   return (
     <div className="flex w-4/5 flex-1 flex-col items-center gap-8">
