@@ -74,7 +74,7 @@ export default function TopPage() {
 
       {/* Recent News */}
       <div className="relative flex w-full max-w-[1000px] animate-slide-in-right flex-col-reverse items-center gap-6 px-4 py-8 sm:px-8 sm:py-10 md:flex-row md:items-center md:gap-8 md:px-12 md:py-14 lg:gap-14 lg:px-20 before:absolute before:inset-y-0 before:-right-full before:z-0 before:block before:w-[200%] before:rounded-l-3xl before:border before:border-block-border">
-        <div className="flex justify-center md:justify-start">
+        <div className="flex h-auto w-auto min-w-[320px] justify-center md:justify-start">
           <PaperOceanDesign />
         </div>
         <div className="flex w-full animate-fade-in-top flex-col items-start gap-3 animate-delay-700 animate-duration-500">

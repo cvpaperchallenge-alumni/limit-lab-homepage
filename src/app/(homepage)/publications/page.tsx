@@ -132,13 +132,14 @@ export default function PublicationsPage() {
             <Card key={pub.id} className="w-full place-content-center p-3 sm:p-4">
               <CardContent className="flex h-full flex-col items-center gap-4 p-0 md:flex-row md:items-start">
                 {/* Publication Image */}
-                <div className="w-full md:w-1/3 md:min-w-60 lg:min-w-80">
+                <div className="w-full overflow-hidden rounded-md md:w-1/3 md:min-w-60 lg:min-w-80">
                   <AspectRatio ratio={16 / 9}>
                     <Image
                       src={pub.imageUrl}
                       alt={pub.title}
                       fill
                       className="rounded-md object-cover"
+                      priority={pub.id === 1}
                     />
                   </AspectRatio>
                 </div>
