@@ -62,24 +62,24 @@ export function Header() {
   }, [])
 
   return (
-    <div className="flex h-24 w-full justify-center bg-secondary p-6 text-secondary-foreground">
-      <div className="flex w-full max-w-[1500px] justify-between">
+    <div className="flex h-auto min-h-[5rem] w-full justify-center bg-secondary p-4 py-6 text-secondary-foreground sm:p-6">
+      <div className="flex w-full max-w-[1500px] flex-wrap justify-between">
         {/* Logo + Title */}
-        <div className="flex justify-between gap-7 md:min-w-[550px]">
+        <div className="flex justify-between gap-4 sm:gap-7 lg:flex-1">
           <div className="flex items-center gap-2">
-            <Avatar className="size-8">
+            <Avatar className="size-7 sm:size-8">
               <AvatarImage src="https://via.placeholder.com/32" alt="Logo" />
               <AvatarFallback>AL</AvatarFallback>
             </Avatar>
-            <span className="text-xl font-bold">LIMIT Lab</span>
+            <span className="text-lg font-bold sm:text-xl">LIMIT Lab</span>
             <Separator
               orientation="vertical"
-              className="ml-5 hidden bg-muted-foreground md:block"
+              className="ml-3 hidden bg-muted-foreground sm:ml-5 md:block"
             />
           </div>
 
           {/* Navigation Links */}
-          <div className="hidden items-center justify-between space-x-5 md:flex">
+          <div className="hidden items-center justify-between space-x-3 md:flex lg:space-x-5">
             <Button
               variant="link"
               asChild
@@ -181,14 +181,14 @@ export function Header() {
         </div>
 
         {/* Theme Switcher */}
-        <div className="flex items-center space-x-6">
+        <div className="flex items-center space-x-4 sm:space-x-6">
           {isLoading ? (
-            <div className="flex w-24 flex-row justify-center">
+            <div className="flex w-16 flex-row justify-center sm:w-24">
               <Spinner size="small" />
             </div>
           ) : (
             <div className="flex items-center space-x-2">
-              <RxSun className="size-4 text-sun-icon" />
+              <RxSun className="size-3.5 text-sun-icon sm:size-4" />
               <Switch
                 id="theme-mode"
                 checked={isDarkMode}
@@ -202,7 +202,7 @@ export function Header() {
                     : 'var(--sun-icon)',
                 }}
               />
-              <RxMoon className="size-4 text-moon-icon" />
+              <RxMoon className="size-3.5 text-moon-icon sm:size-4" />
             </div>
           )}
           <div className="md:hidden">

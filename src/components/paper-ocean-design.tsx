@@ -17,17 +17,20 @@ export function PaperOceanDesign() {
   }
 
   return (
-    <div className="relative h-64 min-w-80" onMouseMove={handleMouseMove}>
+    <div
+      className="relative h-48 w-full max-w-80 sm:h-56 md:h-64"
+      onMouseMove={handleMouseMove}
+    >
       <Image
         src={testImage}
         alt="paper ocean"
-        className="pointer-events-none absolute h-64 w-80 rounded-2xl object-cover blur-[2px] contrast-75"
+        className="pointer-events-none absolute h-full w-full rounded-2xl object-cover blur-[2px] contrast-75"
       />
       <Image
         src={testImage}
         alt="paper ocean"
         className={
-          'pointer-events-none absolute h-64 w-80 rounded-2xl object-cover ' +
+          'pointer-events-none absolute h-full w-full rounded-2xl object-cover ' +
           (isIdle ? 'animate-scale-up-md' : '')
         }
         style={{
