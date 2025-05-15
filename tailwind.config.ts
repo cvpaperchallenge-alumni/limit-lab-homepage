@@ -79,7 +79,7 @@ const config = {
         sub: 'var(--sub)',
         orbit: 'var(--orbit)',
         particle:{
-          glow: 'var(--particle-grow)',
+          glow: 'var(--particle-glow)',
         },
         block: {
           border: 'var(--block-border)',
