@@ -10,8 +10,8 @@ services:
     volumes:
       - ../:/home/node/limit-lab-homepage
     ports:
-      - 3001:3000
-  
+      - 3000:3000
+
   terraform:
     build:
       context: ../
