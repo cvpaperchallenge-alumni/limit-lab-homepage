@@ -20,3 +20,10 @@ variable "project_name" {
   description = "The name of the project."
   default     = "limitlab-webpage"
 }
+
+
+variable "github_username" {
+  type        = string
+  description = "The GitHub username."
+  default     = "cvpaperchallenge"
+}
