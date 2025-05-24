@@ -65,7 +65,7 @@ export function Header() {
     <div className="flex h-auto min-h-[5rem] w-full justify-center bg-secondary p-4 py-6 text-secondary-foreground sm:p-6">
       <div className="flex w-full max-w-[1500px] flex-wrap justify-between">
         {/* Logo + Title */}
-        <div className="flex justify-between gap-4 sm:gap-7 lg:flex-1">
+        <div className="flex justify-between gap-4 sm:gap-7">
           <div className="flex items-center gap-2">
             <Avatar className="size-7 sm:size-8">
               <AvatarImage src="https://via.placeholder.com/32" alt="Logo" />
@@ -79,7 +79,7 @@ export function Header() {
           </div>
 
           {/* Navigation Links */}
-          <div className="hidden items-center justify-between space-x-3 md:flex lg:space-x-5">
+          <div className="hidden items-center justify-between space-x-5 md:flex">
             <Button
               variant="link"
               asChild
