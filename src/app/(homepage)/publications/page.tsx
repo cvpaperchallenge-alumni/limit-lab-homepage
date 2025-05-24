@@ -54,10 +54,18 @@ export default function PublicationsPage() {
     .sort((a, b) => b.id - a.id) // Sort by ID in descending order to add new publications at the top
 
   return (
-    <div className="flex w-11/12 flex-1 flex-col items-center gap-6 sm:w-4/5 sm:gap-8">
-      <h1 className="mt-8 text-2xl font-semibold leading-7 tracking-wider sm:mt-12 md:mt-16 md:text-3xl md:leading-8">
-        Publications
-      </h1>
+    <div className="flex w-11/12 flex-1 flex-col items-center gap-6 py-8 sm:w-4/5 sm:gap-8">
+      {/* Page Title */}
+      <div className="w-full max-w-[1000px] text-center">
+        <h1 className="mb-2 text-2xl font-semibold leading-7 tracking-wider text-foreground shadow-background drop-shadow-md sm:text-3xl md:text-4xl md:leading-10">
+          Publications
+        </h1>
+        <p className="mx-auto mt-4 max-w-2xl text-sm text-sub sm:text-base">
+          Explore our latest research publications, showcasing advancements in
+          various fields. Use the filters below to find publications by
+          conference, year, or field of study.
+        </p>
+      </div>
       <div className="flex w-full max-w-[1000px] flex-col items-center gap-5 rounded-3xl border border-block-border px-4 pb-8 pt-6 sm:gap-7 sm:px-8 sm:pb-12 sm:pt-8 md:px-10 md:pb-16 md:pt-10">
         {/* Filters */}
         <div className="flex w-full flex-wrap gap-3 self-end sm:flex-nowrap sm:gap-4 sm:self-end">
