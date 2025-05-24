@@ -302,6 +302,72 @@
 }
 
 
+:root, .light, .light-theme {
+  --green-1: #f9fffa;
+  --green-2: #f3fcf4;
+  --green-3: #e2f9e6;
+  --green-4: #d0f4d7;
+  --green-5: #b9eec4;
+  --green-6: #9ce4ac;
+  --green-7: #81d395;
+  --green-8: #67b97c;
+  --green-9: #142;
+  --green-10: #265733;
+  --green-11: #2a7e45;
+  --green-12: #0b401e;
+
+  --green-a1: #00ff2b06;
+  --green-a2: #00c0160c;
+  --green-a3: #00cb241d;
+  --green-a4: #00c4262f;
+  --green-a5: #00c22946;
+  --green-a6: #00ba2a63;
+  --green-a7: #00a6297e;
+  --green-a8: #008a2498;
+  --green-a9: #003712ee;
+  --green-a10: #003a0fd9;
+  --green-a11: #006520d5;
+  --green-a12: #003714f4;
+
+  --green-contrast: #fff;
+  --green-surface: #f0fbf1cc;
+  --green-indicator: #142;
+  --green-track: #142;
+}
+
+.dark, .dark-theme {
+  --green-1: #0c130d;
+  --green-2: #121b14;
+  --green-3: #152c1b;
+  --green-4: #133c1f;
+  --green-5: #184a28;
+  --green-6: #1f5931;
+  --green-7: #266a3b;
+  --green-8: #2a7d45;
+  --green-9: #50a267;
+  --green-10: #43955b;
+  --green-11: #7bcd8f;
+  --green-12: #b0f4be;
+
+  --green-a1: #00bb0003;
+  --green-a2: #29f9570b;
+  --green-a3: #35ff691d;
+  --green-a4: #1cfb5d2f;
+  --green-a5: #2efc703e;
+  --green-a6: #3ffd7a4e;
+  --green-a7: #49fd8060;
+  --green-a8: #48ff8474;
+  --green-a9: #78fe9d9c;
+  --green-a10: #6afe958e;
+  --green-a11: #96feb0ca;
+  --green-a12: #b7fec6f4;
+
+  --green-contrast: #fff;
+  --green-surface: #13251780;
+  --green-indicator: #50a267;
+  --green-track: #50a267;
+}
+
 @layer base {
   :root {
     /* original component variables */
@@ -341,6 +407,11 @@
     --button-github-foreground: var(--gray-11);
     --button-github-foreground-hovered: var(--gray-12);
     --button-github-edge: var(--gray-6);
+
+    --badge-conference: var(--blue-a5);
+    --badge-conference-foreground: var(--blue-11);
+    --badge-year: var(--green-a5);
+    --badge-year-foreground: var(--green-11);
 
     --orbit: var(--blue-8);
     --particle-glow: var(--blue-9);

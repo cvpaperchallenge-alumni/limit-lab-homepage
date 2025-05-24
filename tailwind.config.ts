@@ -66,6 +66,16 @@ const config = {
             edge: 'var(--button-github-edge)',
           }
         },
+        badge: {
+          conference: {
+            DEFAULT: 'var(--badge-conference)',
+            foreground: 'var(--badge-conference-foreground)',
+          },
+          year: {
+            DEFAULT: 'var(--badge-year)',
+            foreground: 'var(--badge-year-foreground)',
+          },
+        },
         sun: {
           icon: 'var(--sun-icon)',
         },
