@@ -24,7 +24,7 @@ export function PaperOceanDesign() {
       <Image
         src={testImage}
         alt="paper ocean background"
-        className="pointer-events-none absolute inset-0 h-full w-full object-cover blur-[2px] contrast-75"
+        className="pointer-events-none absolute inset-0 size-full object-cover blur-[2px] contrast-75"
         priority
       />
 
@@ -36,16 +36,18 @@ export function PaperOceanDesign() {
           (isIdle ? 'animate-scale-up-md' : '')
         }
         style={{
-          clipPath: cursor.x === 0 && cursor.y === 0
-            ? 'circle(30px at 50% 50%)'
-            : isIdle
-              ? `circle(50px at ${cursor.x}px ${cursor.y}px)`
-              : `circle(30px at ${cursor.x}px ${cursor.y}px)`,
+          clipPath:
+            cursor.x === 0 && cursor.y === 0
+              ? 'circle(30px at 50% 50%)'
+              : isIdle
+                ? `circle(50px at ${cursor.x}px ${cursor.y}px)`
+                : `circle(30px at ${cursor.x}px ${cursor.y}px)`,
           transition: isIdle ? 'clip-path 0.5s, transform 0.5s' : 'none',
           transform: isIdle ? 'scale(1.2)' : 'scale(1)',
-          transformOrigin: cursor.x === 0 && cursor.y === 0
-            ? 'center center'
-            : `${cursor.x}px ${cursor.y}px`,
+          transformOrigin:
+            cursor.x === 0 && cursor.y === 0
+              ? 'center center'
+              : `${cursor.x}px ${cursor.y}px`,
         }}
         priority
       />

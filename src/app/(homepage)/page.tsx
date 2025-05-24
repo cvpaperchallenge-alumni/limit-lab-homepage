@@ -23,7 +23,7 @@ export default function TopPage() {
   return (
     <div className="flex w-11/12 flex-1 flex-col items-center justify-start gap-12 sm:w-4/5 sm:gap-16 md:gap-20">
       {/* About Us */}
-      <div className="relative mt-8 flex max-w-[1000px] animate-slide-in-left flex-col items-center gap-6 px-4 py-8 sm:mt-12 sm:px-8 sm:py-10 md:mt-16 md:flex-row md:items-center md:gap-8 md:px-12 md:py-14 lg:px-20 before:absolute before:inset-y-0 before:-left-full before:z-0 before:block before:w-[200%] before:rounded-r-3xl before:border before:border-block-border">
+      <div className="relative mt-8 flex max-w-[1000px] animate-slide-in-left flex-col items-center gap-6 px-4 py-8 before:absolute before:inset-y-0 before:-left-full before:z-0 before:block before:w-[200%] before:rounded-r-3xl before:border before:border-block-border sm:mt-12 sm:px-8 sm:py-10 md:mt-16 md:flex-row md:items-center md:gap-8 md:px-12 md:py-14 lg:px-20">
         <div className="relative flex animate-fade-in-top flex-col items-start gap-3 text-foreground animate-delay-700 animate-duration-500">
           <h1 className="mb-2 text-2xl font-semibold leading-7 tracking-wider text-foreground shadow-background drop-shadow-md sm:text-2xl md:text-3xl md:leading-8">
             Unleash our LIMITless potential
@@ -36,7 +36,9 @@ export default function TopPage() {
             and industrial impact. Together, we redefine the very concept of
             limits.
           </p>
-          <h2 className="text-sm font-semibold sm:text-base">Check out the past events</h2>
+          <h2 className="text-sm font-semibold sm:text-base">
+            Check out the past events
+          </h2>
           <div className="flex flex-wrap gap-3 sm:gap-4">
             <Button
               className="h-auto rounded-2xl bg-button-background py-2 text-button-foreground hover:animate-scale-up-sm hover:bg-accent hover:text-accent-foreground sm:h-10 sm:py-0"
@@ -73,8 +75,8 @@ export default function TopPage() {
       </div>
 
       {/* Recent News */}
-      <div className="relative flex w-full max-w-[1000px] animate-slide-in-right flex-col-reverse items-center gap-6 px-4 py-8 sm:px-8 sm:py-10 md:flex-row md:items-center md:gap-8 md:px-12 md:py-14 lg:gap-14 lg:px-20 before:absolute before:inset-y-0 before:-right-full before:z-0 before:block before:w-[200%] before:rounded-l-3xl before:border before:border-block-border">
-        <div className="flex h-auto w-auto min-w-[320px] justify-center md:justify-start">
+      <div className="relative flex w-full max-w-[1000px] animate-slide-in-right flex-col-reverse items-center gap-6 px-4 py-8 before:absolute before:inset-y-0 before:-right-full before:z-0 before:block before:w-[200%] before:rounded-l-3xl before:border before:border-block-border sm:px-8 sm:py-10 md:flex-row md:items-center md:gap-8 md:px-12 md:py-14 lg:gap-14 lg:px-20">
+        <div className="flex size-auto min-w-[320px] justify-center md:justify-start">
           <PaperOceanDesign />
         </div>
         <div className="flex w-full animate-fade-in-top flex-col items-start gap-3 animate-delay-700 animate-duration-500">
@@ -95,14 +97,17 @@ export default function TopPage() {
       </div>
 
       {/* Member Information */}
-      <div className="mb-8 flex w-full max-w-[1000px] animate-fade-in-top flex-col items-center gap-3 rounded-3xl border border-block-border px-4 py-8 sm:mb-12 sm:px-8 sm:py-10 md:mb-16 md:px-12 md:py-14 lg:px-20 animate-delay-700 animate-duration-500">
+      <div className="mb-8 flex w-full max-w-[1000px] animate-fade-in-top flex-col items-center gap-3 rounded-3xl border border-block-border px-4 py-8 animate-delay-700 animate-duration-500 sm:mb-12 sm:px-8 sm:py-10 md:mb-16 md:px-12 md:py-14 lg:px-20">
         <h1 className="mb-2 text-2xl font-semibold leading-7 tracking-wider text-foreground shadow-background drop-shadow-md sm:text-2xl md:text-3xl md:leading-8">
           Our Members
         </h1>
         <div className="flex w-full flex-col items-center">
           <div className="grid grid-cols-1 gap-4 xs:grid-cols-2 sm:gap-6 md:grid-cols-3 xl:grid-cols-4">
             {members.map((member, idx) => (
-              <Card key={idx} className="pb-1 pt-4 shadow backdrop-blur-xs sm:pt-5">
+              <Card
+                key={idx}
+                className="pb-1 pt-4 shadow backdrop-blur-xs sm:pt-5"
+              >
                 <CardContent>
                   <div className="flex justify-center">
                     <Avatar className="size-12 sm:size-16">
@@ -111,7 +116,9 @@ export default function TopPage() {
                     </Avatar>
                   </div>
                   <div className="space-y-1 pt-2 text-center sm:pt-3">
-                    <div className="text-sm font-semibold sm:text-base">{member.name}</div>
+                    <div className="text-sm font-semibold sm:text-base">
+                      {member.name}
+                    </div>
                     <div className="text-xs text-muted-foreground sm:text-sm">
                       {member.affiliation}
                     </div>

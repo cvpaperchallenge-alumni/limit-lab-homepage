@@ -62,7 +62,7 @@ export function Header() {
   }, [])
 
   return (
-    <div className="flex h-auto min-h-[5rem] w-full justify-center bg-secondary p-4 py-6 text-secondary-foreground sm:p-6">
+    <div className="flex h-auto min-h-20 w-full justify-center bg-secondary p-4 py-6 text-secondary-foreground sm:p-6">
       <div className="flex w-full max-w-[1500px] flex-wrap justify-between">
         {/* Logo + Title */}
         <div className="flex justify-between gap-4 sm:gap-7">

@@ -30,7 +30,7 @@ export function Footer() {
   }, [theme])
 
   return (
-    <div className="flex min-h-[11rem] w-full justify-center bg-secondary p-4 py-6 text-secondary-foreground sm:p-6">
+    <div className="flex min-h-44 w-full justify-center bg-secondary p-4 py-6 text-secondary-foreground sm:p-6">
       <div className="flex w-full max-w-[1500px] flex-col items-center justify-between gap-6 sm:gap-4 md:flex-row">
         {/* Placeholder logo */}
         <div className="flex flex-col items-center gap-1 md:ml-4 md:items-start lg:ml-10">

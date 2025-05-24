@@ -5,15 +5,20 @@ import {
   HiOutlineLocationMarker,
   HiOutlineMail,
   HiOutlinePhone,
-  HiOutlineAcademicCap
+  HiOutlineAcademicCap,
 } from 'react-icons/hi'
 import { RxGithubLogo } from 'react-icons/rx'
 import { PiXLogo } from 'react-icons/pi'
 import Link from 'next/link'
-import Image from 'next/image'
 
 // shadcn/ui components
-import { Card, CardHeader, CardContent, CardFooter, CardTitle, CardDescription } from '@/components/ui/card'
+import {
+  Card,
+  CardHeader,
+  CardContent,
+  CardTitle,
+  CardDescription,
+} from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
@@ -26,7 +31,9 @@ export default function ContactPage() {
   const [subject, setSubject] = useState('')
   const [message, setMessage] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [submitStatus, setSubmitStatus] = useState<
+    'idle' | 'success' | 'error'
+  >('idle')
 
   // Form submission handler
   const handleSubmit = async (e: React.FormEvent) => {
@@ -36,7 +43,7 @@ export default function ContactPage() {
 
     try {
       // Simulate API call with timeout
-      await new Promise(resolve => setTimeout(resolve, 1500))
+      await new Promise((resolve) => setTimeout(resolve, 1500))
       console.log('Sending message:', { name, email, subject, message })
 
       // Reset form
@@ -62,7 +69,8 @@ export default function ContactPage() {
         </h1>
         <p className="mx-auto mt-4 max-w-2xl text-sm text-sub sm:text-base">
           Have questions about our research or interested in collaboration?
-          We'd love to hear from you. Reach out using the form below or through our contact information.
+          We&apos;d love to hear from you. Reach out using the form below or
+          through our contact information.
         </p>
       </div>
 
@@ -70,12 +78,12 @@ export default function ContactPage() {
       <div className="flex w-full max-w-[1000px] flex-col gap-8 lg:flex-row">
         {/* Contact Information */}
         <div className="w-full animate-fade-in-top lg:w-2/5">
-          <Card className="h-full overflow-hidden border-block-border bg-card/70 backdrop-blur-sm">
+          <Card className="bg-card/70 h-full overflow-hidden border-block-border backdrop-blur-sm">
             <CardHeader className="pb-2">
               <CardTitle className="text-xl font-semibold sm:text-2xl">
                 Get in Touch
               </CardTitle>
-              <CardDescription className='text-sm text-sub font-semibold'>
+              <CardDescription className="text-sm font-semibold text-sub">
                 Connect with LIMIT Lab through various channels
               </CardDescription>
             </CardHeader>
@@ -83,19 +91,21 @@ export default function ContactPage() {
               {/* Contact Details */}
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
-                  <HiOutlineLocationMarker className="mt-1 size-5 flex-shrink-0 text-accent-foreground" />
+                  <HiOutlineLocationMarker className="mt-1 size-5 shrink-0 text-accent-foreground" />
                   <div>
                     <h3 className="font-medium">Address</h3>
                     <p className="text-sm text-sub">
-                      123 Research Avenue, Innovation Building<br />
-                      Tokyo, 123-4567<br />
+                      123 Research Avenue, Innovation Building
+                      <br />
+                      Tokyo, 123-4567
+                      <br />
                       Japan
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <HiOutlineMail className="mt-1 size-5 flex-shrink-0 text-accent-foreground" />
+                  <HiOutlineMail className="mt-1 size-5 shrink-0 text-accent-foreground" />
                   <div>
                     <h3 className="font-medium">Email</h3>
                     <p className="text-sm text-sub">
@@ -105,28 +115,27 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <HiOutlinePhone className="mt-1 size-5 flex-shrink-0 text-accent-foreground" />
+                  <HiOutlinePhone className="mt-1 size-5 shrink-0 text-accent-foreground" />
                   <div>
                     <h3 className="font-medium">Phone</h3>
-                    <p className="text-sm text-sub">
-                      +81 (0)3-1234-5678
-                    </p>
+                    <p className="text-sm text-sub">+81 (0)3-1234-5678</p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <HiOutlineAcademicCap className="mt-1 size-5 flex-shrink-0 text-accent-foreground" />
+                  <HiOutlineAcademicCap className="mt-1 size-5 shrink-0 text-accent-foreground" />
                   <div>
                     <h3 className="font-medium">Academic Inquiries</h3>
                     <p className="text-sm text-sub">
-                      For research collaborations and academic inquiries:<br />
+                      For research collaborations and academic inquiries:
+                      <br />
                       research@limitlab.example.com
                     </p>
                   </div>
                 </div>
               </div>
 
-              <Separator className='h-[2px]'/>
+              <Separator className="h-[2px]" />
 
               {/* Social Links */}
               <div>
@@ -135,7 +144,7 @@ export default function ContactPage() {
                   <Link
                     href="https://github.com/limitlab"
                     target="_blank"
-                    className="flex items-center gap-2 rounded-md border border-input bg-button-background text-button-foreground px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
+                    className="flex items-center gap-2 rounded-md border border-input bg-button-background px-3 py-2 text-sm text-button-foreground hover:bg-accent hover:text-accent-foreground"
                   >
                     <RxGithubLogo className="size-4" />
                     <span>GitHub</span>
@@ -143,7 +152,7 @@ export default function ContactPage() {
                   <Link
                     href="https://twitter.com/limitlab"
                     target="_blank"
-                    className="flex items-center gap-2 rounded-md border border-input bg-button-background text-button-foreground px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
+                    className="flex items-center gap-2 rounded-md border border-input bg-button-background px-3 py-2 text-sm text-button-foreground hover:bg-accent hover:text-accent-foreground"
                   >
                     <PiXLogo className="size-4" />
                     <span>X</span>
@@ -156,13 +165,14 @@ export default function ContactPage() {
 
         {/* Contact Form */}
         <div className="w-full animate-fade-in-top lg:w-3/5">
-          <Card className="border-block-border bg-card/70 backdrop-blur-sm">
+          <Card className="bg-card/70 border-block-border backdrop-blur-sm">
             <CardHeader className="pb-2">
               <CardTitle className="text-xl font-semibold sm:text-2xl">
                 Send a Message
               </CardTitle>
-              <CardDescription className='text-sm text-sub font-semibold'>
-                Fill out the form below and we'll get back to you as soon as possible
+              <CardDescription className="text-sm font-semibold text-sub">
+                Fill out the form below and we&apos;ll get back to you as soon
+                as possible
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -236,13 +246,15 @@ export default function ContactPage() {
                 {/* Status Messages */}
                 {submitStatus === 'success' && (
                   <div className="rounded-md bg-green-50 p-3 text-sm text-green-800 dark:bg-green-900/30 dark:text-green-200">
-                    Your message has been sent successfully! We'll get back to you soon.
+                    Your message has been sent successfully! We&apos;ll get back
+                    to you soon.
                   </div>
                 )}
 
                 {submitStatus === 'error' && (
                   <div className="rounded-md bg-red-50 p-3 text-sm text-red-800 dark:bg-red-900/30 dark:text-red-200">
-                    There was an error sending your message. Please try again later.
+                    There was an error sending your message. Please try again
+                    later.
                   </div>
                 )}
 

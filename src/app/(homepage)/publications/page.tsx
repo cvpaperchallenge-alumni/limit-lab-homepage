@@ -1,7 +1,6 @@
 'use client'
 
-import { useTheme } from 'next-themes'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Image from 'next/image'
 import { RxFile, RxGithubLogo } from 'react-icons/rx'
 import { RiGlobalLine } from 'react-icons/ri'
@@ -26,8 +25,6 @@ export default function PublicationsPage() {
   const [conferenceFilter, setConferenceFilter] = useState<string>('all')
   const [yearFilter, setYearFilter] = useState<string>('all')
   const [fieldFilter, setFieldFilter] = useState<string>('all')
-  const { theme } = useTheme()
-  const [isDarkMode, setIsDarkMode] = useState(false)
 
   // Extract unique options
   const conferences = Array.from(
@@ -35,12 +32,6 @@ export default function PublicationsPage() {
   )
   const years = Array.from(new Set(samplePublications.map((p) => p.year)))
   const fields = Array.from(new Set(samplePublications.map((p) => p.field)))
-
-  useEffect(() => {
-    if (theme) {
-      setIsDarkMode(theme === 'dark')
-    }
-  }, [theme])
 
   // Filter the publications
   const filteredPublications = samplePublications
@@ -136,7 +127,10 @@ export default function PublicationsPage() {
         {/* Publication List */}
         <div className="flex w-full flex-col items-center gap-4">
           {filteredPublications.map((pub) => (
-            <Card key={pub.id} className="w-full place-content-center p-3 sm:p-4">
+            <Card
+              key={pub.id}
+              className="w-full place-content-center p-3 sm:p-4"
+            >
               <CardContent className="flex h-full flex-col items-center gap-4 p-0 md:flex-row md:items-start">
                 {/* Publication Image */}
                 <div className="w-full overflow-hidden rounded-md md:w-1/3 md:min-w-60 lg:min-w-80">
@@ -155,10 +149,16 @@ export default function PublicationsPage() {
                 <div className="flex w-full flex-1 flex-col items-start justify-between gap-3 py-1 md:h-full md:py-2">
                   {/* Tags */}
                   <div className="flex w-fit gap-2 self-end">
-                    <Badge variant="conference" className="text-xs font-medium sm:text-sm">
+                    <Badge
+                      variant="conference"
+                      className="text-xs font-medium sm:text-sm"
+                    >
                       {pub.conference}
                     </Badge>
-                    <Badge variant="year" className="text-xs font-medium sm:text-sm">
+                    <Badge
+                      variant="year"
+                      className="text-xs font-medium sm:text-sm"
+                    >
                       {pub.year}
                     </Badge>
                   </div>
@@ -187,7 +187,9 @@ export default function PublicationsPage() {
                       className="flex h-auto items-center gap-1 rounded-md border border-button-project bg-button-project px-2 py-1.5 text-button-project-foreground hover:bg-button-project-hovered hover:text-button-project-foreground-hovered sm:gap-2 sm:px-3 sm:py-2"
                     >
                       <RiGlobalLine className="size-4 sm:size-5" />
-                      <span className="text-xs font-medium sm:text-sm">Project Page</span>
+                      <span className="text-xs font-medium sm:text-sm">
+                        Project Page
+                      </span>
                     </Link>
                     <Link
                       href={pub.pdfFileUrl}
@@ -195,7 +197,9 @@ export default function PublicationsPage() {
                       className="flex h-auto items-center gap-1 rounded-md border border-button-pdf bg-button-pdf px-2 py-1.5 text-button-pdf-foreground hover:bg-button-pdf-hovered hover:text-button-pdf-foreground-hovered sm:gap-2 sm:px-3 sm:py-2"
                     >
                       <RxFile className="size-4 sm:size-5" />
-                      <span className="text-xs font-medium sm:text-sm">PDF</span>
+                      <span className="text-xs font-medium sm:text-sm">
+                        PDF
+                      </span>
                     </Link>
                     <Link
                       href={pub.githubUrl}
@@ -203,7 +207,9 @@ export default function PublicationsPage() {
                       className="flex h-auto items-center gap-1 rounded-md border border-button-github bg-button-github px-2 py-1.5 text-button-github-foreground hover:bg-button-github-hovered hover:text-button-github-foreground-hovered sm:gap-2 sm:px-3 sm:py-2"
                     >
                       <RxGithubLogo className="size-4 sm:size-5" />
-                      <span className="text-xs font-medium sm:text-sm">GitHub</span>
+                      <span className="text-xs font-medium sm:text-sm">
+                        GitHub
+                      </span>
                     </Link>
                   </div>
                 </div>
