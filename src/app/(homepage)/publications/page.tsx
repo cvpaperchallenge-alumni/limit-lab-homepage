@@ -7,13 +7,12 @@ import { RxFile, RxGithubLogo } from 'react-icons/rx'
 import { RiGlobalLine } from 'react-icons/ri'
 import Link from 'next/link'
 import { Separator } from '@radix-ui/react-separator'
-import tagIconBlack from '../../../../public/tag-icon-black.png'
-import tagIconWhite from '../../../../public/tag-icon-white.png'
 
 import { samplePublications } from '@/data/publicationPageData'
 
 // shadcn/ui components
 import { Card, CardContent } from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
 import {
   Select,
   SelectTrigger,
@@ -147,27 +146,13 @@ export default function PublicationsPage() {
                 {/* Publication Details */}
                 <div className="flex w-full flex-1 flex-col items-start justify-between gap-3 py-1 md:h-full md:py-2">
                   {/* Tags */}
-                  <div className="flex h-6 w-fit gap-3 self-end">
-                    <div className="relative h-full w-20">
-                      <Image
-                        src={isDarkMode ? tagIconBlack : tagIconWhite}
-                        alt="conference icon"
-                        className="absolute inset-y-0 right-0 h-5 w-auto sm:h-6"
-                      />
-                      <span className="absolute left-[30px] top-[2px] text-xs font-medium sm:text-sm">
-                        {pub.conference}
-                      </span>
-                    </div>
-                    <div className="relative h-full w-20">
-                      <Image
-                        src={isDarkMode ? tagIconBlack : tagIconWhite}
-                        alt="year icon"
-                        className="absolute inset-y-0 right-0 h-5 w-auto sm:h-6"
-                      />
-                      <span className="absolute left-[30px] top-[2px] text-xs font-medium sm:text-sm">
-                        {pub.year}
-                      </span>
-                    </div>
+                  <div className="flex w-fit gap-2 self-end">
+                    <Badge variant="conference" className="text-xs font-medium sm:text-sm">
+                      {pub.conference}
+                    </Badge>
+                    <Badge variant="year" className="text-xs font-medium sm:text-sm">
+                      {pub.year}
+                    </Badge>
                   </div>
 
                   {/* Title and Authors */}
