@@ -60,7 +60,7 @@ export default function ContactPage() {
         <h1 className="mb-2 text-2xl font-semibold leading-7 tracking-wider text-foreground shadow-background drop-shadow-md sm:text-3xl md:text-4xl md:leading-10">
           Contact Us
         </h1>
-        <p className="mx-auto mt-4 max-w-2xl text-sm text-muted-foreground sm:text-base">
+        <p className="mx-auto mt-4 max-w-2xl text-sm text-sub sm:text-base">
           Have questions about our research or interested in collaboration?
           We'd love to hear from you. Reach out using the form below or through our contact information.
         </p>
@@ -75,7 +75,7 @@ export default function ContactPage() {
               <CardTitle className="text-xl font-semibold sm:text-2xl">
                 Get in Touch
               </CardTitle>
-              <CardDescription>
+              <CardDescription className='text-sm text-sub font-semibold'>
                 Connect with LIMIT Lab through various channels
               </CardDescription>
             </CardHeader>
@@ -86,7 +86,7 @@ export default function ContactPage() {
                   <HiOutlineLocationMarker className="mt-1 size-5 flex-shrink-0 text-accent-foreground" />
                   <div>
                     <h3 className="font-medium">Address</h3>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sm text-sub">
                       123 Research Avenue, Innovation Building<br />
                       Tokyo, 123-4567<br />
                       Japan
@@ -98,7 +98,7 @@ export default function ContactPage() {
                   <HiOutlineMail className="mt-1 size-5 flex-shrink-0 text-accent-foreground" />
                   <div>
                     <h3 className="font-medium">Email</h3>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sm text-sub">
                       contact@limitlab.example.com
                     </p>
                   </div>
@@ -108,7 +108,7 @@ export default function ContactPage() {
                   <HiOutlinePhone className="mt-1 size-5 flex-shrink-0 text-accent-foreground" />
                   <div>
                     <h3 className="font-medium">Phone</h3>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sm text-sub">
                       +81 (0)3-1234-5678
                     </p>
                   </div>
@@ -118,7 +118,7 @@ export default function ContactPage() {
                   <HiOutlineAcademicCap className="mt-1 size-5 flex-shrink-0 text-accent-foreground" />
                   <div>
                     <h3 className="font-medium">Academic Inquiries</h3>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sm text-sub">
                       For research collaborations and academic inquiries:<br />
                       research@limitlab.example.com
                     </p>
@@ -126,7 +126,7 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <Separator />
+              <Separator className='h-[2px]'/>
 
               {/* Social Links */}
               <div>
@@ -135,7 +135,7 @@ export default function ContactPage() {
                   <Link
                     href="https://github.com/limitlab"
                     target="_blank"
-                    className="flex items-center gap-2 rounded-md border border-input bg-background px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
+                    className="flex items-center gap-2 rounded-md border border-input bg-button-background text-button-foreground px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
                   >
                     <RxGithubLogo className="size-4" />
                     <span>GitHub</span>
@@ -143,10 +143,10 @@ export default function ContactPage() {
                   <Link
                     href="https://twitter.com/limitlab"
                     target="_blank"
-                    className="flex items-center gap-2 rounded-md border border-input bg-background px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
+                    className="flex items-center gap-2 rounded-md border border-input bg-button-background text-button-foreground px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
                   >
                     <PiXLogo className="size-4" />
-                    <span>Twitter</span>
+                    <span>X</span>
                   </Link>
                 </div>
               </div>
@@ -161,7 +161,7 @@ export default function ContactPage() {
               <CardTitle className="text-xl font-semibold sm:text-2xl">
                 Send a Message
               </CardTitle>
-              <CardDescription>
+              <CardDescription className='text-sm text-sub font-semibold'>
                 Fill out the form below and we'll get back to you as soon as possible
               </CardDescription>
             </CardHeader>
@@ -249,7 +249,7 @@ export default function ContactPage() {
                 {/* Submit Button */}
                 <Button
                   type="submit"
-                  className="w-full bg-accent text-accent-foreground hover:bg-accent/90 sm:w-auto"
+                  className="w-full bg-button-background text-button-foreground hover:bg-accent hover:text-accent-foreground sm:w-auto"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? 'Sending...' : 'Send Message'}
