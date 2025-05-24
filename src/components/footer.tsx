@@ -4,7 +4,7 @@ import { useTheme } from 'next-themes'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { PiXLogo } from 'react-icons/pi'
-import { RxGithubLogo } from 'react-icons/rx'
+import { RxGithubLogo, RxCross1 } from 'react-icons/rx'
 import { RiGlobalLine } from 'react-icons/ri'
 import { SiGitconnected } from 'react-icons/si'
 import Link from 'next/link'
@@ -49,8 +49,22 @@ export function Footer() {
         {/* Mobile view for supported by text */}
         <div className="flex flex-col items-center gap-2 md:hidden">
           <div className="text-xs">Supported by</div>
-          <div className="flex gap-2 text-xs">
-            cvpaper.challenge alumni community
+          <div className="flex flex-col items-center gap-px">
+            <Link
+              href="https://github.com/cvpaperchallenge-alumni"
+              target="_blank"
+              className="flex gap-2 text-xs text-accent-foreground"
+            >
+              cvpaper.challenge alumni community
+            </Link>
+            <RxCross1 className="size-2" />
+            <Link
+              href="https://xpaperchallenge.org/cv/"
+              target="_blank"
+              className="flex gap-2 text-xs text-accent-foreground"
+            >
+              cvpaper.challenge
+            </Link>
           </div>
         </div>
 
