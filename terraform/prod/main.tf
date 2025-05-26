@@ -60,7 +60,7 @@ resource "aws_route53_record" "iccv2025_found_workshop_domain" {
   name    = "iccv2025-found-workshop.${var.domain_name}"
   type    = "CNAME"
   ttl     = 300
-  records = ["${var.github_username}.github.io"]
+  records = ["${var.github_username}.github.io."]
 }
 
 
