@@ -54,4 +54,23 @@ resource "aws_route53_record" "sub_domain" {
   }
 }
 
+
+resource "aws_route53_record" "iccv2025_found_workshop_domain" {
+  zone_id = data.aws_route53_zone.host_domain.zone_id
+  name    = "iccv2025-found-workshop.${var.domain_name}"
+  type    = "CNAME"
+  ttl     = 300
+  records = ["${var.github_username}.github.io."]
+}
+
+
+resource "aws_route53_record" "iccv2025_limit_workshop_domain" {
+  zone_id = data.aws_route53_zone.host_domain.zone_id
+  name    = "iccv2025-limit-workshop.${var.domain_name}"
+  type    = "CNAME"
+  ttl     = 300
+  records = ["${var.github_username}.github.io."]
+}
+
+
 output "cloudfront_domain_name" { value = module.s3_cloudfront.cloudfront_domain_name }
