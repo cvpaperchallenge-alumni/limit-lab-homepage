@@ -17,22 +17,44 @@ jobs:
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    env:
+      DOCKER_COMPOSE_DIRECTORY: environments
     
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Build webpage in Docker container
+      - name: Check version info
+        run: pwd && docker compose version && docker --version
+
+      - name: Get UID/GID of the runner
+        id: get_uid_gid
         run: |
-          cd environments
-          docker compose build frontend
-          docker compose run --rm frontend bash -lc "yarn install --frozen-lockfile && yarn build"
+          echo "HOST_UID=$(id -u)" >> $GITHUB_ENV
+          echo "HOST_GID=$(id -g)" >> $GITHUB_ENV
+
+      - name: Create and start docker container
+        run: docker compose up -d
+        working-directory: ${{ env.DOCKER_COMPOSE_DIRECTORY }}
+
+      - name: Install dependencies in Docker container
+        working-directory: ${{ env.DOCKER_COMPOSE_DIRECTORY }}
+        run: docker compose exec -T frontend yarn install --frozen-lockfile
+
+      - name: Build webpage in Docker container
+        working-directory: ${{ env.DOCKER_COMPOSE_DIRECTORY }}
+        run: docker compose exec -T frontend yarn build
+
+      - name: Stop container
+        if: always()
+        run: docker compose down
+        working-directory: ${{ env.DOCKER_COMPOSE_DIRECTORY }}
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v3
         with:
-          name: build
-          path: out/
+          name: built-webpage
+          path: ./out
 
   deploy:
     runs-on: ubuntu-latest
@@ -46,8 +68,8 @@ jobs:
       - name: Download build artifact
         uses: actions/download-artifact@v3
         with:
-          name: build
-          path: out
+          name: built-webpage
+          path: ./out
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
