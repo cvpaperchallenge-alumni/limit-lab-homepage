@@ -1,15 +1,23 @@
-name: deploy
-
+name: deploy-to-s3
+permissions:
+  contents: read
+  actions: read
+  pages: write
+  id-token: write
 on:
   workflow_dispatch:
-
 defaults:
   run:
     shell: bash
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+    
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -21,29 +29,30 @@ jobs:
           docker compose run --rm frontend bash -lc "yarn install --frozen-lockfile && yarn build"
 
       - name: Upload build artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
-          name: out
-          path: out
+          name: build
+          path: out/
 
   deploy:
-    needs: build
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+    needs: build
+
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
 
       - name: Download build artifact
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v3
         with:
-          name: out
+          name: build
           path: out
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
           aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Sync built files to S3
