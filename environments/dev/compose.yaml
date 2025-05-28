@@ -2,13 +2,19 @@ name: limit-lab-homepage
 services:
   frontend:
     build:
+      args:
+        - PROJECT_NAME=${PROJECT_NAME_ENV}
+        - SERVICE_NAME=frontend
+        - USER_NAME=${USER_NAME_ENV}
+        - GROUP_NAME=${GROUP_NAME_ENV}
+        - UID=${HOST_UID-1000}
+        - GID=${HOST_GID-1000}
       context: ../../
       dockerfile: environments/Dockerfile
-    user: "node"
     tty: true
     init: true
     volumes:
-      - ../../:/home/node/limit-lab-homepage
+      - ../../:/home/${USER_NAME_ENV}/${PROJECT_NAME_ENV}-frontend
     ports:
       - 3000:3000
 

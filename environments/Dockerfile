@@ -1,7 +1,14 @@
 ARG BASE_IMAGE=node:23.5.0-bullseye-slim
 FROM ${BASE_IMAGE}
 
-ARG APPLICATION_DIRECTORY=/home/node/limit-lab-homepage
+ARG USER_NAME
+ARG GROUP_NAME
+ARG UID=1000
+ARG GID=1000
+ARG PROJECT_NAME
+ARG SERVICE_NAME
+ARG APPLICATION_PATH=.
+ARG INNER_APPLICATION_PATH=/home/${USER_NAME}/${PROJECT_NAME}-${SERVICE_NAME}
 ARG RUN_NPM_INSTALL_AT_BUILD_TIME="false"
 
 ENV DEBIAN_FRONTEND="noninteractive" \
@@ -12,8 +19,13 @@ RUN apt update \
     && apt install --no-install-recommends -y git curl make
 
 # In the official Node Docker image, UID 1000 is assigned to the node user by default.
-USER node
-WORKDIR ${APPLICATION_DIRECTORY}
+# So, delete the node user first and create a new user with the specified UID and GID.
+RUN userdel node && rm -rf /home/node && groupdel node || true \
+    && groupadd -g ${GID} ${GROUP_NAME} \
+    && useradd -ms /bin/bash -u ${UID} -g ${GID} ${USER_NAME}
+
+USER ${USER_NAME}
+WORKDIR ${INNER_APPLICATION_PATH}
 
 # When this Dockerfile is used in GitHub Actions, the ${RUN_NPM_INSTALL_AT_BUILD_TIME} is set to "true" in the workflow file.
 # This leads to the installation of Node.js packages in the Docker image.
