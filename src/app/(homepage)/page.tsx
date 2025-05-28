@@ -110,7 +110,7 @@ export default function TopPage() {
               >
                 <CardContent>
                   <div className="flex justify-center">
-                    <Avatar className="size-12 sm:size-16">
+                    <Avatar className="size-20 sm:size-24">
                       <AvatarImage src={member.photoUrl} alt={member.name} />
                       <AvatarFallback>?</AvatarFallback>
                     </Avatar>
