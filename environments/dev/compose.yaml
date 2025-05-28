@@ -2,21 +2,21 @@ name: limit-lab-homepage
 services:
   frontend:
     build:
-      context: ../
+      context: ../../
       dockerfile: environments/Dockerfile
     user: "node"
     tty: true
     init: true
     volumes:
-      - ../:/home/node/limit-lab-homepage
+      - ../../:/home/node/limit-lab-homepage
     ports:
       - 3000:3000
 
   terraform:
     build:
-      context: ../
+      context: ../../
       dockerfile: environments/Dockerfile.terraform
     tty: true
     entrypoint: bash
     volumes:
-      - ../:/home/limit-lab-homepage
+      - ../../:/home/limit-lab-homepage
