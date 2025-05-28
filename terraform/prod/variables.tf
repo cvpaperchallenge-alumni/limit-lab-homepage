@@ -27,3 +27,9 @@ variable "github_username" {
   description = "The GitHub username."
   default     = "cvpaperchallenge"
 }
+
+variable "github_repo" {
+  type        = string
+  description = "The name of the GitHub repository."
+  default     = "cvpaperchallenge-alumni/limit-lab-homepage" 
+}
