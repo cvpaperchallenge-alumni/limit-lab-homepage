@@ -12,9 +12,10 @@ import blackAlumniLogo from '../../public/alumni-logo-with-wide-black.png'
 import whiteAlumniLogo from '../../public/alumni-logo-with-wide-white.png'
 import blackCCLogo from '../../public/cvpaper-logo-black.png'
 import whiteCCLogo from '../../public/cvpaper-logo-white.png'
+import whiteLimitLabLogoWide from '../../public/limitlab-logo-white-wide.png'
+import blackLimitLabLogoWide from '../../public/limitlab-logo-black-wide.png'
 
 // shadcn/ui components
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Separator } from '@/components/ui/separator'
 
 export function Footer() {
@@ -33,13 +34,14 @@ export function Footer() {
     <div className="flex min-h-44 w-full justify-center bg-secondary p-4 py-6 text-secondary-foreground sm:p-6">
       <div className="flex w-full max-w-[1500px] flex-col items-center justify-between gap-6 sm:gap-4 md:flex-row">
         {/* Placeholder logo */}
-        <div className="flex flex-col items-center gap-1 md:ml-4 md:items-start lg:ml-10">
+        <div className="flex flex-col items-center gap-1 md:ml-4 md:items-center lg:ml-10">
           <div className="flex items-center space-x-2">
-            <Avatar className="size-5 sm:size-6">
-              <AvatarImage src="https://via.placeholder.com/24" alt="Logo" />
-              <AvatarFallback>AL</AvatarFallback>
-            </Avatar>
-            <span className="text-lg font-bold sm:text-xl">LIMIT Lab</span>
+            <Image
+              alt="limit lab logo"
+              className="h-20 w-auto sm:h-20"
+              priority={true}
+              src={isDarkMode ? whiteLimitLabLogoWide : blackLimitLabLogoWide}
+            />
           </div>
           <div className="text-xs text-sub">
             © 2025 LIMIT Lab. All rights reserved.

@@ -8,13 +8,13 @@ import Link from 'next/link'
 import { useRouter, usePathname } from 'next/navigation'
 import blackVAMark from '../../public/visual_atoms_1_black.png'
 import whiteVAMark from '../../public/visual_atoms_1_white.png'
+import whiteLimitLabLogoWide from '../../public/limitlab-logo-white-wide.png'
+import blackLimitLabLogoWide from '../../public/limitlab-logo-black-wide.png'
 
 // shadcn/ui components
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import { Switch } from '@/components/ui/switch'
 import { Spinner } from '@/components/ui/spinner'
-import { Separator } from '@/components/ui/separator'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -67,15 +67,16 @@ export function Header() {
         {/* Logo + Title */}
         <div className="flex justify-between gap-4 sm:gap-7">
           <div className="flex items-center gap-2">
-            <Avatar className="size-7 sm:size-8">
-              <AvatarImage src="https://via.placeholder.com/32" alt="Logo" />
-              <AvatarFallback>AL</AvatarFallback>
-            </Avatar>
-            <span className="text-lg font-bold sm:text-xl">LIMIT Lab</span>
-            <Separator
+            <Image
+              alt="limit lab logo"
+              className="h-14 w-auto sm:h-14"
+              priority={true}
+              src={isDarkMode ? whiteLimitLabLogoWide : blackLimitLabLogoWide}
+            />
+            {/* <Separator
               orientation="vertical"
               className="ml-3 hidden bg-muted-foreground sm:ml-5 md:block"
-            />
+            /> */}
           </div>
 
           {/* Navigation Links */}
