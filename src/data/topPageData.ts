@@ -42,7 +42,7 @@ export const members = [
   {
     name: 'Daichi Otsuka',
     affiliation: 'AIST',
-    photoUrl: 'members/daichi.otsuka-256x256.jpg',
+    photoUrl: '/members/daichi.otsuka-256x256.jpg',
     githubUrl: '',
     XUrl: '',
     linkedinUrl: '',
@@ -50,7 +50,7 @@ export const members = [
   {
     name: 'Partha Das',
     affiliation: 'AIST',
-    photoUrl: 'members/partha.das-256x256.jpg',
+    photoUrl: '/members/partha.das-256x256.jpg',
     githubUrl: '',
     XUrl: '',
     linkedinUrl: '',
@@ -58,7 +58,7 @@ export const members = [
   {
     name: 'Nakamasa Inoue',
     affiliation: '',
-    photoUrl: 'members/nakamasa.inoue-256x256.jpg',
+    photoUrl: '/members/nakamasa.inoue-256x256.jpg',
     githubUrl: '',
     XUrl: '',
     linkedinUrl: '',
@@ -66,7 +66,7 @@ export const members = [
   {
     name: 'Go Irie',
     affiliation: '',
-    photoUrl: 'members/go.irie-256x256.jpg',
+    photoUrl: '/members/go.irie-256x256.jpg',
     githubUrl: '',
     XUrl: '',
     linkedinUrl: '',
@@ -74,7 +74,7 @@ export const members = [
   {
     name: 'Rio Yokota',
     affiliation: '',
-    photoUrl: 'members/rio.yokota-256x256.jpg',
+    photoUrl: '/members/rio.yokota-256x256.jpg',
     githubUrl: '',
     XUrl: '',
     linkedinUrl: '',
