@@ -42,7 +42,7 @@ export function Footer() {
             <span className="text-lg font-bold sm:text-xl">LIMIT Lab</span>
           </div>
           <div className="text-xs text-sub">
-            © 2024 LIMIT Lab. All rights reserved.
+            © 2025 LIMIT Lab. All rights reserved.
           </div>
         </div>
 
