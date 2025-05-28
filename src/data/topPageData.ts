@@ -9,7 +9,7 @@ export const newsItems = [
 export const members = [
   {
     name: 'Hirokatsu Kataoka',
-    affiliation: 'AIST',
+    affiliation: 'AIST / Oxford VGG',
     photoUrl: '/members/hirokatsu.kataoka-256x256.jpg',
     githubUrl: '',
     XUrl: '',
@@ -49,7 +49,7 @@ export const members = [
   },
   {
     name: 'Partha Das',
-    affiliation: 'AIST',
+    affiliation: 'UvA',
     photoUrl: '/members/partha.das-256x256.jpg',
     githubUrl: '',
     XUrl: '',
@@ -97,7 +97,7 @@ export const members = [
   },
   {
     name: 'Christian Rupprecht',
-    affiliation: '',
+    affiliation: 'Oxford VGG',
     photoUrl: '/members/christian.rupprecht-256x256.jpg',
     githubUrl: '',
     XUrl: '',
@@ -105,15 +105,15 @@ export const members = [
   },
   {
     name: 'Iro Laina',
-    affiliation: '',
-    photoUrl: '/members/iro.laina-256x256.jpg',
+    affiliation: 'Oxford VGG',
+    photoUrl: 'https://via.placeholder.com/150',
     githubUrl: '',
     XUrl: '',
     linkedinUrl: '',
   },
   {
     name: 'Yuki M. Asano',
-    affiliation: '',
+    affiliation: 'UTN FunAI Lab',
     photoUrl: '/members/yuki.asano-256x256.jpg',
     githubUrl: '',
     XUrl: '',
@@ -121,7 +121,7 @@ export const members = [
   },
   {
     name: 'Shangzhe (Elliott) Wu',
-    affiliation: '',
+    affiliation: 'Cambridge',
     photoUrl: '/members/elliott.wu-256x256.jpg',
     githubUrl: '',
     XUrl: '',
@@ -129,7 +129,7 @@ export const members = [
   },
   {
     name: 'Daniel Schofield',
-    affiliation: '',
+    affiliation: 'Oxford VGG',
     photoUrl: '/members/daniel.schofield-256x256.jpg',
     githubUrl: '',
     XUrl: '',
