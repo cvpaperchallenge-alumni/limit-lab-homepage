@@ -39,7 +39,7 @@ export default function TopPage() {
             reliable roadmap for developing AI foundational models. Our
             community (LIMIT.Community) and the international lab (LIMIT.Lab)
             therefore aim to put in place exactly those technologies that permit
-            the construction of &#123;Vision, Vision-Language, Multimodal&#125;
+            the construction of {'{'}Vision, Vision-Language, Multimodal{'}'}
             AI foundational models even when compute and data are limited.
             Drawing on our members’ prior successes in (i) generative
             pre-training methods that can be applied horizontally across any
