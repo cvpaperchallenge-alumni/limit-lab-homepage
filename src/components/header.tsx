@@ -32,7 +32,7 @@ export function Header() {
   const [page, setPage] = useState('top')
   const [hasHoveredTop, setHasHoveredTop] = useState(false)
   const [hasHoveredPublications, setHasHoveredPublications] = useState(false)
-  const [hasHoveredContact, setHasHoveredContact] = useState(false)
+  // const [hasHoveredContact, setHasHoveredContact] = useState(false)
   const router = useRouter()
   const pathname = usePathname()
 
@@ -54,7 +54,7 @@ export function Header() {
       if (window.innerWidth < 768) {
         setHasHoveredTop(false)
         setHasHoveredPublications(false)
-        setHasHoveredContact(false)
+        // setHasHoveredContact(false)
       }
     }
     window.addEventListener('resize', handleResize)
@@ -145,7 +145,7 @@ export function Header() {
                 </span>
               </Link>
             </Button>
-            <Button
+            {/* <Button
               variant="link"
               asChild
               className="group pl-0.5 font-semibold hover:animate-pulsate-fwd hover:no-underline"
@@ -177,7 +177,7 @@ export function Header() {
                   Contact
                 </span>
               </Link>
-            </Button>
+            </Button> */}
           </div>
         </div>
 
