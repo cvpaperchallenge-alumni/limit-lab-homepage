@@ -1,8 +1,10 @@
 // Sample data for recent news
 export const newsItems = [
-  { date: '2024-10-01', description: 'Launched our new AI project.' },
-  { date: '2024-08-15', description: 'Presented at ABC Conference.' },
-  { date: '2024-05-20', description: 'Welcomed new members to the lab.' },
+  {
+    date: '2025-06-01',
+    description: 'Two workshops are accepted by ICCV 2025.',
+  },
+  { date: '2025-06-01', description: 'Our official website is now live.' },
 ]
 
 // Sample data for members
