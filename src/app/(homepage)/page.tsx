@@ -30,7 +30,7 @@ export default function TopPage() {
           </h1>
           <p className="mb-5 w-full text-wrap text-sm sm:text-base">
             AI foundation models are increasingly dominating various academic
-            and industrial fields, yet the R&D of related technologies are
+            and industrial fields, yet the R&D of related technologies is
             controlled by limited institutions capable of managing extensive
             computational and data resources. To counter this dominance, there
             is a critical need for technologies that can develop practical AI
