@@ -29,15 +29,31 @@ export default function TopPage() {
             Unleash our LIMITless potential
           </h1>
           <p className="mb-5 w-full text-wrap text-sm sm:text-base">
-            At LIMIT Lab., we embrace the power of collaboration to transcend
-            limits in AI and computer vision research. By connecting globally
-            and reimagining boundaries, we transform challenges into
-            opportunities, unlocking limitless innovation with profound societal
-            and industrial impact. Together, we redefine the very concept of
-            limits.
+            AI foundation models are increasingly dominating various academic
+            and industrial fields, yet the R&D of related technologies are
+            controlled by limited institutions capable of managing extensive
+            computational and data resources. To counter this dominance, there
+            is a critical need for technologies that can develop practical AI
+            foundation models using the standard computational and data
+            resources. It is said that the scaling laws no longer provide the
+            reliable roadmap for developing AI foundational models. Our
+            community (LIMIT.Community) and the international lab (LIMIT.Lab)
+            therefore aim to put in place exactly those technologies that permit
+            the construction of &#123;Vision, Vision-Language, Multimodal&#125;
+            AI foundational models even when compute and data are limited.
+            Drawing on our members’ prior successes in (i) generative
+            pre-training methods that can be applied horizontally across any
+            modality with image, video, 3D, & audio, and (ii) high-quality AI
+            models from extremely scarce data (including a single image), we
+            have been committed to AI multimodal foundational models under very
+            limited resources. As of 2025, LIMIT.Lab is composed primarily of
+            international research teams from Japan, UK, and Germany. Through
+            collaborative research projects and the workshop organization, we
+            actively foster global exchange in the field of AI and related
+            areas.
           </p>
           <h2 className="text-sm font-semibold sm:text-base">
-            Check out the past events
+            Check out upcoming events
           </h2>
           <div className="flex flex-wrap gap-3 sm:gap-4">
             <Button
@@ -45,9 +61,12 @@ export default function TopPage() {
               size="sm"
               asChild
             >
-              <Link href="https://lsfsl.net/limit23/" target="_blank">
+              <Link
+                href="https://iccv2025-limit-workshop.limitlab.xyz/"
+                target="_blank"
+              >
                 <span className="text-xs font-semibold tracking-wider sm:text-sm">
-                  LIMIT @ICCV2023
+                  ICCV 2025 LIMIT Workshop
                 </span>
                 <HiCursorClick className="size-4 sm:size-5" />
               </Link>
@@ -58,11 +77,11 @@ export default function TopPage() {
               asChild
             >
               <Link
-                href="https://hirokatsukataoka16.github.io/CVPR-2024-LIMIT/"
+                href="https://iccv2025-found-workshop.limitlab.xyz/"
                 target="_blank"
               >
                 <span className="text-xs font-semibold tracking-wider sm:text-sm">
-                  LIMIT @CVPR2024
+                  ICCV 2025 FOUND Workshop
                 </span>
                 <HiCursorClick className="size-4 sm:size-5" />
               </Link>
