@@ -54,7 +54,7 @@ export function Header() {
       if (window.innerWidth < 768) {
         setHasHoveredTop(false)
         setHasHoveredPublications(false)
-        setHasHoveredContact(false)
+        // setHasHoveredContact(false)
       }
     }
     window.addEventListener('resize', handleResize)
