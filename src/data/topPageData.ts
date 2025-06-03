@@ -2,7 +2,7 @@
 export const newsItems = [
   {
     date: '2025-06-01',
-    description: 'Two workshops are accepted by ICCV 2025.',
+    description: 'Two workshops are accepted at ICCV 2025.',
   },
   { date: '2025-06-01', description: 'Our official website is now live.' },
 ]
