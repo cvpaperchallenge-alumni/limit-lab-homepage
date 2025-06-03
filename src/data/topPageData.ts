@@ -122,7 +122,7 @@ export const members = [
     linkedinUrl: '',
   },
   {
-    name: 'Shangzhe (Elliott) Wu',
+    name: 'Elliott (Shangzhe) Wu',
     affiliation: 'Cambridge',
     photoUrl: '/members/elliott.wu-256x256.jpg',
     githubUrl: '',
