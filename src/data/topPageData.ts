@@ -59,7 +59,7 @@ export const members = [
   },
   {
     name: 'Nakamasa Inoue',
-    affiliation: '',
+    affiliation: 'Science Tokyo',
     photoUrl: '/members/nakamasa.inoue-256x256.jpg',
     githubUrl: '',
     XUrl: '',
@@ -67,7 +67,7 @@ export const members = [
   },
   {
     name: 'Go Irie',
-    affiliation: '',
+    affiliation: 'TUS',
     photoUrl: '/members/go.irie-256x256.jpg',
     githubUrl: '',
     XUrl: '',
@@ -75,7 +75,7 @@ export const members = [
   },
   {
     name: 'Rio Yokota',
-    affiliation: '',
+    affiliation: 'Science Tokyo',
     photoUrl: '/members/rio.yokota-256x256.jpg',
     githubUrl: '',
     XUrl: '',
@@ -83,7 +83,7 @@ export const members = [
   },
   {
     name: 'Ikuro Sato',
-    affiliation: '',
+    affiliation: 'Science Tokyo',
     photoUrl: '/members/ikuro.sato-256x256.jpg',
     githubUrl: '',
     XUrl: '',
@@ -91,7 +91,7 @@ export const members = [
   },
   {
     name: 'Rei Kawakami',
-    affiliation: '',
+    affiliation: 'Science Tokyo',
     photoUrl: '/members/rei.kawakami-256x256.jpg',
     githubUrl: '',
     XUrl: '',
