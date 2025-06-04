@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { HiCursorClick } from 'react-icons/hi'
 import { PiXLogo } from 'react-icons/pi'
 import { RxGithubLogo, RxLinkedinLogo } from 'react-icons/rx'
+import { RiGlobalLine } from 'react-icons/ri'
 import { Geist_Mono } from 'next/font/google'
 
 const geistMono = Geist_Mono({
@@ -145,15 +146,26 @@ export default function TopPage() {
                   </div>
                   <div className="flex justify-center pt-2 sm:pt-3">
                     <div className="flex gap-3 text-icon-fill sm:gap-4">
-                      <Link href={member.githubUrl} target="_blank">
-                        <RxGithubLogo className="size-4 hover:animate-scale-up-md hover:text-icon-accent hover:animate-duration-200 sm:size-5" />
-                      </Link>
-                      <Link href={member.XUrl} target="_blank">
-                        <PiXLogo className="size-4 hover:animate-scale-up-md hover:text-icon-accent hover:animate-duration-200 sm:size-5" />
-                      </Link>
-                      <Link href={member.linkedinUrl} target="_blank">
-                        <RxLinkedinLogo className="size-4 hover:animate-scale-up-md hover:text-icon-accent hover:animate-duration-200 sm:size-5" />
-                      </Link>
+                      {member.homePageUrl && (
+                        <Link href={member.homePageUrl} target="_blank">
+                          <RiGlobalLine className="size-4 hover:animate-scale-up-md hover:text-icon-accent hover:animate-duration-200 sm:size-5" />
+                        </Link>
+                      )}
+                      {member.githubUrl && (
+                        <Link href={member.githubUrl} target="_blank">
+                          <RxGithubLogo className="size-4 hover:animate-scale-up-md hover:text-icon-accent hover:animate-duration-200 sm:size-5" />
+                        </Link>
+                      )}
+                      {member.XUrl && (
+                        <Link href={member.XUrl} target="_blank">
+                          <PiXLogo className="size-4 hover:animate-scale-up-md hover:text-icon-accent hover:animate-duration-200 sm:size-5" />
+                        </Link>
+                      )}
+                      {member.linkedinUrl && (
+                        <Link href={member.linkedinUrl} target="_blank">
+                          <RxLinkedinLogo className="size-4 hover:animate-scale-up-md hover:text-icon-accent hover:animate-duration-200 sm:size-5" />
+                        </Link>
+                      )}
                     </div>
                   </div>
                 </CardContent>
