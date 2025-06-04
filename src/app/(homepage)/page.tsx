@@ -152,6 +152,11 @@ export default function TopPage() {
                           <RiGlobalLine className="size-4 hover:animate-scale-up-md hover:text-icon-accent hover:animate-duration-200 sm:size-5" />
                         </Link>
                       )}
+                      {member.googleScholarUrl && (
+                        <Link href={member.googleScholarUrl} target="_blank">
+                          <SiGooglescholar className="size-4 hover:animate-scale-up-md hover:text-icon-accent hover:animate-duration-200 sm:size-5" />
+                        </Link>
+                      )}
                       {member.githubUrl && (
                         <Link href={member.githubUrl} target="_blank">
                           <RxGithubLogo className="size-4 hover:animate-scale-up-md hover:text-icon-accent hover:animate-duration-200 sm:size-5" />
@@ -162,16 +167,11 @@ export default function TopPage() {
                           <PiXLogo className="size-4 hover:animate-scale-up-md hover:text-icon-accent hover:animate-duration-200 sm:size-5" />
                         </Link>
                       )}
-                      {member.linkedinUrl && (
+                      {/* {member.linkedinUrl && (
                         <Link href={member.linkedinUrl} target="_blank">
                           <RxLinkedinLogo className="size-4 hover:animate-scale-up-md hover:text-icon-accent hover:animate-duration-200 sm:size-5" />
                         </Link>
-                      )}
-                      {member.googleScholarUrl && (
-                        <Link href={member.googleScholarUrl} target="_blank">
-                          <SiGooglescholar className="size-4 hover:animate-scale-up-md hover:text-icon-accent hover:animate-duration-200 sm:size-5" />
-                        </Link>
-                      )}
+                      )} */}
                     </div>
                   </div>
                 </CardContent>
