@@ -135,7 +135,7 @@ export const members = [
   {
     name: 'Iro Laina',
     affiliation: 'Oxford VGG',
-    photoUrl: 'https://via.placeholder.com/150',
+    photoUrl: '/members/iro.laina-256x256.jpg',
     homePageUrl: '',
     googleScholarUrl: 'https://scholar.google.de/citations?user=n9nXAPcAAAAJ',
     githubUrl: '',
@@ -170,6 +170,6 @@ export const members = [
     googleScholarUrl: 'https://scholar.google.com/citations?user=a8NUQYIAAAAJ',
     githubUrl: '',
     XUrl: '',
-    linkedinUrl: '',
+    linkedinUrl: 'https://www.linkedin.com/in/dan-schofield-361285239',
   },
 ]
