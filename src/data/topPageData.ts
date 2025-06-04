@@ -14,7 +14,8 @@ export const members = [
     affiliation: 'AIST / Oxford VGG',
     photoUrl: '/members/hirokatsu.kataoka-256x256.jpg',
     homePageUrl: 'https://hirokatsukataoka.net',
-    googleScholarUrl: 'https://scholar.google.com.au/citations?user=f1CePVQAAAAJ',
+    googleScholarUrl:
+      'https://scholar.google.com.au/citations?user=f1CePVQAAAAJ',
     githubUrl: 'https://github.com/hirokatsukataoka16',
     XUrl: 'https://x.com/hirokatukataoka',
     linkedinUrl: 'https://www.linkedin.com/in/hirokatsu-kataoka-83b84846',
@@ -24,7 +25,8 @@ export const members = [
     affiliation: 'AIST',
     photoUrl: '/members/yoshihiro.fukuhara-256x256.jpg',
     homePageUrl: 'https://gatheluck.net',
-    googleScholarUrl: 'https://scholar.google.co.jp/citations?user=NHmnq1MAAAAJ',
+    googleScholarUrl:
+      'https://scholar.google.co.jp/citations?user=NHmnq1MAAAAJ',
     githubUrl: 'https://github.com/gatheluck',
     XUrl: 'https://x.com/gatheluck',
     linkedinUrl: 'https://www.linkedin.com/in/yoshihiro-fukuhara-01b329136',
@@ -84,7 +86,8 @@ export const members = [
     affiliation: 'TUS',
     photoUrl: '/members/go.irie-256x256.jpg',
     homePageUrl: '',
-    googleScholarUrl: 'https://scholar.google.co.jp/citations?user=2bCSG1AAAAAJ',
+    googleScholarUrl:
+      'https://scholar.google.co.jp/citations?user=2bCSG1AAAAAJ',
     githubUrl: '',
     XUrl: '',
     linkedinUrl: '',

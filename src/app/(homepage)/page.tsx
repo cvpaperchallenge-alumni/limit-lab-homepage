@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { HiCursorClick } from 'react-icons/hi'
 import { PiXLogo } from 'react-icons/pi'
-import { RxGithubLogo, RxLinkedinLogo } from 'react-icons/rx'
+import { RxGithubLogo } from 'react-icons/rx'
 import { RiGlobalLine } from 'react-icons/ri'
 import { SiGooglescholar } from 'react-icons/si'
 import { Geist_Mono } from 'next/font/google'
