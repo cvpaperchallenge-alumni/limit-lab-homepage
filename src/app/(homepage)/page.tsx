@@ -28,8 +28,7 @@ export default function TopPage() {
       <div className="relative mt-8 flex max-w-[1000px] animate-slide-in-left flex-col items-center gap-6 px-4 py-8 before:absolute before:inset-y-0 before:-left-full before:z-0 before:block before:w-[200%] before:rounded-r-3xl before:border before:border-block-border sm:mt-12 sm:px-8 sm:py-10 md:mt-16 md:flex-row md:items-center md:gap-8 md:px-12 md:py-14 lg:px-20">
         <div className="relative flex animate-fade-in-top flex-col items-start gap-3 text-foreground animate-delay-700 animate-duration-500">
           <h1 className="mb-2 text-2xl font-semibold leading-7 tracking-wider text-foreground shadow-background drop-shadow-md sm:text-2xl md:text-3xl md:leading-8">
-            Limited Resources, Unlimited Impact with Multimodal Foundation
-            Models
+            Limited Resources, Unlimited Impact with Multimodal AI Models
           </h1>
           <p className="mb-5 w-full text-wrap text-sm sm:text-base">
             AI foundation models are increasingly dominating various academic
