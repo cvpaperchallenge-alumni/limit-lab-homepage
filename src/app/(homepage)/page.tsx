@@ -3,8 +3,9 @@
 import Link from 'next/link'
 import { HiCursorClick } from 'react-icons/hi'
 import { PiXLogo } from 'react-icons/pi'
-import { RxGithubLogo, RxLinkedinLogo } from 'react-icons/rx'
+import { RxGithubLogo } from 'react-icons/rx'
 import { RiGlobalLine } from 'react-icons/ri'
+import { SiGooglescholar } from 'react-icons/si'
 import { Geist_Mono } from 'next/font/google'
 
 const geistMono = Geist_Mono({
@@ -151,6 +152,11 @@ export default function TopPage() {
                           <RiGlobalLine className="size-4 hover:animate-scale-up-md hover:text-icon-accent hover:animate-duration-200 sm:size-5" />
                         </Link>
                       )}
+                      {member.googleScholarUrl && (
+                        <Link href={member.googleScholarUrl} target="_blank">
+                          <SiGooglescholar className="size-4 hover:animate-scale-up-md hover:text-icon-accent hover:animate-duration-200 sm:size-5" />
+                        </Link>
+                      )}
                       {member.githubUrl && (
                         <Link href={member.githubUrl} target="_blank">
                           <RxGithubLogo className="size-4 hover:animate-scale-up-md hover:text-icon-accent hover:animate-duration-200 sm:size-5" />
@@ -161,11 +167,11 @@ export default function TopPage() {
                           <PiXLogo className="size-4 hover:animate-scale-up-md hover:text-icon-accent hover:animate-duration-200 sm:size-5" />
                         </Link>
                       )}
-                      {member.linkedinUrl && (
+                      {/* {member.linkedinUrl && (
                         <Link href={member.linkedinUrl} target="_blank">
                           <RxLinkedinLogo className="size-4 hover:animate-scale-up-md hover:text-icon-accent hover:animate-duration-200 sm:size-5" />
                         </Link>
-                      )}
+                      )} */}
                     </div>
                   </div>
                 </CardContent>
