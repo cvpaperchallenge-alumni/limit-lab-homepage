@@ -69,7 +69,7 @@ export const members = [
     googleScholarUrl: 'https://scholar.google.com/citations?user=4c_gDYEAAAAJ',
     githubUrl: 'https://github.com/Morpheus3000',
     XUrl: '',
-    linkedinUrl: '',
+    linkedinUrl: 'https://www.linkedin.com/in/partha-das-898a78188',
   },
   {
     name: 'Nakamasa Inoue',
