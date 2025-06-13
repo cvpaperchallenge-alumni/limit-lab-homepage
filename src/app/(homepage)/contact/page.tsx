@@ -1,6 +1,5 @@
 'use client'
 
-
 import { PiSlackLogoLight } from 'react-icons/pi'
 import Link from 'next/link'
 import { RiGlobalLine } from 'react-icons/ri'
