@@ -1,10 +1,20 @@
 // Sample data for recent news
 export const newsItems = [
   {
+    date: '2025-06-16',
+    description: 'Released the CVPR 2025 Report.',
+    url: 'https://hirokatsukataoka.net/temp/presen/250616CVPR2025Report_FinalizedVer.pdf',
+  },
+  {
     date: '2025-06-01',
     description: 'Two workshops are accepted at ICCV 2025.',
+    url: '',
   },
-  { date: '2025-06-01', description: 'Our official website is now live.' },
+  {
+    date: '2025-06-01',
+    description: 'Our official website is now live.',
+    url: '',
+  },
 ]
 
 // Sample data for members
