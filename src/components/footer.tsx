@@ -37,14 +37,14 @@ export function Footer() {
         <div className="flex flex-col items-center gap-1 md:ml-4 md:items-center lg:ml-10">
           <div className="flex items-center space-x-2">
             <Image
-              alt="limit lab logo"
+              alt="limit.lab logo"
               className="h-20 w-auto sm:h-20"
               priority={true}
               src={isDarkMode ? whiteLimitLabLogoWide : blackLimitLabLogoWide}
             />
           </div>
           <div className="text-xs text-sub">
-            © 2025 LIMIT Lab. All rights reserved.
+            © 2025 LIMIT.Lab. All rights reserved.
           </div>
         </div>
 
