@@ -4,6 +4,12 @@ import { Geist } from 'next/font/google'
 
 import './globals.css'
 
+export const metadata = {
+  title: 'LIMIT.Lab',
+  description:
+    'LIMIT.Lab builds multimodal AI foundation models that achieve real impact with limited compute and data.',
+}
+
 const geistSans = Geist({
   subsets: ['latin'],
 })

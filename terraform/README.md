@@ -1,6 +1,6 @@
-# LIMIT Lab Terraform
+# LIMIT.Lab Terraform
 
-We are using Terraform to manage the infrastructure of the LIMIT Lab website.
+We are using Terraform to manage the infrastructure of the LIMIT.Lab website.
 We deploy the website on AWS using CloudFront, S3, and Route 53.
 
 ## Start developing

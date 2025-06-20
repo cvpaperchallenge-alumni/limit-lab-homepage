@@ -46,7 +46,7 @@ export function Header() {
   useEffect(() => {
     if (pathname === '/') setPage('top')
     else if (pathname.startsWith('/publications')) setPage('publication')
-    // else if (pathname.startsWith('/contact')) setPage('contact')
+    else if (pathname.startsWith('/contact')) setPage('contact')
   }, [pathname])
 
   useEffect(() => {
@@ -54,7 +54,7 @@ export function Header() {
       if (window.innerWidth < 768) {
         setHasHoveredTop(false)
         setHasHoveredPublications(false)
-        // setHasHoveredContact(false)
+        setHasHoveredContact(false)
       }
     }
     window.addEventListener('resize', handleResize)
@@ -68,7 +68,7 @@ export function Header() {
         <div className="flex justify-between gap-4 sm:gap-7">
           <div className="flex items-center gap-2">
             <Image
-              alt="limit lab logo"
+              alt="limit.lab logo"
               className="h-14 w-auto sm:h-14"
               priority={true}
               src={isDarkMode ? whiteLimitLabLogoWide : blackLimitLabLogoWide}
@@ -229,13 +229,13 @@ export function Header() {
                   >
                     Publications
                   </DropdownMenuRadioItem>
-                  {/* <DropdownMenuRadioItem
+                  <DropdownMenuRadioItem
                     value="contact"
                     isDarkMode={isDarkMode}
                     onClick={() => router.push('/contact')}
                   >
                     Contact
-                  </DropdownMenuRadioItem> */}
+                  </DropdownMenuRadioItem>
                 </DropdownMenuRadioGroup>
               </DropdownMenuContent>
             </DropdownMenu>

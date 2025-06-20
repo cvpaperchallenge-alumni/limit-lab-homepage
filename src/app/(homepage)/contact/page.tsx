@@ -176,7 +176,7 @@ export default function ContactPage() {
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            title="LIMIT Lab Location"
+            title="LIMIT.Lab Location"
             className="bg-muted"
           ></iframe>
         </div>
