@@ -1,6 +1,7 @@
 import { ThemeProvider } from 'next-themes'
 import { ReactNode } from 'react'
 import { Geist } from 'next/font/google'
+import Script from 'next/script'
 
 import './globals.css'
 
@@ -11,6 +12,21 @@ const geistSans = Geist({
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      {/* Header for Google Analytics */}
+      <head>
+        <Script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=G-FM6X8H0HCR`}
+        />
+        <Script id="gtag-init">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-FM6X8H0HCR');
+          `}
+        </Script>
+      </head>
       <body
         className={`${geistSans.className} min-h-screen bg-background text-foreground antialiased`}
       >
