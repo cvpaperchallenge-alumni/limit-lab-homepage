@@ -182,4 +182,14 @@ export const members = [
     XUrl: '',
     linkedinUrl: 'https://www.linkedin.com/in/dan-schofield-361285239',
   },
+  {
+    name: 'Martin R. Oswald',
+    affiliation: 'UvA',
+    photoUrl: '/members/martin.oswald-256x256.jpg',
+    homePageUrl: '',
+    googleScholarUrl: 'https://scholar.google.com/citations?user=biytQP8AAAAJ',
+    githubUrl: '',
+    XUrl: 'https://x.com/martin_r_oswald',
+    linkedinUrl: 'https://www.linkedin.com/in/martin-r-oswald-167461122',
+  },
 ]
