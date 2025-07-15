@@ -58,7 +58,7 @@ export const members = [
   },
   {
     name: 'Ryousuke Yamada',
-    affiliation: 'AIST/UTN FunAI Lab',
+    affiliation: 'AIST / UTN FunAI Lab',
     photoUrl: '/members/ryousuke.yamada-256x256.jpg',
     homePageUrl: 'https://ryosuke-yamada.github.io',
     googleScholarUrl: 'https://scholar.google.com/citations?user=2nmJ6qQAAAAJ',
