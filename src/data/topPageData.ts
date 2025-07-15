@@ -1,6 +1,11 @@
 // Sample data for recent news
 export const newsItems = [
   {
+    date: '2025-07-14',
+    description: 'Ryousuke Yamada appointed JSPS research fellow at FunAI Lab.',
+    url: 'https://fundamentalailab.github.io/',
+  },
+  {
     date: '2025-06-16',
     description: 'Released the CVPR 2025 Report.',
     url: 'https://hirokatsukataoka.net/temp/presen/250616CVPR2025Report_FinalizedVer.pdf',
@@ -53,7 +58,7 @@ export const members = [
   },
   {
     name: 'Ryousuke Yamada',
-    affiliation: 'AIST',
+    affiliation: 'AIST/UTN FunAI Lab',
     photoUrl: '/members/ryousuke.yamada-256x256.jpg',
     homePageUrl: 'https://ryosuke-yamada.github.io',
     googleScholarUrl: 'https://scholar.google.com/citations?user=2nmJ6qQAAAAJ',
