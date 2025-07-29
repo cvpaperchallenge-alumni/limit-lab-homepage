@@ -91,7 +91,8 @@ export const members = [
     affiliation: 'Osaka University / AIST',
     photoUrl: '/members/risa.shinoda-256x256.jpg',
     homePageUrl: 'https://sites.google.com/view/risashinoda/home',
-    googleScholarUrl: 'https://scholar.google.co.jp/citations?user=DSr8YcMAAAAJ',
+    googleScholarUrl:
+      'https://scholar.google.co.jp/citations?user=DSr8YcMAAAAJ',
     githubUrl: 'https://github.com/dahlian00',
     XUrl: 'https://x.com/dahlian0',
     linkedinUrl: 'https://www.linkedin.com/in/risa-shinoda',
