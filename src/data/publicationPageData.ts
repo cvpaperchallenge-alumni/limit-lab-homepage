@@ -66,4 +66,17 @@ export const samplePublications = [
     githubUrl: '',
     field: 'Machine Learning',
   },
+  {
+    id: 6,
+    imageUrl: '/publications/shinoda25animalclue-320x180.jpg',
+    title: 'AnimalClue: Recognizing Animals by their Traces',
+    authors:
+      'Risa Shinoda, Nakamasa Inoue, Iro Laina, Christian Rupprecht, Hirokatsu Kataoka',
+    conference: 'ICCV',
+    year: 2025,
+    projectPageUrl: 'https://dahlian00.github.io/AnimalCluePage',
+    pdfFileUrl: 'https://arxiv.org/pdf/2507.20240',
+    githubUrl: 'https://github.com/dahlian00/AnimalClue',
+    field: 'Machine Learning',
+  },
 ]
