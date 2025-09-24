@@ -1,6 +1,11 @@
 // Sample data for recent news
 export const newsItems = [
   {
+    date: '2025-09-26',
+    description: 'We jointly hosted the Cambridge Computer Vision Workshop.',
+    url: 'https://cambridgecv-workshop-2025sep.limitlab.xyz/',
+  },
+  {
     date: '2025-07-14',
     description: 'Ryousuke Yamada appointed JSPS research fellow at FunAI Lab.',
     url: 'https://fundamentalailab.github.io/',
