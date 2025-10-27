@@ -4,6 +4,11 @@ variable "domain_name" {
   default     = "limitlab.xyz"
 }
 
+# variable "dev_subdomain_name_servers" {
+#   type        = list(string)
+#   description = "Name server records for the delegated dev subdomain hosted zone."
+# }
+
 variable "environment" {
   type        = string
   description = "The name of the environment."
