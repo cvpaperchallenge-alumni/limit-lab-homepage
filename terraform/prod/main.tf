@@ -15,6 +15,19 @@ data "aws_route53_zone" "host_domain" {
   name = "${var.domain_name}."
 }
 
+resource "aws_acm_certificate" "virginia_cert" {
+  # ACM certificate in us-east-1 region is required for CloudFront.
+  provider = aws.virginia
+
+  domain_name               = var.domain_name
+  subject_alternative_names = ["*.${var.domain_name}"]
+  validation_method         = "DNS"
+
+  lifecycle {
+    create_before_destroy = true
+  }
+}
+
 module "s3_cloudfront" {
   source = "../modules/s3_cloudfront"
 
@@ -54,6 +67,13 @@ resource "aws_route53_record" "sub_domain" {
   }
 }
 
+# resource "aws_route53_record" "dev_domain" {
+#   zone_id = data.aws_route53_zone.host_domain.zone_id
+#   name    = "dev.${var.domain_name}"
+#   type    = "NS"
+#   ttl     = 172800
+#   records = var.dev_subdomain_name_servers
+# }
 
 resource "aws_route53_record" "iccv2025_found_workshop_domain" {
   zone_id = data.aws_route53_zone.host_domain.zone_id
