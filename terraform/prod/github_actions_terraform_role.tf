@@ -145,3 +145,8 @@ resource "aws_iam_role_policy_attachment" "terraform_actions" {
   role       = aws_iam_role.terraform_actions.name
   policy_arn = aws_iam_policy.terraform_actions.arn
 }
+
+output "terraform_deploy_role_arn" {
+  description = "ARN of the IAM role assumed by GitHub Actions for Terraform deployment."
+  value       = aws_iam_role.terraform_actions.arn
+}
