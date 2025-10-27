@@ -1,0 +1,84 @@
+name: terraform-run
+
+on:
+  workflow_call:
+    inputs:
+      environment:
+        description: Logical environment name (e.g. prod, dev)
+        required: true
+        type: string
+      terraform_directory:
+        description: Path to the Terraform working directory
+        required: true
+        type: string
+      aws_region:
+        description: Default AWS region used by Terraform providers
+        required: true
+        type: string
+      terraform_version:
+        description: Terraform CLI version to use
+        required: false
+        default: "1.10.3"
+        type: string
+      plan_only:
+        description: When true, skip the apply step
+        required: false
+        default: false
+        type: boolean
+    secrets:
+      aws_role_to_assume:
+        description: IAM role ARN assumed for Terraform execution
+        required: true
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  terraform:
+    name: Terraform ${{ inputs.environment }}
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: ${{ inputs.terraform_directory }}
+    environment: ${{ inputs.environment }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: ${{ inputs.terraform_version }}
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.aws_role_to_assume }}
+          aws-region: ${{ inputs.aws_region }}
+        env:
+          TF_IN_AUTOMATION: "true"
+
+      - name: Terraform fmt (check)
+        run: terraform fmt -check
+
+      - name: Terraform init
+        run: terraform init
+
+      - name: Terraform validate
+        run: terraform validate
+
+      - name: Terraform plan
+        run: terraform plan -out=tfplan
+
+      - name: Upload plan artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: terraform-plan-${{ inputs.environment }}
+          path: ${{ inputs.terraform_directory }}/tfplan
+
+      - name: Terraform apply
+        if: inputs.plan_only == false
+        run: terraform apply -auto-approve tfplan

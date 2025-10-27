@@ -37,10 +37,38 @@ tflint --init
 tflint --chdir=terraform/ --recursive
 ```
 
-## Manual deployments
+## Deployments
+
+### Using GitHub Actions
+
+A reusable workflow lives in `.github/workflows/terraform-run.yaml`.  
+Run the environment specific workflow to apply changes:
+
+```text
+GitHub UI → Actions → terraform-prod → Run workflow
+```
+
+You can run the job in `plan_only` mode first, then re-run with apply enabled.  
+The workflow assumes the IAM role stored in the `PROD_TERRAFORM_ROLE_ARN` secret.
+
+#### Bootstrapping the deployment role
+
+Before the GitHub Actions workflow can apply Terraform, create the IAM role and OIDC provider using local credentials that already have sufficient AWS permissions:
+
+```bash
+cd terraform/prod
+terraform init
+terraform apply
+```
+
+After the apply completes, take the ARN of `terraform-deploy-role` and store it in the repository secret `PROD_TERRAFORM_ROLE_ARN`.  
+Once this one-time bootstrap is done, the workflow can assume the role automatically.
+
+### Manual deployments
 
 > [!NOTE]
-> Ideally, we should use CI/CD to deploy the infrastructure. However, we are doing it manually for now.
+> Ideally, we should rely on the GitHub Actions workflow above.  
+> The manual steps below are kept for troubleshooting.
 
 ### Prerequisites
 
