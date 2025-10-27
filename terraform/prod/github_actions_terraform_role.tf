@@ -1,7 +1,6 @@
 locals {
   terraform_role_name       = "terraform-deploy-role"
   github_actions_role_name  = "github-actions-role"
-  bucket_name               = "${var.environment}-${var.project_name}-cloudfront-origin"
   bucket_arn                = "arn:aws:s3:::${local.bucket_name}"
   bucket_objects_arn        = "${local.bucket_arn}/*"
   distribution_arn_prefix   = "arn:aws:cloudfront::${data.aws_caller_identity.current.account_id}:distribution"
