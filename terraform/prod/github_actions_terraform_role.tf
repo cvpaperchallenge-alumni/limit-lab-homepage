@@ -1,5 +1,6 @@
 locals {
   terraform_role_name      = "terraform-deploy-role"
+  terraform_policy_name    = "terraform-deploy-policy"
   github_actions_role_name = "github-actions-role"
   bucket_arn               = "arn:aws:s3:::${local.bucket_name}"
   bucket_objects_arn       = "${local.bucket_arn}/*"
@@ -12,6 +13,9 @@ locals {
   origin_access_arn_prefix = "arn:aws:cloudfront::${data.aws_caller_identity.current.account_id}:origin-access-control"
   github_actions_role_arn  = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/${local.github_actions_role_name}"
   terraform_role_arn       = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/${local.terraform_role_name}"
+  iam_policy_arn           = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:policy/${local.terraform_policy_name}"
+  acm_certificate_arn      = aws_acm_certificate.virginia_cert.arn
+  route53_zone_arn         = "arn:aws:route53:::hostedzone/${data.aws_route53_zone.host_domain.zone_id}"
 }
 
 data "aws_caller_identity" "current" {}
@@ -43,8 +47,11 @@ data "aws_iam_policy_document" "terraform_actions" {
   }
 
   statement {
-    sid       = "TerraformStateBucketList"
-    actions   = ["s3:ListBucket"]
+    sid = "TerraformStateBucketList"
+    actions = [
+      "s3:ListBucket",
+      "s3:GetBucketLocation"
+    ]
     resources = [local.state_bucket_arn]
   }
 
@@ -78,17 +85,42 @@ data "aws_iam_policy_document" "terraform_actions" {
   }
 
   statement {
-    sid = "Route53Management"
+    sid = "CloudFrontRead"
+    actions = [
+      "cloudfront:ListDistributions",
+      "cloudfront:ListOriginAccessControls"
+    ]
+    resources = ["*"]
+  }
+
+  statement {
+    sid = "Route53HostedZoneManagement"
     actions = [
       "route53:ChangeResourceRecordSets",
       "route53:GetHostedZone",
+      "route53:ListResourceRecordSets",
+      "route53:ListTagsForResource"
+    ]
+    resources = [local.route53_zone_arn]
+  }
+
+  statement {
+    sid = "Route53GlobalReads"
+    actions = [
       "route53:ListHostedZones",
       "route53:ListHostedZonesByName",
-      "route53:ListResourceRecordSets"
+      "route53:GetHostedZoneCount"
     ]
-    resources = [
-      "arn:aws:route53:::hostedzone/*"
+    resources = ["*"]
+  }
+
+  statement {
+    sid = "Route53DomainsRead"
+    actions = [
+      "route53domains:ListDomains",
+      "route53domains:GetDomainDetail"
     ]
+    resources = ["*"]
   }
 
   statement {
@@ -114,6 +146,10 @@ data "aws_iam_policy_document" "terraform_actions" {
       "iam:DetachRolePolicy",
       "iam:GetOpenIDConnectProvider",
       "iam:GetRole",
+      "iam:GetRolePolicy",
+      "iam:GetPolicy",
+      "iam:GetPolicyVersion",
+      "iam:ListPolicyVersions",
       "iam:ListAttachedRolePolicies",
       "iam:ListRolePolicies",
       "iam:PutRolePolicy",
@@ -124,8 +160,37 @@ data "aws_iam_policy_document" "terraform_actions" {
     ]
     resources = [
       local.github_actions_role_arn,
-      local.terraform_role_arn
+      local.terraform_role_arn,
+      local.iam_policy_arn
     ]
+  }
+
+  statement {
+    sid = "AcmCertificateRead"
+    actions = [
+      "acm:DescribeCertificate",
+      "acm:ListTagsForCertificate"
+    ]
+    resources = [local.acm_certificate_arn]
+  }
+
+  statement {
+    sid = "AcmList"
+    actions = [
+      "acm:ListCertificates"
+    ]
+    resources = ["*"]
+  }
+
+  statement {
+    sid = "S3BucketConfigurationRead"
+    actions = [
+      "s3:GetAccelerateConfiguration",
+      "s3:GetEncryptionConfiguration",
+      "s3:GetBucketWebsite",
+      "s3:GetBucketLogging"
+    ]
+    resources = [local.bucket_arn]
   }
 
   statement {
@@ -142,7 +207,7 @@ data "aws_iam_policy_document" "terraform_actions" {
 }
 
 resource "aws_iam_policy" "terraform_actions" {
-  name        = "terraform-deploy-policy"
+  name        = local.terraform_policy_name
   description = "Least privilege policy for Terraform GitHub Actions deployment role."
   policy      = data.aws_iam_policy_document.terraform_actions.json
 }
