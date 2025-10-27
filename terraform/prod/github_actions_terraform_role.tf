@@ -3,6 +3,11 @@ locals {
   github_actions_role_name  = "github-actions-role"
   bucket_arn                = "arn:aws:s3:::${local.bucket_name}"
   bucket_objects_arn        = "${local.bucket_arn}/*"
+  state_bucket_name         = "prod-limitlab-webpage-state"
+  state_bucket_arn          = "arn:aws:s3:::${local.state_bucket_name}"
+  state_bucket_objects_arn  = "${local.state_bucket_arn}/*"
+  state_lock_table_name     = "prod-limitlab-webpage-state-lock"
+  state_lock_table_arn      = "arn:aws:dynamodb:ap-northeast-1:${data.aws_caller_identity.current.account_id}:table/${local.state_lock_table_name}"
   distribution_arn_prefix   = "arn:aws:cloudfront::${data.aws_caller_identity.current.account_id}:distribution"
   origin_access_arn_prefix  = "arn:aws:cloudfront::${data.aws_caller_identity.current.account_id}:origin-access-control"
   github_actions_role_arn   = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/${local.github_actions_role_name}"
@@ -35,6 +40,18 @@ data "aws_iam_policy_document" "terraform_actions" {
     sid       = "S3CloudFrontBucketObjects"
     actions   = ["s3:DeleteObject", "s3:GetObject", "s3:PutObject", "s3:PutObjectAcl"]
     resources = [local.bucket_objects_arn]
+  }
+
+  statement {
+    sid     = "TerraformStateBucketList"
+    actions = ["s3:ListBucket"]
+    resources = [local.state_bucket_arn]
+  }
+
+  statement {
+    sid     = "TerraformStateBucketObjects"
+    actions = ["s3:GetObject", "s3:PutObject", "s3:DeleteObject"]
+    resources = [local.state_bucket_objects_arn]
   }
 
   statement {
@@ -109,6 +126,18 @@ data "aws_iam_policy_document" "terraform_actions" {
       local.github_actions_role_arn,
       local.terraform_role_arn
     ]
+  }
+
+  statement {
+    sid     = "TerraformStateLocking"
+    actions = [
+      "dynamodb:DescribeTable",
+      "dynamodb:GetItem",
+      "dynamodb:PutItem",
+      "dynamodb:DeleteItem",
+      "dynamodb:UpdateItem"
+    ]
+    resources = [local.state_lock_table_arn]
   }
 }
 
