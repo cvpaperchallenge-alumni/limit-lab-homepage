@@ -69,28 +69,16 @@ export AWS_SESSION_TOKEN=<YOUR_AWS_SESSION_TOKEN>
 python3 scripts/create_terraform_backend.py
 ```
 
-### Deploy `shared` resources
-
-The `shared` resources are shared among all environments which include following resources.
-- ACM Certificate in `us-east-1`. 
-
-> [!NOTE]
-> The ACM certificate is created in `us-east-1` because it is required for CloudFront distribution.
-
-```bash
-cd terraform/shared
-
-terraform init
-terraform plan
-terraform apply
-```
-
 ### Deploy `prod` resources
 
 The `prod` environment includes following resources.
+- ACM Certificate in `us-east-1`. 
 - S3 bucket for static website hosting.
 - CloudFront distribution for CDN.
 - Route 53 record set for domain.
+
+> [!NOTE]
+> The ACM certificate is created in `us-east-1` because it is required for CloudFront distribution.
 
 ```bash
 cd terraform/prod
@@ -99,7 +87,6 @@ terraform init
 terraform plan
 terraform apply
 ```
-
 
 ## Undeployments
 
@@ -107,15 +94,6 @@ terraform apply
 
 ```bash
 cd terraform/prod
-
-terraform init
-terraform destroy
-```
-
-### Undeploy `shared` resources
-
-```bash
-cd terraform/shared
 
 terraform init
 terraform destroy
