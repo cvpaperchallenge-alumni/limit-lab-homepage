@@ -1,0 +1,22 @@
+name: site-deploy-prod
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-prod
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    permissions:
+      contents: read
+      id-token: write
+      actions: write
+    uses: ./.github/workflows/site-deploy-run.yaml
+    with:
+      environment: prod
+    secrets:
+      aws_role_to_assume: ${{ secrets.PROD_DEPLOY_ROLE_ARN }}
+      aws_region: ${{ secrets.PROD_AWS_REGION }}
+      s3_bucket_name: ${{ secrets.PROD_S3_BUCKET_NAME }}

@@ -100,4 +100,12 @@ resource "aws_route53_record" "cambridgecv_workshop_2025sep_domain" {
   records = ["${var.github_username}.github.io."]
 }
 
-output "cloudfront_domain_name" { value = module.s3_cloudfront.cloudfront_domain_name }
+output "cloudfront_domain_name" {
+  description = "CloudFront domain name for the production distribution"
+  value       = module.s3_cloudfront.cloudfront_domain_name
+}
+
+output "site_s3_bucket_name" {
+  description = "S3 bucket that stores the production website assets"
+  value       = module.s3_cloudfront.s3_bucket_id
+}
