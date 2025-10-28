@@ -12,6 +12,7 @@ jobs:
     permissions:
       contents: read
       id-token: write
+      actions: write
     uses: ./.github/workflows/site-deploy-run.yaml
     with:
       environment: prod

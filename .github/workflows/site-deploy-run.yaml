@@ -31,6 +31,7 @@ on:
 permissions:
   contents: read
   id-token: write
+  actions: read
 
 concurrency:
   group: site-deploy-${{ inputs.environment }}-${{ github.ref }}
@@ -41,6 +42,10 @@ jobs:
     name: Build (${{ inputs.environment }})
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    permissions:
+      contents: read
+      id-token: write
+      actions: write
     defaults:
       run:
         shell: bash
@@ -88,6 +93,7 @@ jobs:
     permissions:
       contents: read
       id-token: write
+      actions: read
     defaults:
       run:
         shell: bash
