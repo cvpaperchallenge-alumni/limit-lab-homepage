@@ -89,7 +89,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    environment: ${{ inputs.environment }}
+    environment: site-${{ inputs.environment }}
     permissions:
       contents: read
       id-token: write

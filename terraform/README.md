@@ -122,7 +122,8 @@ GitHub UI → Actions → terraform-prod → Run workflow
 ```
 
 You can run the job in `plan_only` mode first, then re-run with apply enabled.  
-The workflow assumes the IAM role stored in the `PROD_TERRAFORM_ROLE_ARN` secret.
+The workflow assumes the IAM role stored in the `PROD_TERRAFORM_ROLE_ARN` secret.  
+For environment approvals, configure GitHub environments named `terraform-prod` and `terraform-dev` (separate from any site deployment environments).
 
 ### Manual deployments
 

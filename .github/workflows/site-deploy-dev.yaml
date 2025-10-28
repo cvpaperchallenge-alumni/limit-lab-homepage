@@ -1,0 +1,22 @@
+name: site-deploy-dev
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-dev
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    permissions:
+      contents: read
+      id-token: write
+      actions: write
+    uses: ./.github/workflows/site-deploy-run.yaml
+    with:
+      environment: dev
+    secrets:
+      aws_role_to_assume: ${{ secrets.DEV_DEPLOY_ROLE_ARN }}
+      aws_region: ${{ secrets.DEV_AWS_REGION }}
+      s3_bucket_name: ${{ secrets.DEV_S3_BUCKET_NAME }}
