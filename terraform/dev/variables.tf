@@ -21,13 +21,6 @@ variable "project_name" {
   default     = "limitlab-webpage"
 }
 
-
-variable "github_username" {
-  type        = string
-  description = "The GitHub username."
-  default     = "cvpaperchallenge"
-}
-
 variable "github_repo" {
   type        = string
   description = "The name of the GitHub repository."
