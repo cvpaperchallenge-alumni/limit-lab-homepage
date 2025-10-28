@@ -1,0 +1,112 @@
+name: site-deploy-run
+
+on:
+  workflow_call:
+    inputs:
+      environment:
+        description: Logical environment name (e.g. prod, dev)
+        required: true
+        type: string
+      docker_compose_directory:
+        description: Directory containing docker compose configuration
+        required: false
+        default: environments/ci
+        type: string
+      build_artifact_name:
+        description: Name of the build artifact passed between jobs
+        required: false
+        default: built-artifact
+        type: string
+    secrets:
+      aws_role_to_assume:
+        description: IAM role ARN assumed for deployment
+        required: true
+      aws_region:
+        description: AWS region used for deployment commands
+        required: true
+      s3_bucket_name:
+        description: Destination S3 bucket for the built site
+        required: true
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: site-deploy-${{ inputs.environment }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build (${{ inputs.environment }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        shell: bash
+    env:
+      DOCKER_COMPOSE_DIRECTORY: ${{ inputs.docker_compose_directory }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Check version info
+        run: pwd && docker compose version && docker --version
+
+      - name: Get UID/GID of the runner
+        id: get_uid_gid
+        run: |
+          echo "HOST_UID=$(id -u)" >> $GITHUB_ENV
+          echo "HOST_GID=$(id -g)" >> $GITHUB_ENV
+
+      - name: Create and start docker container
+        run: docker compose up -d
+        working-directory: ${{ env.DOCKER_COMPOSE_DIRECTORY }}
+
+      - name: Build webpage in Docker container
+        working-directory: ${{ env.DOCKER_COMPOSE_DIRECTORY }}
+        run: docker compose exec -T frontend npm run build
+
+      - name: Stop container
+        if: always()
+        run: docker compose down
+        working-directory: ${{ env.DOCKER_COMPOSE_DIRECTORY }}
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ inputs.build_artifact_name }}
+          path: ./out
+
+  deploy:
+    name: Deploy (${{ inputs.environment }})
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment: ${{ inputs.environment }}
+    permissions:
+      contents: read
+      id-token: write
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ inputs.build_artifact_name }}
+          path: ./out
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.aws_role_to_assume }}
+          aws-region: ${{ secrets.aws_region }}
+
+      - name: Sync built files to S3
+        run: aws s3 sync out s3://${{ secrets.s3_bucket_name }} --delete
