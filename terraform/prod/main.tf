@@ -67,13 +67,15 @@ resource "aws_route53_record" "sub_domain" {
   }
 }
 
-# resource "aws_route53_record" "dev_domain" {
-#   zone_id = data.aws_route53_zone.host_domain.zone_id
-#   name    = "dev.${var.domain_name}"
-#   type    = "NS"
-#   ttl     = 172800
-#   records = var.dev_subdomain_name_servers
-# }
+resource "aws_route53_record" "dev_domain" {
+  # Only create the NS delegation when name servers are provided (i.e. dev hosted zone exists).
+  count   = length(var.dev_subdomain_name_servers) > 0 ? 1 : 0
+  zone_id = data.aws_route53_zone.host_domain.zone_id
+  name    = "dev.${var.domain_name}"
+  type    = "NS"
+  ttl     = 172800
+  records = var.dev_subdomain_name_servers
+}
 
 resource "aws_route53_record" "iccv2025_found_workshop_domain" {
   zone_id = data.aws_route53_zone.host_domain.zone_id

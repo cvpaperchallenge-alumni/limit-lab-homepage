@@ -1,0 +1,33 @@
+terraform {
+  backend "s3" {
+    key            = "dev/terraform.tfstate"
+    region         = "ap-northeast-1"
+    bucket         = "dev-limitlab-webpage-state"
+    dynamodb_table = "dev-limitlab-webpage-state-lock"
+    encrypt        = true
+  }
+
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "5.82.2"
+    }
+
+    tls = {
+      source  = "hashicorp/tls"
+      version = "4.1.0"
+    }
+  }
+
+  required_version = "= 1.10.3"
+}
+
+provider "aws" {
+  region = "ap-northeast-1"
+}
+
+# CloudFront requires ACM certificate in us-east-1 region.
+provider "aws" {
+  alias  = "virginia"
+  region = "us-east-1"
+}
