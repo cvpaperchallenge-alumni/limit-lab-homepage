@@ -37,3 +37,8 @@ resource "aws_iam_role_policy" "s3_sync_policy" {
     ]
   })
 }
+
+output "site_deploy_role_arn" {
+  description = "ARN of the IAM role assumed by GitHub Actions for Website deployment."
+  value       = aws_iam_role.github_actions.arn
+}
