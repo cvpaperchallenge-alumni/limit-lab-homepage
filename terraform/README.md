@@ -86,8 +86,8 @@ The `limitlab.xyz` domain is registered in the `prod` environment, but we have c
 2. **Delegate from prod** – supply those name servers when running the prod workspace so the parent zone forwards queries to the dev account:
    ```bash
    cd terraform/prod
-   terraform plan -var='dev_subdomain_name_servers=["ns-123.awsdns-00.net", "ns-456.awsdns-10.org", ...]'
-   terraform apply -var='dev_subdomain_name_servers=["ns-123.awsdns-00.net", "ns-456.awsdns-10.org", ...]'
+   terraform plan -var='dev_subdomain_name_servers=["ns-123.awsdns-00.net","ns-456.awsdns-10.org", ...]'
+   terraform apply -var='dev_subdomain_name_servers=["ns-123.awsdns-00.net","ns-456.awsdns-10.org", ...]'
    ```
 
 3. **Finish the dev apply** – with delegation live, rerun the dev workspace normally so ACM validation succeeds and the remaining resources are created:
