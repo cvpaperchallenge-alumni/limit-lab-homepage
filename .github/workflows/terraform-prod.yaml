@@ -25,3 +25,4 @@ jobs:
       plan_only: ${{ inputs.plan_only }}
     secrets:
       aws_role_to_assume: ${{ secrets.PROD_TERRAFORM_ROLE_ARN }}
+      dev_subdomain_name_servers: ${{ secrets.PROD_DEV_SUBDOMAIN_NS }}

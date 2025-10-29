@@ -29,6 +29,9 @@ on:
       aws_role_to_assume:
         description: IAM role ARN assumed for Terraform execution
         required: true
+      dev_subdomain_name_servers:
+        description: Optional. If provided, will be passed as `-var=dev_subdomain_name_servers=...` to plan
+        required: false
 
 permissions:
   contents: read
@@ -61,6 +64,16 @@ jobs:
         env:
           TF_IN_AUTOMATION: "true"
 
+      - name: Compute extra terraform args
+        id: compute_args
+        shell: bash
+        run: |
+          if [ -n "${{ secrets.dev_subdomain_name_servers }}" ]; then
+            echo "extra_args=-var=dev_subdomain_name_servers='${{ secrets.dev_subdomain_name_servers }}'" >> "$GITHUB_OUTPUT"
+          else
+            echo "extra_args=" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Terraform fmt (check)
         run: terraform fmt -check
 
@@ -71,7 +84,9 @@ jobs:
         run: terraform validate
 
       - name: Terraform plan
-        run: terraform plan -out=tfplan
+        run: terraform plan -out=tfplan $EXTRA_ARGS
+        env:
+          EXTRA_ARGS: ${{ steps.compute_args.outputs.extra_args }}
 
       - name: Upload plan artifact
         uses: actions/upload-artifact@v4
