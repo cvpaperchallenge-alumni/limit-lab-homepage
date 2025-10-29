@@ -107,6 +107,7 @@ Next, to ensure that the GitHub Actions workflow functions properly, you need to
 | PROD_DEPLOY_ROLE_ARN | site_deploy_role_arn | ARN of assumed role to deploy site content for `prod`. |
 | PROD_S3_BUCKET_NAME | site_s3_bucket_name | A name of target S3 bucket of site content deployment for `prod`. |
 | PROD_TERRAFORM_ROLE_ARN | terraform_deploy_role_arn | ARN of assumed role to deploy infra by Terraform for `prod`. |
+| PROD_DEV_SUBDOMAIN_NS | subdomain_name_servers | A list of NS record which enable dev subdomain delegation for `prod`. |
 | DEV_AWS_REGION | - | AWS region to deploy for `dev`. Currently `ap-northeast-1`. |
 | DEV_DEPLOY_ROLE_ARN | site_deploy_role_arn | ARN of assumed role to deploy site content for `dev`. |
 | DEV_S3_BUCKET_NAME | site_s3_bucket_name | A name of target S3 bucket of site content deployment for `dev`. |
@@ -124,6 +125,9 @@ GitHub UI → Actions → terraform-prod → Run workflow
 You can run the job in `plan_only` mode first, then re-run with apply enabled.  
 The workflow assumes the IAM role stored in the `PROD_TERRAFORM_ROLE_ARN` secret.  
 For environment approvals, configure GitHub environments named `terraform-prod` and `terraform-dev` (separate from any site deployment environments).
+
+> [!IMPORTANT]
+> To keep the `dev.limitlab.xyz` delegation intact during automated runs, define the repository (or environment) secret `PROD_DEV_SUBDOMAIN_NS` with the JSON array of name servers emitted by the dev workspace, for example `["ns-123.awsdns-00.net","ns-456.awsdns-10.org",...]`. The workflow automatically injects this value when performing `terraform plan`/`apply` in prod; if the secret is omitted, the delegation NS record is skipped.
 
 ### Manual deployments
 
