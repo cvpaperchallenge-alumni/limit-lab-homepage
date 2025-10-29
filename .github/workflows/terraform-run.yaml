@@ -11,6 +11,11 @@ on:
         description: Path to the Terraform working directory
         required: true
         type: string
+      extra_terraform_args:
+        description: Additional arguments appended to the terraform plan and apply command (e.g. `-var=...`)
+        required: false
+        default: ""
+        type: string
       aws_region:
         description: Default AWS region used by Terraform providers
         required: true
@@ -71,7 +76,7 @@ jobs:
         run: terraform validate
 
       - name: Terraform plan
-        run: terraform plan -out=tfplan
+        run: terraform plan -out=tfplan ${{ inputs.extra_terraform_args }}
 
       - name: Upload plan artifact
         uses: actions/upload-artifact@v4
@@ -81,4 +86,4 @@ jobs:
 
       - name: Terraform apply
         if: inputs.plan_only == false
-        run: terraform apply -auto-approve tfplan
+        run: terraform apply -auto-approve tfplan ${{ inputs.extra_terraform_args }}
