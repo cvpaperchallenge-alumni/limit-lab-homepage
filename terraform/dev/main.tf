@@ -30,11 +30,11 @@ resource "aws_route53_record" "subdomain_certificate_validation" {
     }
   }
 
-  zone_id = aws_route53_zone.subdomain.zone_id
-  name    = each.value.name
-  type    = each.value.type
-  ttl     = 60
-  records = [each.value.record]
+  zone_id         = aws_route53_zone.subdomain.zone_id
+  name            = each.value.name
+  type            = each.value.type
+  ttl             = 60
+  records         = [each.value.record]
   allow_overwrite = true
 }
 
@@ -68,9 +68,9 @@ resource "aws_route53_record" "subdomain_apex" {
   }
 }
 
-output "cloudfront_domain_name"            { value = module.s3_cloudfront.cloudfront_domain_name }
-output "cloudfront_hosted_zone_id"         { value = module.s3_cloudfront.cloudfront_hosted_zone_id }
-output "cloudfront_distribution_id"        { value = module.s3_cloudfront.cloudfront_distribution_id }
-output "subdomain_name"                    { value = aws_route53_zone.subdomain.name }
-output "subdomain_zone_id"                 { value = aws_route53_zone.subdomain.zone_id }
-output "subdomain_name_servers"            { value = aws_route53_zone.subdomain.name_servers }
+output "cloudfront_domain_name" { value = module.s3_cloudfront.cloudfront_domain_name }
+output "cloudfront_hosted_zone_id" { value = module.s3_cloudfront.cloudfront_hosted_zone_id }
+output "cloudfront_distribution_id" { value = module.s3_cloudfront.cloudfront_distribution_id }
+output "subdomain_name" { value = aws_route53_zone.subdomain.name }
+output "subdomain_zone_id" { value = aws_route53_zone.subdomain.zone_id }
+output "subdomain_name_servers" { value = aws_route53_zone.subdomain.name_servers }
