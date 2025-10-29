@@ -23,6 +23,6 @@ jobs:
       terraform_directory: terraform/prod
       aws_region: ap-northeast-1
       plan_only: ${{ inputs.plan_only }}
-      extra_terraform_args: ${{ secrets.PROD_DEV_SUBDOMAIN_NS && format('-var=''dev_subdomain_name_servers={0}''', secrets.PROD_DEV_SUBDOMAIN_NS) || '' }}
     secrets:
       aws_role_to_assume: ${{ secrets.PROD_TERRAFORM_ROLE_ARN }}
+      dev_subdomain_name_servers: ${{ secrets.PROD_DEV_SUBDOMAIN_NS }}
