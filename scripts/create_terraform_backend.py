@@ -81,17 +81,46 @@ def enable_encryption(bucket_name: str) -> None:
     except ClientError as e:
         print(f"Error enabling encryption: {e}")
 
-def create_s3_bucket_policy(bucket_name: str, account_id: str, region: str) -> None:
+def _find_sso_admin_role_arn(region: str) -> str | None:
+    """Locate the AWS SSO AdministratorAccess role ARN for the account.
+
+    Args:
+        region: AWS region that hosts the SSO-managed roles (used in the path prefix).
+
+    Returns:
+        The ARN of the first role whose name starts with
+        ``AWSReservedSSO_AdministratorAccess`` under the SSO path in the
+        current account. Returns ``None`` when no such role is found.
+    """
+    iam = boto3.client("iam")
+    path_prefix = f"/aws-reserved/sso.amazonaws.com/{region}/"
+
+    paginator = iam.get_paginator("list_roles")
+    for page in paginator.paginate(PathPrefix=path_prefix):
+        for role in page.get("Roles", []):
+            if role["RoleName"].startswith("AWSReservedSSO_AdministratorAccess"):
+                return role["Arn"]
+
+    return None
+
+
+def create_s3_bucket_policy(bucket_name: str, region: str) -> None:
     """
     Create or update the bucket policy for an S3 bucket.
 
     Args:
         bucket_name (str): The name of the S3 bucket.
-        account_id (str): The AWS account ID.
         region (str): The AWS region.
     """
     s3 = boto3.client("s3")
     try:
+        principal_arn = _find_sso_admin_role_arn(region)
+        if not principal_arn:
+            print(
+                "No AWS SSO AdministratorAccess role found; skipping bucket policy application."
+            )
+            return
+
         # Define the bucket policy
         bucket_policy = {
             "Version": "2012-10-17",
@@ -99,7 +128,7 @@ def create_s3_bucket_policy(bucket_name: str, account_id: str, region: str) -> N
                 {
                     "Sid": "AllowSSOAdministratorAccess",
                     "Effect": "Allow",
-                    "Principal": {"AWS": f"arn:aws:iam::{account_id}:role/aws-reserved/sso.amazonaws.com/{region}/AWSReservedSSO_AdministratorAccess_602b97d32a2065ed"},
+                    "Principal": {"AWS": principal_arn},
                     "Action": "s3:*",
                     "Resource": [
                         f"arn:aws:s3:::{bucket_name}",
@@ -182,6 +211,7 @@ def main() -> None:
     # Define known AWS accounts and their environments
     id_to_environment: Dict[str, str] = {
         "664418960222": "prod",
+        "022731370203": "dev",
     }
 
     parser = argparse.ArgumentParser(description="Create S3 bucket and DynamoDB table for Terraform backend.")
@@ -208,7 +238,7 @@ def main() -> None:
     create_s3_bucket(s3_bucket_name, region)
     enable_versioning(s3_bucket_name)
     enable_encryption(s3_bucket_name)
-    create_s3_bucket_policy(s3_bucket_name, account_id, region)
+    create_s3_bucket_policy(s3_bucket_name, region)
     create_dynamodb_table(dynamodb_table_name, region)
 
 if __name__ == "__main__":

@@ -4,17 +4,10 @@ variable "domain_name" {
   default     = "limitlab.xyz"
 }
 
-variable "dev_subdomain_name_servers" {
-  type        = list(string)
-  description = "Name server records for the delegated dev subdomain hosted zone."
-  # Leave empty when no delegation is required; the NS record resource will be skipped.
-  default = []
-}
-
 variable "environment" {
   type        = string
   description = "The name of the environment."
-  default     = "prod"
+  default     = "dev"
 
   validation {
     condition     = contains(["dev", "staging", "prod"], var.environment)
@@ -26,13 +19,6 @@ variable "project_name" {
   type        = string
   description = "The name of the project."
   default     = "limitlab-webpage"
-}
-
-
-variable "github_username" {
-  type        = string
-  description = "The GitHub username."
-  default     = "cvpaperchallenge"
 }
 
 variable "github_repo" {
