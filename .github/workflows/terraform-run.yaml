@@ -68,15 +68,11 @@ jobs:
         id: compute_args
         shell: bash
         run: |
-          args=""
           if [ -n "${{ secrets.dev_subdomain_name_servers }}" ]; then
-            args="$args -var=dev_subdomain_name_servers='${{ secrets.dev_subdomain_name_servers }}'"
+            echo "extra_args=-var=dev_subdomain_name_servers='${{ secrets.dev_subdomain_name_servers }}'" >> "$GITHUB_OUTPUT"
+          else
+            echo "extra_args=" >> "$GITHUB_OUTPUT"
           fi
-          {
-            echo "extra_args<<'EOF'"
-            echo "$args"
-            echo "EOF"
-          } >> "$GITHUB_OUTPUT"
 
       - name: Terraform fmt (check)
         run: terraform fmt -check
