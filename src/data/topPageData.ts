@@ -1,6 +1,11 @@
 // Sample data for recent news
 export const newsItems = [
   {
+    date: '2025-10-31',
+    description: 'Released the ICCV 2025 Report.',
+    url: 'https://cdn.limitlab.xyz/iccv2025/r/iccv2025-report_latest-en.pdf',
+  },
+  {
     date: '2025-09-26',
     description: 'We jointly hosted the Cambridge Computer Vision Workshop.',
     url: 'https://cambridgecv-workshop-2025sep.limitlab.xyz/',
