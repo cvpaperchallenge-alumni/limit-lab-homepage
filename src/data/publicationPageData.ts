@@ -10,7 +10,7 @@ export const samplePublications = [
     projectPageUrl: '',
     pdfFileUrl: 'https://arxiv.org/pdf/2408.00677',
     githubUrl: 'https://github.com/SUPER-TADORY/1p-frac',
-    field: 'Machine Learning',
+    field: 'Computer Vision',
   },
   {
     id: 2,
@@ -23,7 +23,7 @@ export const samplePublications = [
     projectPageUrl: '',
     pdfFileUrl: 'https://arxiv.org/pdf/2409.00768',
     githubUrl: 'https://github.com/gohtanii/DiverSeg-dataset',
-    field: 'Machine Learning',
+    field: 'Computer Vision',
   },
   {
     id: 3,
@@ -37,7 +37,7 @@ export const samplePublications = [
     projectPageUrl: '',
     pdfFileUrl: '',
     githubUrl: '',
-    field: 'Machine Learning',
+    field: 'Computer Vision',
   },
   {
     id: 4,
@@ -51,7 +51,7 @@ export const samplePublications = [
     projectPageUrl: '',
     pdfFileUrl: 'https://arxiv.org/pdf/2501.09278',
     githubUrl: '',
-    field: 'Machine Learning',
+    field: 'Computer Vision',
   },
   {
     id: 5,
@@ -64,7 +64,7 @@ export const samplePublications = [
     projectPageUrl: '',
     pdfFileUrl: 'https://openreview.net/pdf?id=GhDmrlCsJO',
     githubUrl: '',
-    field: 'Machine Learning',
+    field: 'Computer Vision',
   },
   {
     id: 6,
@@ -77,6 +77,19 @@ export const samplePublications = [
     projectPageUrl: 'https://dahlian00.github.io/AnimalCluePage',
     pdfFileUrl: 'https://arxiv.org/pdf/2507.20240',
     githubUrl: 'https://github.com/dahlian00/AnimalClue',
-    field: 'Machine Learning',
+    field: 'Computer Vision',
+  },
+  {
+    id: 7,
+    imageUrl: '/publications/kupyn25s3od-320x180.jpg',
+    title:
+      'S3OD: Towards Generalizable Salient Object Detection with Synthetic Data',
+    authors: 'Orest Kupyn, Hirokatsu Kataoka, Christian Rupprecht',
+    conference: 'arXiv',
+    year: 2025,
+    projectPageUrl: 'https://s3odproject.github.io/',
+    pdfFileUrl: 'https://arxiv.org/pdf/2510.21605',
+    githubUrl: 'https://github.com/KupynOrest/s3od',
+    field: 'Computer Vision',
   },
 ]
