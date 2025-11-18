@@ -60,7 +60,7 @@ resource "aws_route53_record" "google_search_console_verification" {
   name    = var.domain_name
   type    = "TXT"
   ttl     = 300
-  records = ["\"google-site-verification=ji-hT4NRIusCUNz2z3vvVhqAUrEYfdUgEbj_Z-K39B0\""]
+  records = ["google-site-verification=ji-hT4NRIusCUNz2z3vvVhqAUrEYfdUgEbj_Z-K39B0"]
 }
 
 resource "aws_route53_record" "sub_domain" {
