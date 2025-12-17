@@ -110,6 +110,14 @@ resource "aws_route53_record" "cambridgecv_workshop_2025sep_domain" {
   records = ["${var.github_username}.github.io."]
 }
 
+resource "aws_route53_record" "cvpr2026_vgi_workshop_domain" {
+  zone_id = data.aws_route53_zone.host_domain.zone_id
+  name    = "cvpr2026-vgi-workshop.${var.domain_name}"
+  type    = "CNAME"
+  ttl     = 300
+  records = ["${var.github_username}.github.io."]
+}
+
 output "cloudfront_domain_name" {
   description = "CloudFront domain name for the production distribution"
   value       = module.s3_cloudfront.cloudfront_domain_name
