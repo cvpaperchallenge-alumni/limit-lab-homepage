@@ -1,6 +1,11 @@
 // Sample data for recent news
 export const newsItems = [
   {
+    date: '2025-12-21',
+    description: 'Two workshops are accepted at CVPR 2026.',
+    url: '',
+  },
+  {
     date: '2025-10-31',
     description: 'Released the ICCV 2025 Report.',
     url: 'https://cdn.limitlab.xyz/iccv2025/r/iccv2025-report_latest-en.pdf',
