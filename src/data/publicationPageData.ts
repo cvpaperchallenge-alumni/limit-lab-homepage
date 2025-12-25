@@ -92,4 +92,17 @@ export const samplePublications = [
     githubUrl: 'https://github.com/KupynOrest/s3od',
     field: 'Computer Vision',
   },
+  {
+    id: 8,
+    imageUrl: '/publications/kawamura25approximate-320x180.jpg',
+    title: 'Approximate Domain Unlearning for Vision-Language Models',
+    authors:
+      'Kodai Kawamura, Yuta Goto, Rintaro Yanagi, Hirokatsu Kataoka, Go Irie',
+    conference: 'NeurIPS',
+    year: 2025,
+    projectPageUrl: 'https://kodaikawamura.github.io/Domain_Unlearning/',
+    pdfFileUrl: 'https://arxiv.org/pdf/2510.08132',
+    githubUrl: 'https://github.com/kodaikawamura/domain-unlearning',
+    field: 'Computer Vision',
+  },
 ]
