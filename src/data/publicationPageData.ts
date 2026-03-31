@@ -81,19 +81,6 @@ export const samplePublications = [
   },
   {
     id: 7,
-    imageUrl: '/publications/kupyn25s3od-320x180.jpg',
-    title:
-      'S3OD: Towards Generalizable Salient Object Detection with Synthetic Data',
-    authors: 'Orest Kupyn, Hirokatsu Kataoka, Christian Rupprecht',
-    conference: 'arXiv',
-    year: 2025,
-    projectPageUrl: 'https://s3odproject.github.io/',
-    pdfFileUrl: 'https://arxiv.org/pdf/2510.21605',
-    githubUrl: 'https://github.com/KupynOrest/s3od',
-    field: 'Computer Vision',
-  },
-  {
-    id: 8,
     imageUrl: '/publications/kawamura25approximate-320x180.jpg',
     title: 'Approximate Domain Unlearning for Vision-Language Models',
     authors:
@@ -103,6 +90,33 @@ export const samplePublications = [
     projectPageUrl: 'https://kodaikawamura.github.io/Domain_Unlearning/',
     pdfFileUrl: 'https://arxiv.org/pdf/2510.08132',
     githubUrl: 'https://github.com/kodaikawamura/domain-unlearning',
+    field: 'Computer Vision',
+  },
+  {
+    id: 8,
+    imageUrl: '/publications/kupyn25s3od-320x180.jpg',
+    title:
+      'S3OD: Towards Generalizable Salient Object Detection with Synthetic Data',
+    authors: 'Orest Kupyn, Hirokatsu Kataoka, Christian Rupprecht',
+    conference: 'ICLR',
+    year: 2026,
+    projectPageUrl: 'https://s3odproject.github.io/',
+    pdfFileUrl: 'https://arxiv.org/pdf/2510.21605',
+    githubUrl: 'https://github.com/KupynOrest/s3od',
+    field: 'Computer Vision',
+  },
+  {
+    id: 9,
+    imageUrl: '/publications/yamada26lam3c-320x180.jpg',
+    title:
+      '3D sans 3D Scans: Scalable Pre-training from Video-Generated Point Clouds',
+    authors:
+      'Ryousuke Yamada, Kohsuke Ide, Yoshihiro Fukuhara, Hirokatsu Kataoka, Gilles Puy, Andrei Bursuc, Yuki M. Asano',
+    conference: 'CVPR',
+    year: 2026,
+    projectPageUrl: 'https://ryosuke-yamada.github.io/lam3c/',
+    pdfFileUrl: 'https://arxiv.org/pdf/2512.23042',
+    githubUrl: 'https://github.com/ryosuke-yamada/lam3c',
     field: 'Computer Vision',
   },
 ]
