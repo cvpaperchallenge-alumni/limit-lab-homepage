@@ -32,6 +32,7 @@ export function Header() {
   const [page, setPage] = useState('top')
   const [hasHoveredTop, setHasHoveredTop] = useState(false)
   const [hasHoveredPublications, setHasHoveredPublications] = useState(false)
+  const [hasHoveredEventsReports, setHasHoveredEventsReports] = useState(false)
   const [hasHoveredContact, setHasHoveredContact] = useState(false)
   const router = useRouter()
   const pathname = usePathname()
@@ -46,6 +47,7 @@ export function Header() {
   useEffect(() => {
     if (pathname === '/') setPage('top')
     else if (pathname.startsWith('/publications')) setPage('publication')
+    else if (pathname.startsWith('/events-reports')) setPage('events-reports')
     else if (pathname.startsWith('/contact')) setPage('contact')
   }, [pathname])
 
@@ -54,6 +56,7 @@ export function Header() {
       if (window.innerWidth < 768) {
         setHasHoveredTop(false)
         setHasHoveredPublications(false)
+        setHasHoveredEventsReports(false)
         setHasHoveredContact(false)
       }
     }
@@ -151,6 +154,39 @@ export function Header() {
               className="group pl-0.5 font-semibold hover:animate-pulsate-fwd hover:no-underline"
             >
               <Link
+                href="/events-reports"
+                onMouseEnter={() => setHasHoveredEventsReports(true)}
+                onMouseLeave={() => {}}
+              >
+                <Image
+                  alt="VA mark"
+                  src={isDarkMode ? whiteVAMark : blackVAMark}
+                  width={32}
+                  height={32}
+                  className={
+                    `group-hover:animate-rotate-in-center ` +
+                    (hasHoveredEventsReports
+                      ? 'animate-rotate-out-center'
+                      : 'invisible')
+                  }
+                />
+                <span
+                  className={
+                    page === 'events-reports'
+                      ? 'text-accent-foreground'
+                      : 'text-sub group-hover:text-secondary-foreground'
+                  }
+                >
+                  Events &amp; Reports
+                </span>
+              </Link>
+            </Button>
+            <Button
+              variant="link"
+              asChild
+              className="group pl-0.5 font-semibold hover:animate-pulsate-fwd hover:no-underline"
+            >
+              <Link
                 href="/contact"
                 onMouseEnter={() => setHasHoveredContact(true)}
                 onMouseLeave={() => {}}
@@ -230,6 +266,13 @@ export function Header() {
                     onClick={() => router.push('/publications')}
                   >
                     Publications
+                  </DropdownMenuRadioItem>
+                  <DropdownMenuRadioItem
+                    value="events-reports"
+                    isDarkMode={isDarkMode}
+                    onClick={() => router.push('/events-reports')}
+                  >
+                    Events &amp; Reports
                   </DropdownMenuRadioItem>
                   <DropdownMenuRadioItem
                     value="contact"
