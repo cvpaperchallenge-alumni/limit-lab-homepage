@@ -67,6 +67,10 @@ const config = {
           }
         },
         badge: {
+          type: {
+            DEFAULT: 'var(--badge-type)',
+            foreground: 'var(--badge-type-foreground)',
+          },
           conference: {
             DEFAULT: 'var(--badge-conference)',
             foreground: 'var(--badge-conference-foreground)',

@@ -134,6 +134,37 @@
   --blue-surface: #f4f8ffcc;
   --blue-indicator: #4375ea;
   --blue-track: #4375ea;
+
+  --purple-1: #fefcfe;
+  --purple-2: #fbf7fe;
+  --purple-3: #f7edfe;
+  --purple-4: #f2e2fc;
+  --purple-5: #ead5f9;
+  --purple-6: #e0c4f4;
+  --purple-7: #d3afed;
+  --purple-8: #c297e3;
+  --purple-9: #8e4ec6;
+  --purple-10: #8445bc;
+  --purple-11: #793aaf;
+  --purple-12: #402060;
+
+  --purple-a1: #aa00aa03;
+  --purple-a2: #c000e008;
+  --purple-a3: #cc00ff12;
+  --purple-a4: #cc00ff1d;
+  --purple-a5: #c200f72a;
+  --purple-a6: #b700e83b;
+  --purple-a7: #aa00de50;
+  --purple-a8: #9c01d068;
+  --purple-a9: #7a00b8b1;
+  --purple-a10: #7000aeba;
+  --purple-a11: #66009ec5;
+  --purple-a12: #250049df;
+
+  --purple-contrast: #fff;
+  --purple-surface: #f9f3ffcc;
+  --purple-indicator: #8e4ec6;
+  --purple-track: #8e4ec6;
 }
 
 .dark, .dark-theme {
@@ -167,6 +198,37 @@
   --blue-surface: #101d3b80;
   --blue-indicator: #4375ea;
   --blue-track: #4375ea;
+
+  --purple-1: #1b141d;
+  --purple-2: #221527;
+  --purple-3: #381847;
+  --purple-4: #4a1a5f;
+  --purple-5: #591d74;
+  --purple-6: #692188;
+  --purple-7: #7b27a1;
+  --purple-8: #9130bc;
+  --purple-9: #8e4ec6;
+  --purple-10: #8347b9;
+  --purple-11: #d19dff;
+  --purple-12: #ecd7ff;
+
+  --purple-a1: #b412f00d;
+  --purple-a2: #db51f918;
+  --purple-a3: #eb62ff3b;
+  --purple-a4: #ee5eff54;
+  --purple-a5: #f062ff6a;
+  --purple-a6: #ee65ff7f;
+  --purple-a7: #ef6eff9a;
+  --purple-a8: #f06fffb7;
+  --purple-a9: #e961ffc2;
+  --purple-a10: #e456ffb5;
+  --purple-a11: #d19dff;
+  --purple-a12: #ecd7ff;
+
+  --purple-contrast: #fff;
+  --purple-surface: #25153b80;
+  --purple-indicator: #8e4ec6;
+  --purple-track: #8e4ec6;
 }
 
 :root, .light, .light-theme {
@@ -408,6 +470,8 @@
     --button-github-foreground-hovered: var(--gray-12);
     --button-github-edge: var(--gray-6);
 
+    --badge-type: var(--purple-a5);
+    --badge-type-foreground: var(--purple-11);
     --badge-conference: var(--blue-a5);
     --badge-conference-foreground: var(--blue-11);
     --badge-year: var(--green-a5);

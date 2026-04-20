@@ -1,39 +1,118 @@
+// Type definitions for news content
+export type NewsContentPart = string | { text: string; url: string }
+
+export type NewsTag =
+  | 'Workshop/Event'
+  | 'Report'
+  | 'Paper Accepted'
+  | 'Announcement'
+
+export interface NewsItem {
+  date: string
+  tag?: NewsTag // Optional tag
+  content: NewsContentPart[]
+}
+
 // Sample data for recent news
-export const newsItems = [
+export const newsItems: NewsItem[] = [
+  {
+    date: '2026-04-07',
+    tag: 'Workshop/Event',
+    content: [
+      'We hosted the ',
+      {
+        text: 'ASPIRE Computer Vision Workshop at Tokyo',
+        url: 'https://research-p.com/event/2690',
+      },
+      '.',
+    ],
+  },
   {
     date: '2025-12-21',
-    description: 'Two workshops are accepted at CVPR 2026.',
-    url: '',
+    tag: 'Workshop/Event',
+    content: [
+      'Two workshops are accepted at CVPR 2026 (',
+      {
+        text: 'VGI Workshop',
+        url: 'https://cvpr2026-vgi-workshop.limitlab.xyz',
+      },
+      ', ',
+      {
+        text: 'BigMAC Workshop',
+        url: 'https://cvpr2026-bigmac-workshop.limitlab.xyz',
+      },
+      ').',
+    ],
   },
   {
     date: '2025-10-31',
-    description: 'Released the ICCV 2025 Report.',
-    url: 'https://cdn.limitlab.xyz/iccv2025/r/iccv2025-report_latest-en.pdf',
+    tag: 'Report',
+    content: [
+      'Released the ',
+      {
+        text: 'ICCV 2025 Report',
+        url: 'https://cdn.limitlab.xyz/iccv2025/r/iccv2025-report_latest-en.pdf',
+      },
+      '.',
+    ],
   },
   {
     date: '2025-09-26',
-    description: 'We jointly hosted the Cambridge Computer Vision Workshop.',
-    url: 'https://cambridgecv-workshop-2025sep.limitlab.xyz/',
+    tag: 'Workshop/Event',
+    content: [
+      'We jointly hosted the ',
+      {
+        text: 'Cambridge Computer Vision Workshop',
+        url: 'https://cambridgecv-workshop-2025sep.limitlab.xyz/',
+      },
+      '.',
+    ],
   },
   {
     date: '2025-07-14',
-    description: 'Ryousuke Yamada appointed JSPS research fellow at FunAI Lab.',
-    url: 'https://fundamentalailab.github.io/',
+    tag: 'Announcement',
+    content: [
+      'Ryousuke Yamada appointed JSPS research fellow at ',
+      {
+        text: 'FunAI Lab',
+        url: 'https://fundamentalailab.github.io/',
+      },
+      '.',
+    ],
   },
   {
     date: '2025-06-16',
-    description: 'Released the CVPR 2025 Report.',
-    url: 'https://hirokatsukataoka.net/temp/presen/250616CVPR2025Report_FinalizedVer.pdf',
+    tag: 'Report',
+    content: [
+      'Released the ',
+      {
+        text: 'CVPR 2025 Report',
+        url: 'https://hirokatsukataoka.net/temp/presen/250616CVPR2025Report_FinalizedVer.pdf',
+      },
+      '.',
+    ],
   },
   {
     date: '2025-06-01',
-    description: 'Two workshops are accepted at ICCV 2025.',
-    url: '',
+    tag: 'Workshop/Event',
+    content: [
+      'Two workshops are accepted at ICCV 2025 (',
+      {
+        text: 'LIMIT Workshop',
+        url: 'https://iccv2025-limit-workshop.limitlab.xyz',
+      },
+      ', ',
+      {
+        text: 'FOUND Workshop',
+        url: 'https://iccv2025-found-workshop.limitlab.xyz',
+      },
+      ').',
+    ],
   },
   {
     date: '2025-06-01',
-    description: 'Our official website is now live.',
-    url: '',
+    tag: 'Announcement',
+    content: ['Our official website is now live.'],
   },
 ]
 
@@ -52,7 +131,7 @@ export const members = [
   },
   {
     name: 'Yoshihiro Fukuhara',
-    affiliation: 'AIST',
+    affiliation: 'CADDi / AIST',
     photoUrl: '/members/yoshihiro.fukuhara-256x256.jpg',
     homePageUrl: 'https://gatheluck.net',
     googleScholarUrl:

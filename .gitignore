@@ -44,3 +44,6 @@ next-env.d.ts
 .terraform/
 terraform.tfstate
 terraform.tfstate.*
+
+# mise
+.mise.toml
