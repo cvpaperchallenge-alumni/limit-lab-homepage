@@ -15,6 +15,7 @@ const badgeVariants = cva(
         destructive:
           "border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80",
         outline: "text-foreground",
+        type: "border-transparent bg-badge-type text-badge-type-foreground",
         conference: "border-transparent bg-badge-conference text-badge-conference-foreground",
         year: "border-transparent bg-badge-year text-badge-year-foreground",
       },
