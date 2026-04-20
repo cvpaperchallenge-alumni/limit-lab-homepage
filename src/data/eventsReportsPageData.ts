@@ -13,4 +13,18 @@ export const sampleEventsReports = [
     pdfFileUrl: '',
     githubUrl: '',
   },
+  {
+    id: 2,
+    imageUrl: '/events-reports/cvpr2026-vgi-workshop-320x180.jpg',
+    title: 'Visual General Intelligence: Vision Research Toward the AGI Era',
+    type: 'Workshop',
+    conference: 'CVPR',
+    date: '2026-06-03',
+    year: 2026,
+    description:
+      'This workshop explores Visual General Intelligence (VGI) and its fundamental role in AGI development, questioning whether VGI represents a natural extension of existing vision research or requires a paradigm shift, with focus on reducing dependence on language-centric supervision.',
+    websiteUrl: 'https://cvpr2026-vgi-workshop.limitlab.xyz/',
+    pdfFileUrl: '',
+    githubUrl: '',
+  },
 ]

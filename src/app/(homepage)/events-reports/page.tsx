@@ -46,7 +46,7 @@ export default function EventsReportsPage() {
         conferenceFilter === 'all' || item.conference === conferenceFilter
       return typeMatch && yearMatch && conferenceMatch
     })
-    .sort((a, b) => b.id - a.id) // Sort by ID in descending order to add new items at the top
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()) // Sort by date in descending order (newest first)
 
   return (
     <div className="flex w-11/12 flex-1 flex-col items-center gap-6 py-8 sm:w-4/5 sm:gap-8">
@@ -134,7 +134,7 @@ export default function EventsReportsPage() {
               key={item.id}
               className="w-full place-content-center p-3 sm:p-4"
             >
-              <CardContent className="flex h-full flex-col items-center gap-4 p-0 md:flex-row md:items-start">
+              <CardContent className="flex h-full flex-col items-center gap-4 p-0 md:flex-row md:items-center">
                 {/* Item Image */}
                 <div className="w-full overflow-hidden rounded-md md:w-1/3 md:min-w-60 lg:min-w-80">
                   <AspectRatio ratio={16 / 9}>
@@ -142,7 +142,7 @@ export default function EventsReportsPage() {
                       src={item.imageUrl}
                       alt={item.title}
                       fill
-                      className="rounded-md object-cover"
+                      className="rounded-md object-cover object-center"
                       priority={item.id === 1}
                     />
                   </AspectRatio>
