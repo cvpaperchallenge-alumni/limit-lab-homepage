@@ -110,12 +110,19 @@ export default function TopPage() {
                 <strong className={`${geistMono.className}`}>
                   {item.date}:
                 </strong>{' '}
-                {item.url ? (
-                  <Link href={item.url} target="_blank" className="underline">
-                    {item.description}
-                  </Link>
-                ) : (
-                  item.description
+                {item.content.map((part, partIndex) =>
+                  typeof part === 'string' ? (
+                    <span key={partIndex}>{part}</span>
+                  ) : (
+                    <Link
+                      key={partIndex}
+                      href={part.url}
+                      target="_blank"
+                      className="underline"
+                    >
+                      {part.text}
+                    </Link>
+                  )
                 )}
               </div>
             ))}
