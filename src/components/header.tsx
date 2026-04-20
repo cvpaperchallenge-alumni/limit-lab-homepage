@@ -26,7 +26,7 @@ import {
 } from '@/components/ui/dropdown-menu'
 
 export function Header() {
-  const { theme, setTheme } = useTheme()
+  const { resolvedTheme, setTheme } = useTheme()
   const [isDarkMode, setIsDarkMode] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
   const [page, setPage] = useState('top')
@@ -37,11 +37,11 @@ export function Header() {
   const pathname = usePathname()
 
   useEffect(() => {
-    if (theme) {
-      setIsDarkMode(theme === 'dark')
+    if (resolvedTheme) {
+      setIsDarkMode(resolvedTheme === 'dark')
       setIsLoading(false)
     }
-  }, [theme])
+  }, [resolvedTheme])
 
   useEffect(() => {
     if (pathname === '/') setPage('top')
@@ -209,7 +209,9 @@ export function Header() {
           <div className="md:hidden">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <RxHamburgerMenu className="size-6" />
+                <Button variant="ghost" size="icon">
+                  <RxHamburgerMenu className="size-6" />
+                </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-56">
                 <DropdownMenuLabel>Pages</DropdownMenuLabel>

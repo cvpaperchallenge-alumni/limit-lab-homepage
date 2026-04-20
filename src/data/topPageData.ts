@@ -131,7 +131,7 @@ export const members = [
   },
   {
     name: 'Yoshihiro Fukuhara',
-    affiliation: 'AIST',
+    affiliation: 'CADDi / AIST',
     photoUrl: '/members/yoshihiro.fukuhara-256x256.jpg',
     homePageUrl: 'https://gatheluck.net',
     googleScholarUrl:
