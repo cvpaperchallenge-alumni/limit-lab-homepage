@@ -118,7 +118,7 @@ export default function TopPage() {
           <h1 className="mb-2 text-2xl font-semibold leading-7 tracking-wider text-foreground shadow-background drop-shadow-md sm:text-2xl md:text-3xl md:leading-8">
             Recent News
           </h1>
-          <div className="space-y-4">
+          <div className="max-h-[400px] space-y-4 overflow-y-auto pr-2 sm:max-h-[500px]">
             {newsItems.map((item, index) => (
               <div key={index} className="flex flex-col gap-1">
                 <div className="flex items-center gap-2">
