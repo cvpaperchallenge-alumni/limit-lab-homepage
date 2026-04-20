@@ -209,7 +209,9 @@ export function Header() {
           <div className="md:hidden">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <RxHamburgerMenu className="size-6" />
+                <Button variant="ghost" size="icon">
+                  <RxHamburgerMenu className="size-6" />
+                </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-56">
                 <DropdownMenuLabel>Pages</DropdownMenuLabel>
