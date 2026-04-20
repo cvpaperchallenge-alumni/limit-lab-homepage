@@ -1,8 +1,15 @@
 // Type definitions for news content
 export type NewsContentPart = string | { text: string; url: string }
 
+export type NewsTag =
+  | 'Workshop/Event'
+  | 'Report'
+  | 'Paper Accepted'
+  | 'Announcement'
+
 export interface NewsItem {
   date: string
+  tag?: NewsTag // Optional tag
   content: NewsContentPart[]
 }
 
@@ -10,6 +17,7 @@ export interface NewsItem {
 export const newsItems: NewsItem[] = [
   {
     date: '2026-04-07',
+    tag: 'Workshop/Event',
     content: [
       'We hosted the ',
       {
@@ -21,6 +29,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     date: '2025-12-21',
+    tag: 'Workshop/Event',
     content: [
       'Two workshops are accepted at CVPR 2026 (',
       {
@@ -37,6 +46,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     date: '2025-10-31',
+    tag: 'Report',
     content: [
       'Released the ',
       {
@@ -48,6 +58,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     date: '2025-09-26',
+    tag: 'Workshop/Event',
     content: [
       'We jointly hosted the ',
       {
@@ -59,6 +70,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     date: '2025-07-14',
+    tag: 'Announcement',
     content: [
       'Ryousuke Yamada appointed JSPS research fellow at ',
       {
@@ -70,6 +82,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     date: '2025-06-16',
+    tag: 'Report',
     content: [
       'Released the ',
       {
@@ -81,6 +94,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     date: '2025-06-01',
+    tag: 'Workshop/Event',
     content: [
       'Two workshops are accepted at ICCV 2025 (',
       {
@@ -97,6 +111,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     date: '2025-06-01',
+    tag: 'Announcement',
     content: ['Our official website is now live.'],
   },
 ]

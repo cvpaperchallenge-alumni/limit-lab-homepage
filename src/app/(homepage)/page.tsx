@@ -13,13 +13,27 @@ const geistMono = Geist_Mono({
 })
 
 import { VisualAtomDesign } from '@/components/visual-atom-design'
-import { members, newsItems } from '@/data/topPageData'
+import { members, newsItems, type NewsTag } from '@/data/topPageData'
 import { PaperOceanDesign } from '@/components/paper-ocean-design'
 
 // shadcn/ui components
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+
+// Tag color mapping
+const getTagColor = (tag: NewsTag): string => {
+  const colors: Record<NewsTag, string> = {
+    'Workshop/Event':
+      'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200',
+    Report: 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200',
+    'Paper Accepted':
+      'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200',
+    Announcement:
+      'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200',
+  }
+  return colors[tag]
+}
 
 export default function TopPage() {
   return (
@@ -104,26 +118,39 @@ export default function TopPage() {
           <h1 className="mb-2 text-2xl font-semibold leading-7 tracking-wider text-foreground shadow-background drop-shadow-md sm:text-2xl md:text-3xl md:leading-8">
             Recent News
           </h1>
-          <div className="space-y-2">
+          <div className="space-y-4">
             {newsItems.map((item, index) => (
-              <div key={index} className="text-sm sm:text-base">
-                <strong className={`${geistMono.className}`}>
-                  {item.date}:
-                </strong>{' '}
-                {item.content.map((part, partIndex) =>
-                  typeof part === 'string' ? (
-                    <span key={partIndex}>{part}</span>
-                  ) : (
-                    <Link
-                      key={partIndex}
-                      href={part.url}
-                      target="_blank"
-                      className="underline"
+              <div key={index} className="flex flex-col gap-1">
+                <div className="flex items-center gap-2">
+                  <span
+                    className={`${geistMono.className} text-xs font-semibold text-muted-foreground sm:text-sm`}
+                  >
+                    {item.date}
+                  </span>
+                  {item.tag && (
+                    <span
+                      className={`inline-block rounded-md px-2 py-0.5 text-xs font-semibold ${getTagColor(item.tag)}`}
                     >
-                      {part.text}
-                    </Link>
-                  )
-                )}
+                      {item.tag}
+                    </span>
+                  )}
+                </div>
+                <div className="text-sm sm:text-base">
+                  {item.content.map((part, partIndex) =>
+                    typeof part === 'string' ? (
+                      <span key={partIndex}>{part}</span>
+                    ) : (
+                      <Link
+                        key={partIndex}
+                        href={part.url}
+                        target="_blank"
+                        className="underline"
+                      >
+                        {part.text}
+                      </Link>
+                    )
+                  )}
+                </div>
               </div>
             ))}
           </div>
