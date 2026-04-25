@@ -14,6 +14,21 @@ export const sampleEventsReports = [
     githubUrl: '',
   },
   {
+    id: 3,
+    imageUrl:
+      '/events-reports/aspire-computer-vision-workshop-at-oxford-vgg-320x180.jpg',
+    title: 'ASPIRE Computer Vision Workshop at Oxford VGG',
+    type: 'Workshop',
+    conference: '',
+    date: '2026-04-24',
+    year: 2026,
+    description:
+      'A computer vision workshop hosted at Oxford Visual Geometry Group, bringing together researchers to discuss the latest advances in computer vision and visual AI research.',
+    websiteUrl: 'https://aspire-oxfordcv-workshop-2026apr.limitlab.xyz/',
+    pdfFileUrl: '',
+    githubUrl: '',
+  },
+  {
     id: 2,
     imageUrl: '/events-reports/cvpr2026-vgi-workshop-320x180.jpg',
     title: 'Visual General Intelligence: Vision Research Toward the AGI Era',
@@ -24,6 +39,49 @@ export const sampleEventsReports = [
     description:
       'This workshop explores Visual General Intelligence (VGI) and its fundamental role in AGI development, questioning whether VGI represents a natural extension of existing vision research or requires a paradigm shift, with focus on reducing dependence on language-centric supervision.',
     websiteUrl: 'https://cvpr2026-vgi-workshop.limitlab.xyz/',
+    pdfFileUrl: '',
+    githubUrl: '',
+  },
+  {
+    id: 4,
+    imageUrl: '/events-reports/iccv2025-limit-workshop-320x180.jpg',
+    title:
+      'Representation Learning with Very Limited Resources: When Data, Modalities, Labels, and Computing Resources are Scarce',
+    type: 'Workshop',
+    conference: 'ICCV',
+    date: '2025-10-19',
+    year: 2025,
+    description:
+      'A workshop at ICCV 2025 focusing on developing practical AI foundation models using standard computational and data resources, exploring technologies for vision and multimodal AI under limited resources.',
+    websiteUrl: 'https://iccv2025-limit-workshop.limitlab.xyz/',
+    pdfFileUrl: '',
+    githubUrl: '',
+  },
+  {
+    id: 5,
+    imageUrl: '/events-reports/iccv2025-found-workshop-320x180.jpg',
+    title: 'Foundation Data for Industrial Tech Transfer',
+    type: 'Workshop',
+    conference: 'ICCV',
+    date: '2025-10-19',
+    year: 2025,
+    description:
+      'A workshop at ICCV 2025 exploring foundational aspects of computer vision and visual AI, bringing together researchers to discuss the latest advances in the field.',
+    websiteUrl: 'https://iccv2025-found-workshop.limitlab.xyz/',
+    pdfFileUrl: '',
+    githubUrl: '',
+  },
+  {
+    id: 6,
+    imageUrl: '/events-reports/cambridge-computer-vision-workshop-320x180.jpg',
+    title: 'Cambridge Computer Vision Workshop',
+    type: 'Workshop',
+    conference: '',
+    date: '2025-09-25',
+    year: 2025,
+    description:
+      'A computer vision workshop jointly hosted at Cambridge, bringing together researchers to discuss the latest advances in computer vision and visual AI research.',
+    websiteUrl: 'https://cambridgecv-workshop-2025sep.limitlab.xyz/',
     pdfFileUrl: '',
     githubUrl: '',
   },
