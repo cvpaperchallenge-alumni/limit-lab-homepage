@@ -16,6 +16,18 @@ export interface NewsItem {
 // Sample data for recent news
 export const newsItems: NewsItem[] = [
   {
+    date: '2026-04-24',
+    tag: 'Workshop/Event',
+    content: [
+      'We hosted the ',
+      {
+        text: 'ASPIRE Computer Vision Workshop at Oxford VGG',
+        url: 'https://aspire-oxfordcv-workshop-2026apr.limitlab.xyz/',
+      },
+      '.',
+    ],
+  },
+  {
     date: '2026-04-07',
     tag: 'Workshop/Event',
     content: [
