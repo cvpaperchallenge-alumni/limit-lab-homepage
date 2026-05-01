@@ -93,7 +93,6 @@ resource "aws_route53_record" "iccv2025_found_workshop_domain" {
   records = ["${var.github_username}.github.io."]
 }
 
-
 resource "aws_route53_record" "iccv2025_limit_workshop_domain" {
   zone_id = data.aws_route53_zone.host_domain.zone_id
   name    = "iccv2025-limit-workshop.${var.domain_name}"
@@ -129,6 +128,30 @@ resource "aws_route53_record" "cvpr2026_bigmac_workshop_domain" {
 resource "aws_route53_record" "aspire_oxfordcv_workshop_2026apr_domain" {
   zone_id = data.aws_route53_zone.host_domain.zone_id
   name    = "aspire-oxfordcv-workshop-2026apr.${var.domain_name}"
+  type    = "CNAME"
+  ttl     = 300
+  records = ["${var.github_username}.github.io."]
+}
+
+resource "aws_route53_record" "eccv2026_found_workshop_domain" {
+  zone_id = data.aws_route53_zone.host_domain.zone_id
+  name    = "eccv2026-found-workshop.${var.domain_name}"
+  type    = "CNAME"
+  ttl     = 300
+  records = ["${var.github_username}.github.io."]
+}
+
+resource "aws_route53_record" "eccv2026_limit_workshop_domain" {
+  zone_id = data.aws_route53_zone.host_domain.zone_id
+  name    = "eccv2026-limit-workshop.${var.domain_name}"
+  type    = "CNAME"
+  ttl     = 300
+  records = ["${var.github_username}.github.io."]
+}
+
+resource "aws_route53_record" "workshop_template_domain" {
+  zone_id = data.aws_route53_zone.host_domain.zone_id
+  name    = "workshop-template.${var.domain_name}"
   type    = "CNAME"
   ttl     = 300
   records = ["${var.github_username}.github.io."]
