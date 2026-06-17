@@ -1,5 +1,20 @@
 export const sampleEventsReports = [
   {
+    id: 7,
+    imageUrl: '/events-reports/cvpr2026-conference-report-320x180.jpg',
+    title: 'CVPR 2026 Conference Report',
+    type: 'Report',
+    conference: 'CVPR',
+    date: '2026-06-12',
+    year: 2026,
+    description:
+      'A report summarizing key findings, trends, and highlights from the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) 2026.',
+    websiteUrl: '',
+    pdfFileUrl:
+      'https://cdn.limitlab.xyz/cvpr2026/r/cvpr2026-conference-report_latest-en.pdf',
+    githubUrl: '',
+  },
+  {
     id: 1,
     imageUrl: '/events-reports/bigmac-workshop-320x180.jpg',
     title: 'BigMAC: Big Model Adaptation for Computer Vision',
@@ -69,6 +84,21 @@ export const sampleEventsReports = [
       'A workshop at ICCV 2025 exploring foundational aspects of computer vision and visual AI, bringing together researchers to discuss the latest advances in the field.',
     websiteUrl: 'https://iccv2025-found-workshop.limitlab.xyz/',
     pdfFileUrl: '',
+    githubUrl: '',
+  },
+  {
+    id: 8,
+    imageUrl: '/events-reports/iccv2025-conference-report-320x180.jpg',
+    title: 'ICCV 2025 Conference Report',
+    type: 'Report',
+    conference: 'ICCV',
+    date: '2025-10-31',
+    year: 2025,
+    description:
+      'A report summarizing key findings, trends, and highlights from the IEEE/CVF International Conference on Computer Vision (ICCV) 2025.',
+    websiteUrl: '',
+    pdfFileUrl:
+      'https://cdn.limitlab.xyz/iccv2025/r/iccv2025-conference-report_latest-en.pdf',
     githubUrl: '',
   },
   {

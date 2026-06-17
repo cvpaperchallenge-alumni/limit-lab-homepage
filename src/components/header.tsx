@@ -115,29 +115,35 @@ export function Header() {
             </div>
           )}
           <div className="md:hidden">
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="icon">
-                  <RxHamburgerMenu className="size-6" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-56">
-                <DropdownMenuLabel>Pages</DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuRadioGroup value={page}>
-                  {navItems.map((item) => (
-                    <DropdownMenuRadioItem
-                      key={item.key}
-                      value={item.key}
-                      isDarkMode={isDarkMode}
-                      onClick={() => router.push(item.href)}
-                    >
-                      {item.label}
-                    </DropdownMenuRadioItem>
-                  ))}
-                </DropdownMenuRadioGroup>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            {isLoading ? (
+              <Button variant="ghost" size="icon" disabled aria-label="Menu">
+                <RxHamburgerMenu className="size-6" />
+              </Button>
+            ) : (
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" size="icon">
+                    <RxHamburgerMenu className="size-6" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-56">
+                  <DropdownMenuLabel>Pages</DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuRadioGroup value={page}>
+                    {navItems.map((item) => (
+                      <DropdownMenuRadioItem
+                        key={item.key}
+                        value={item.key}
+                        isDarkMode={isDarkMode}
+                        onClick={() => router.push(item.href)}
+                      >
+                        {item.label}
+                      </DropdownMenuRadioItem>
+                    ))}
+                  </DropdownMenuRadioGroup>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            )}
           </div>
         </div>
       </div>
