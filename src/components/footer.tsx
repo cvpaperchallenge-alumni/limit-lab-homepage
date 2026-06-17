@@ -21,7 +21,6 @@ const pageLinks = [
   { label: 'Contact', href: '/contact' },
 ]
 
-
 export function Footer() {
   const { theme } = useTheme()
   const [isDarkMode, setIsDarkMode] = useState(false)
