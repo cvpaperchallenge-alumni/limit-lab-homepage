@@ -131,85 +131,91 @@ export default function PublicationsPage() {
         {filteredPublications.map((pub) => (
           <article
             key={pub.id}
-            className="glass card-hover overflow-hidden rounded-2xl p-4 shadow-sm sm:p-5"
+            className="border-border/40 bg-background/40 hover:bg-background/60 group relative flex flex-col items-stretch gap-5 overflow-hidden rounded-2xl border p-4 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-brand-blue-a6 hover:shadow-[0_18px_40px_-12px_var(--blue-a6)] sm:p-5 md:flex-row md:items-start"
           >
-            <div className="flex h-full flex-col items-stretch gap-5 md:flex-row md:items-start">
-              {/* Image */}
-              <div className="w-full overflow-hidden rounded-xl md:w-1/3 md:min-w-60 lg:min-w-72">
-                <AspectRatio ratio={16 / 9}>
-                  <Image
-                    src={pub.imageUrl}
-                    alt={pub.title}
-                    fill
-                    className="rounded-xl object-cover"
-                    priority={pub.id === 1}
-                  />
-                </AspectRatio>
+            {/* Top radial accent — subtle baseline, brightens on hover */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-1/3 opacity-30 transition-opacity duration-500 group-hover:opacity-100"
+              style={{
+                background:
+                  'radial-gradient(ellipse at top, var(--blue-a4) 0%, transparent 70%)',
+              }}
+            />
+
+            {/* Image */}
+            <div className="ring-border/40 w-full overflow-hidden rounded-xl ring-1 transition-all duration-300 group-hover:ring-brand-blue-a6 md:w-1/3 md:min-w-60 lg:min-w-72">
+              <AspectRatio ratio={16 / 9}>
+                <Image
+                  src={pub.imageUrl}
+                  alt={pub.title}
+                  fill
+                  className="rounded-xl object-cover transition-transform duration-500 group-hover:scale-105"
+                  priority={pub.id === 1}
+                />
+              </AspectRatio>
+            </div>
+
+            {/* Details */}
+            <div className="flex flex-1 flex-col justify-between gap-3 py-1">
+              <div className="space-y-3">
+                <div className="flex flex-wrap gap-2">
+                  <Badge variant="conference" className="text-xs font-medium">
+                    {pub.conference}
+                  </Badge>
+                  <Badge variant="year" className="text-xs font-medium">
+                    {pub.year}
+                  </Badge>
+                  <Badge variant="type" className="text-xs font-medium">
+                    {pub.field}
+                  </Badge>
+                </div>
+
+                <h2 className="text-base font-semibold leading-snug tracking-tight transition-colors duration-300 group-hover:text-brand-blue-11 sm:text-lg md:text-xl">
+                  {pub.title}
+                </h2>
+
+                <div className="text-xs leading-relaxed text-muted-foreground sm:text-sm">
+                  {pub.authors}
+                </div>
               </div>
 
-              {/* Details */}
-              <div className="flex flex-1 flex-col justify-between gap-3 py-1">
-                <div className="space-y-3">
-                  <div className="flex flex-wrap gap-2">
-                    <Badge variant="conference" className="text-xs font-medium">
-                      {pub.conference}
-                    </Badge>
-                    <Badge variant="year" className="text-xs font-medium">
-                      {pub.year}
-                    </Badge>
-                    <Badge variant="type" className="text-xs font-medium">
-                      {pub.field}
-                    </Badge>
-                  </div>
-
-                  <h2 className="text-base font-semibold leading-snug tracking-tight sm:text-lg md:text-xl">
-                    {pub.title}
-                  </h2>
-
-                  <div className="text-xs leading-relaxed text-muted-foreground sm:text-sm">
-                    {pub.authors}
-                  </div>
-                </div>
-
-                {/* Action buttons */}
-                <div className="flex flex-wrap gap-2 pt-2 sm:gap-3">
-                  {pub.projectPageUrl && (
-                    <Link
-                      href={pub.projectPageUrl}
-                      target="_blank"
-                      className="flex items-center gap-1.5 rounded-lg border border-button-project bg-button-project px-3 py-1.5 text-button-project-foreground transition-colors hover:bg-button-project-hovered hover:text-button-project-foreground-hovered sm:gap-2"
-                    >
-                      <RiGlobalLine className="size-4" />
-                      <span className="text-xs font-medium sm:text-sm">
-                        Project
-                      </span>
-                    </Link>
-                  )}
-                  {pub.pdfFileUrl && (
-                    <Link
-                      href={pub.pdfFileUrl}
-                      target="_blank"
-                      className="flex items-center gap-1.5 rounded-lg border border-button-pdf bg-button-pdf px-3 py-1.5 text-button-pdf-foreground transition-colors hover:bg-button-pdf-hovered hover:text-button-pdf-foreground-hovered sm:gap-2"
-                    >
-                      <RxFile className="size-4" />
-                      <span className="text-xs font-medium sm:text-sm">
-                        PDF
-                      </span>
-                    </Link>
-                  )}
-                  {pub.githubUrl && (
-                    <Link
-                      href={pub.githubUrl}
-                      target="_blank"
-                      className="flex items-center gap-1.5 rounded-lg border border-button-github bg-button-github px-3 py-1.5 text-button-github-foreground transition-colors hover:bg-button-github-hovered hover:text-button-github-foreground-hovered sm:gap-2"
-                    >
-                      <RxGithubLogo className="size-4" />
-                      <span className="text-xs font-medium sm:text-sm">
-                        GitHub
-                      </span>
-                    </Link>
-                  )}
-                </div>
+              {/* Action buttons */}
+              <div className="flex flex-wrap gap-2 pt-2 sm:gap-3">
+                {pub.projectPageUrl && (
+                  <Link
+                    href={pub.projectPageUrl}
+                    target="_blank"
+                    className="flex items-center gap-1.5 rounded-lg border border-button-project bg-button-project px-3 py-1.5 text-button-project-foreground transition-all hover:-translate-y-0.5 hover:bg-button-project-hovered hover:text-button-project-foreground-hovered hover:shadow-md sm:gap-2"
+                  >
+                    <RiGlobalLine className="size-4" />
+                    <span className="text-xs font-medium sm:text-sm">
+                      Project
+                    </span>
+                  </Link>
+                )}
+                {pub.pdfFileUrl && (
+                  <Link
+                    href={pub.pdfFileUrl}
+                    target="_blank"
+                    className="flex items-center gap-1.5 rounded-lg border border-button-pdf bg-button-pdf px-3 py-1.5 text-button-pdf-foreground transition-all hover:-translate-y-0.5 hover:bg-button-pdf-hovered hover:text-button-pdf-foreground-hovered hover:shadow-md sm:gap-2"
+                  >
+                    <RxFile className="size-4" />
+                    <span className="text-xs font-medium sm:text-sm">PDF</span>
+                  </Link>
+                )}
+                {pub.githubUrl && (
+                  <Link
+                    href={pub.githubUrl}
+                    target="_blank"
+                    className="flex items-center gap-1.5 rounded-lg border border-button-github bg-button-github px-3 py-1.5 text-button-github-foreground transition-all hover:-translate-y-0.5 hover:bg-button-github-hovered hover:text-button-github-foreground-hovered hover:shadow-md sm:gap-2"
+                  >
+                    <RxGithubLogo className="size-4" />
+                    <span className="text-xs font-medium sm:text-sm">
+                      GitHub
+                    </span>
+                  </Link>
+                )}
               </div>
             </div>
           </article>
