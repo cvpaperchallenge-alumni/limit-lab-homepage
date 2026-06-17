@@ -14,11 +14,11 @@ const geistMono = Geist_Mono({
 
 import { VisualAtomDesign } from '@/components/visual-atom-design'
 import { members, newsItems, type NewsTag } from '@/data/topPageData'
-import { PaperOceanDesign } from '@/components/paper-ocean-design'
 
 // shadcn/ui components
 import { Button } from '@/components/ui/button'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { ScrollArea } from '@/components/ui/scroll-area'
 
 // Tag color mapping
 const getTagColor = (tag: NewsTag): string => {
@@ -130,57 +130,65 @@ export default function TopPage() {
           <div className="section-accent" />
         </div>
 
-        <div className="grid gap-8 lg:grid-cols-[2fr_3fr] lg:items-start">
-          {/* Paper Ocean decorative element */}
-          <div className="glass card-hover overflow-hidden rounded-3xl p-3 shadow-sm">
-            <div className="flex justify-center">
-              <PaperOceanDesign />
-            </div>
-            <p className="px-2 pb-2 pt-3 text-xs leading-relaxed text-muted-foreground">
-              A glimpse into the ocean of papers we navigate — hover to explore.
-            </p>
-          </div>
+        <div className="relative mx-auto max-w-3xl">
+          <ScrollArea type="always" className="h-[520px]">
+            <div className="flex flex-col gap-4 pb-2 pr-4 pt-1">
+              {newsItems.map((item, index) => (
+                <article
+                  key={index}
+                  className="fade-in-up border-border/40 bg-background/40 hover:bg-background/60 group relative overflow-hidden rounded-2xl border p-5 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-brand-blue-a6 hover:shadow-[0_18px_40px_-12px_var(--blue-a6)] sm:p-6"
+                  style={{ animationDelay: `${index * 60}ms` }}
+                >
+                  {/* Top radial accent — subtle baseline, brightens on hover */}
+                  <div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-1/2 opacity-30 transition-opacity duration-500 group-hover:opacity-100"
+                    style={{
+                      background:
+                        'radial-gradient(ellipse at top, var(--blue-a4) 0%, transparent 70%)',
+                    }}
+                  />
 
-          {/* News list */}
-          <div className="glass max-h-[520px] space-y-4 overflow-y-auto rounded-3xl p-4 pr-3 shadow-sm sm:p-6">
-            {newsItems.map((item, index) => (
-              <div
-                key={index}
-                className="border-border/40 bg-background/40 hover:bg-background/70 rounded-xl border p-4 transition-colors"
-              >
-                <div className="flex flex-wrap items-center gap-2">
-                  <span
-                    className={`${geistMono.className} text-xs font-semibold text-muted-foreground`}
-                  >
-                    {item.date}
-                  </span>
-                  {item.tag && (
-                    <span
-                      className={`inline-block rounded-md px-2 py-0.5 text-xs font-semibold ${getTagColor(item.tag)}`}
+                  <div className="flex flex-wrap items-center gap-3">
+                    <time
+                      className={`${geistMono.className} text-xs font-semibold tracking-wider text-muted-foreground`}
                     >
-                      {item.tag}
-                    </span>
-                  )}
-                </div>
-                <div className="mt-1.5 text-sm leading-relaxed sm:text-base">
-                  {item.content.map((part, partIndex) =>
-                    typeof part === 'string' ? (
-                      <span key={partIndex}>{part}</span>
-                    ) : (
-                      <Link
-                        key={partIndex}
-                        href={part.url}
-                        target="_blank"
-                        className="font-medium text-brand-blue-11 underline decoration-brand-blue-a5 underline-offset-4 transition-colors hover:text-brand-blue-12 hover:decoration-brand-blue-9"
+                      {item.date}
+                    </time>
+                    {item.tag && (
+                      <span
+                        className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold ${getTagColor(item.tag)}`}
                       >
-                        {part.text}
-                      </Link>
-                    )
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
+                        {item.tag}
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-foreground/90 mt-3 text-sm leading-relaxed sm:text-base">
+                    {item.content.map((part, partIndex) =>
+                      typeof part === 'string' ? (
+                        <span key={partIndex}>{part}</span>
+                      ) : (
+                        <Link
+                          key={partIndex}
+                          href={part.url}
+                          target="_blank"
+                          className="font-medium text-brand-blue-11 underline decoration-brand-blue-a5 underline-offset-4 transition-colors hover:text-brand-blue-12 hover:decoration-brand-blue-9"
+                        >
+                          {part.text}
+                        </Link>
+                      )
+                    )}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </ScrollArea>
+
+          {/* Bottom fade hint — communicates "more below" without blocking interaction */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-background to-transparent"
+          />
         </div>
       </section>
 
