@@ -197,32 +197,56 @@ export default function TopPage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-4 xs:grid-cols-2 sm:gap-6 md:grid-cols-3 xl:grid-cols-4">
+        <div className="grid grid-cols-1 gap-5 xs:grid-cols-2 sm:gap-6 md:grid-cols-3 xl:grid-cols-4">
           {members.map((member, idx) => (
             <div
               key={idx}
-              className="glass card-hover group flex flex-col items-center gap-3 rounded-2xl p-5 text-center"
+              className="border-border/40 bg-background/40 hover:bg-background/60 group relative flex flex-col items-center gap-4 overflow-hidden rounded-2xl border p-6 text-center backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-brand-blue-a6 hover:shadow-[0_18px_40px_-12px_var(--blue-a6)]"
             >
-              <Avatar className="ring-border/50 size-20 ring-2 transition-all group-hover:ring-brand-blue-a8 sm:size-24">
-                <AvatarImage src={member.photoUrl} alt={member.name} />
-                <AvatarFallback>?</AvatarFallback>
-              </Avatar>
-              <div className="space-y-0.5">
-                <div className="text-sm font-semibold leading-tight sm:text-base">
+              {/* Top radial accent — subtle baseline, brightens on hover */}
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-1/2 opacity-30 transition-opacity duration-500 group-hover:opacity-100"
+                style={{
+                  background:
+                    'radial-gradient(ellipse at top, var(--blue-a4) 0%, transparent 70%)',
+                }}
+              />
+
+              {/* Avatar with blue glow halo that ignites on hover */}
+              <div className="relative">
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 -z-10 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100"
+                  style={{
+                    background:
+                      'radial-gradient(circle, var(--blue-a8) 0%, transparent 70%)',
+                  }}
+                />
+                <Avatar className="ring-border/60 size-24 ring-2 transition-all duration-300 group-hover:ring-brand-blue-a9 sm:size-28">
+                  <AvatarImage src={member.photoUrl} alt={member.name} />
+                  <AvatarFallback>?</AvatarFallback>
+                </Avatar>
+              </div>
+
+              <div className="space-y-1">
+                <div className="text-sm font-semibold leading-tight transition-colors duration-300 group-hover:text-brand-blue-11 sm:text-base">
                   {member.name}
                 </div>
-                <div className="text-xs text-muted-foreground sm:text-sm">
+                <div className="text-xs leading-snug text-muted-foreground sm:text-sm">
                   {member.affiliation}
                 </div>
               </div>
-              <div className="mt-1 flex gap-3 text-icon-fill">
+
+              <div className="flex flex-wrap items-center justify-center gap-1.5 text-icon-fill">
                 {member.homePageUrl && (
                   <Link
                     href={member.homePageUrl}
                     target="_blank"
                     aria-label={`${member.name} homepage`}
+                    className="flex size-8 items-center justify-center rounded-full transition-all hover:scale-110 hover:bg-brand-blue-a4 hover:text-brand-blue-11"
                   >
-                    <RiGlobalLine className="size-4 transition-all hover:scale-110 hover:text-icon-accent sm:size-5" />
+                    <RiGlobalLine className="size-4" />
                   </Link>
                 )}
                 {member.googleScholarUrl && (
@@ -230,8 +254,9 @@ export default function TopPage() {
                     href={member.googleScholarUrl}
                     target="_blank"
                     aria-label={`${member.name} Google Scholar`}
+                    className="flex size-8 items-center justify-center rounded-full transition-all hover:scale-110 hover:bg-brand-blue-a4 hover:text-brand-blue-11"
                   >
-                    <SiGooglescholar className="size-4 transition-all hover:scale-110 hover:text-icon-accent sm:size-5" />
+                    <SiGooglescholar className="size-4" />
                   </Link>
                 )}
                 {member.githubUrl && (
@@ -239,8 +264,9 @@ export default function TopPage() {
                     href={member.githubUrl}
                     target="_blank"
                     aria-label={`${member.name} GitHub`}
+                    className="flex size-8 items-center justify-center rounded-full transition-all hover:scale-110 hover:bg-brand-blue-a4 hover:text-brand-blue-11"
                   >
-                    <RxGithubLogo className="size-4 transition-all hover:scale-110 hover:text-icon-accent sm:size-5" />
+                    <RxGithubLogo className="size-4" />
                   </Link>
                 )}
                 {member.XUrl && (
@@ -248,8 +274,9 @@ export default function TopPage() {
                     href={member.XUrl}
                     target="_blank"
                     aria-label={`${member.name} X`}
+                    className="flex size-8 items-center justify-center rounded-full transition-all hover:scale-110 hover:bg-brand-blue-a4 hover:text-brand-blue-11"
                   >
-                    <PiXLogo className="size-4 transition-all hover:scale-110 hover:text-icon-accent sm:size-5" />
+                    <PiXLogo className="size-4" />
                   </Link>
                 )}
                 {member.linkedinUrl && (
@@ -257,8 +284,9 @@ export default function TopPage() {
                     href={member.linkedinUrl}
                     target="_blank"
                     aria-label={`${member.name} LinkedIn`}
+                    className="flex size-8 items-center justify-center rounded-full transition-all hover:scale-110 hover:bg-brand-blue-a4 hover:text-brand-blue-11"
                   >
-                    <RxLinkedinLogo className="size-4 transition-all hover:scale-110 hover:text-icon-accent sm:size-5" />
+                    <RxLinkedinLogo className="size-4" />
                   </Link>
                 )}
               </div>
