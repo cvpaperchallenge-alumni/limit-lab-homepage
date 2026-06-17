@@ -16,6 +16,18 @@ export interface NewsItem {
 // Sample data for recent news
 export const newsItems: NewsItem[] = [
   {
+    date: '2026-06-12',
+    tag: 'Report',
+    content: [
+      'Released the ',
+      {
+        text: 'CVPR 2026 Report',
+        url: 'https://cdn.limitlab.xyz/cvpr2026/r/cvpr2026-conference-report_latest-en.pdf',
+      },
+      '.',
+    ],
+  },
+  {
     date: '2026-04-24',
     tag: 'Workshop/Event',
     content: [
@@ -63,7 +75,7 @@ export const newsItems: NewsItem[] = [
       'Released the ',
       {
         text: 'ICCV 2025 Report',
-        url: 'https://cdn.limitlab.xyz/iccv2025/r/iccv2025-report_latest-en.pdf',
+        url: 'https://cdn.limitlab.xyz/iccv2025/r/iccv2025-conference-report_latest-en.pdf',
       },
       '.',
     ],
