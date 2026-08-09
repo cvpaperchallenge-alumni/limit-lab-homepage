@@ -40,6 +40,23 @@ export const newsItems: NewsItem[] = [
     ],
   },
   {
+    date: '2026-04-12',
+    tag: 'Workshop/Event',
+    content: [
+      'Two workshops are accepted at ECCV 2026 (',
+      {
+        text: 'LIMIT Workshop',
+        url: 'https://eccv2026-limit-workshop.limitlab.xyz',
+      },
+      ', ',
+      {
+        text: 'FOUND Workshop',
+        url: 'https://eccv2026-found-workshop.limitlab.xyz',
+      },
+      ').',
+    ],
+  },
+  {
     date: '2026-04-07',
     tag: 'Workshop/Event',
     content: [

@@ -95,10 +95,10 @@ export default function TopPage() {
                   asChild
                 >
                   <Link
-                    href="https://cvpr2026-vgi-workshop.limitlab.xyz"
+                    href="https://eccv2026-limit-workshop.limitlab.xyz"
                     target="_blank"
                   >
-                    <span className="tracking-wide">CVPR 2026 VGI</span>
+                    <span className="tracking-wide">ECCV 2026 LIMIT</span>
                     <HiCursorClick className="size-4" />
                   </Link>
                 </Button>
@@ -108,10 +108,10 @@ export default function TopPage() {
                   asChild
                 >
                   <Link
-                    href="https://cvpr2026-bigmac-workshop.limitlab.xyz"
+                    href="https://eccv2026-found-workshop.limitlab.xyz"
                     target="_blank"
                   >
-                    <span className="tracking-wide">CVPR 2026 BigMAC</span>
+                    <span className="tracking-wide">ECCV 2026 FOUND</span>
                     <HiCursorClick className="size-4" />
                   </Link>
                 </Button>
