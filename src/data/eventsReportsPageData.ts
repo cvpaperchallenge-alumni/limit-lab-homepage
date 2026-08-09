@@ -1,5 +1,34 @@
 export const sampleEventsReports = [
   {
+    id: 10,
+    imageUrl: '/events-reports/eccv2026-found-workshop-320x180.jpg',
+    title: 'Foundation Data for Industrial Tech Transfer',
+    type: 'Workshop',
+    conference: 'ECCV',
+    date: '2026-09-09',
+    year: 2026,
+    description:
+      'A workshop at ECCV 2026 on Foundation Data: fine-grained, domain-grounded data that bridges academic progress and practical impact, covering data creation, tech transfer to real-world deployments, and Physical AI and World Models.',
+    websiteUrl: 'https://eccv2026-found-workshop.limitlab.xyz/',
+    pdfFileUrl: '',
+    githubUrl: '',
+  },
+  {
+    id: 9,
+    imageUrl: '/events-reports/eccv2026-limit-workshop-320x180.jpg',
+    title:
+      'Representation Learning with Very Limited Resources: When Data, Modalities, Labels, and Computing Resources are Scarce',
+    type: 'Workshop',
+    conference: 'ECCV',
+    date: '2026-09-08',
+    year: 2026,
+    description:
+      'A workshop at ECCV 2026 discussing the latest advances and challenges in representation learning under limited-resource settings, including self-supervised, semi-supervised, few-shot, and synthetic data-driven methods.',
+    websiteUrl: 'https://eccv2026-limit-workshop.limitlab.xyz/',
+    pdfFileUrl: '',
+    githubUrl: '',
+  },
+  {
     id: 7,
     imageUrl: '/events-reports/cvpr2026-conference-report-320x180.jpg',
     title: 'CVPR 2026 Conference Report',
