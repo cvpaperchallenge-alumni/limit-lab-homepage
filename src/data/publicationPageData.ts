@@ -119,4 +119,16 @@ export const samplePublications = [
     githubUrl: 'https://github.com/ryosuke-yamada/lam3c',
     field: 'Computer Vision',
   },
+  {
+    id: 10,
+    imageUrl: '/publications/sugiyama26wisrd-320x180.jpg',
+    title: 'Image-Space Rule Discovery',
+    authors: 'Misora Sugiyama, Toya Oyama, Hirokatsu Kataoka',
+    conference: 'arXiv',
+    year: 2026,
+    projectPageUrl: '',
+    pdfFileUrl: 'https://arxiv.org/pdf/2608.00490',
+    githubUrl: '',
+    field: 'Computer Vision',
+  },
 ]
