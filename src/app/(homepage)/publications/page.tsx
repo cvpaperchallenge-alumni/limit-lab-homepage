@@ -46,7 +46,7 @@ export default function PublicationsPage() {
     <div className="container mx-auto w-full max-w-6xl space-y-12 px-6 py-12 md:px-8">
       {/* Page header */}
       <header className="fade-in-up flex flex-col items-start gap-3">
-        <h1 className="gradient-text text-4xl font-extrabold tracking-tight md:text-5xl">
+        <h1 className="text-4xl font-extrabold tracking-tight text-foreground md:text-5xl">
           Publications
         </h1>
         <div className="section-accent" />

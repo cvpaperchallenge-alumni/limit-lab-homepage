@@ -40,12 +40,8 @@ export default function TopPage() {
     <div className="container mx-auto w-full max-w-6xl space-y-24 px-6 py-12 md:px-8">
       {/* Hero */}
       <section className="fade-in-up border-border/50 bg-background/40 relative overflow-hidden rounded-3xl border px-6 py-14 backdrop-blur-md md:px-12 md:py-20 lg:py-24">
-        {/* Decorative backdrop */}
-        <div
-          className="gradient-mesh pointer-events-none absolute inset-0"
-          aria-hidden="true"
-        />
-
+        {/* No tinted backdrop here on purpose — the panel reads as a neutral
+            surface and the page-level mesh already supplies a faint wash. */}
         <div className="relative z-10 flex flex-col items-center gap-10 lg:flex-row lg:items-center lg:gap-14">
           {/* Atom visual */}
           <div className="flex shrink-0 items-center justify-center">
@@ -66,7 +62,7 @@ export default function TopPage() {
             <span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-muted-foreground md:text-xs">
               International Research Collective
             </span>
-            <h1 className="gradient-text text-3xl font-extrabold leading-tight md:text-4xl lg:text-5xl">
+            <h1 className="text-3xl font-extrabold leading-tight text-foreground md:text-4xl lg:text-5xl">
               Limited Resources, Unlimited Impact with Multimodal AI Models
             </h1>
             <p className="text-foreground/80 text-sm leading-relaxed sm:text-base">
