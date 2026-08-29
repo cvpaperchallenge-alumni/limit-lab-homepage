@@ -22,14 +22,14 @@ const pageLinks = [
 ]
 
 export function Footer() {
-  const { theme } = useTheme()
+  const { resolvedTheme } = useTheme()
   const [isDarkMode, setIsDarkMode] = useState(false)
 
   useEffect(() => {
-    if (theme) {
-      setIsDarkMode(theme === 'dark')
+    if (resolvedTheme) {
+      setIsDarkMode(resolvedTheme === 'dark')
     }
-  }, [theme])
+  }, [resolvedTheme])
 
   return (
     <footer className="border-border/50 bg-background/60 mt-24 flex w-full justify-center border-t backdrop-blur-xl">
