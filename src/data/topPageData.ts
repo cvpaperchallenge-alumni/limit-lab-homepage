@@ -16,6 +16,23 @@ export interface NewsItem {
 // Sample data for recent news
 export const newsItems: NewsItem[] = [
   {
+    date: '2026-08-26',
+    tag: 'Announcement',
+    content: [
+      'Released ',
+      {
+        text: 'Visual General Intelligence: A White Paper',
+        url: 'https://arxiv.org/abs/2608.25924',
+      },
+      ', which originates from discussions at the ',
+      {
+        text: 'CVPR 2026 VGI Workshop',
+        url: 'https://cvpr2026-vgi-workshop.limitlab.xyz/',
+      },
+      '.',
+    ],
+  },
+  {
     date: '2026-06-12',
     tag: 'Report',
     content: [
