@@ -131,4 +131,17 @@ export const samplePublications = [
     githubUrl: '',
     field: 'Computer Vision',
   },
+  {
+    id: 11,
+    imageUrl: '/publications/kataoka26vgi-320x180.jpg',
+    title: 'Visual General Intelligence: A White Paper',
+    authors:
+      'Hirokatsu Kataoka, Yoshihiro Fukuhara, Yonglong Tian, Shangzhe Wu, Oishi Deb, Ryousuke Yamada, Christian Rupprecht, Jianyuan Wang, Kohsuke Ide, Koichi Namekata, Xianzheng Ma, Yiming Chen, Robert Geirhos, Aditi Raghunathan, Yuki M. Asano, Deva Ramanan, David Fouhey, Andrew J. Davison, Yilun Du, Jiajun Wu, Zhuang Liu',
+    conference: 'arXiv',
+    year: 2026,
+    projectPageUrl: 'https://cvpr2026-vgi-workshop.limitlab.xyz/',
+    pdfFileUrl: 'https://arxiv.org/pdf/2608.25924',
+    githubUrl: '',
+    field: 'Computer Vision',
+  },
 ]
