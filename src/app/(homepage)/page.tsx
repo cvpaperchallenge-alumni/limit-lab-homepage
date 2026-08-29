@@ -80,9 +80,9 @@ export default function TopPage() {
               lab (LIMIT.Lab) therefore aim to put in place exactly those
               technologies that permit the construction of {'{'}Vision,
               Vision-Language, Multimodal{'}'} AI foundational models even when
-              compute and data are limited. As of 2025, LIMIT.Lab is composed
-              primarily of international research teams from Japan, UK, and
-              Germany.
+              compute and data are limited. LIMIT.Lab is composed primarily of
+              international research teams from Japan, the UK, Germany, and the
+              Netherlands.
             </p>
             <div className="flex flex-col gap-2 pt-1">
               <h2 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
@@ -200,8 +200,8 @@ export default function TopPage() {
           </h2>
           <div className="section-accent" />
           <p className="text-sm text-muted-foreground sm:text-base">
-            An international team of researchers across Japan, UK, Germany, and
-            beyond.
+            An international team of researchers across Japan, the UK, Germany,
+            and the Netherlands.
           </p>
         </div>
 
