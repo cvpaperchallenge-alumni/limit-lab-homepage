@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { HiCursorClick } from 'react-icons/hi'
 import { PiXLogo } from 'react-icons/pi'
@@ -17,7 +18,6 @@ import { members, newsItems, type NewsTag } from '@/data/topPageData'
 
 // shadcn/ui components
 import { Button } from '@/components/ui/button'
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { ScrollArea } from '@/components/ui/scroll-area'
 
 // Tag color mapping
@@ -231,10 +231,17 @@ export default function TopPage() {
                       'radial-gradient(circle, var(--blue-a8) 0%, transparent 70%)',
                   }}
                 />
-                <Avatar className="ring-border/60 size-24 ring-2 transition-all duration-300 group-hover:ring-brand-blue-a9 sm:size-28">
-                  <AvatarImage src={member.photoUrl} alt={member.name} />
-                  <AvatarFallback>?</AvatarFallback>
-                </Avatar>
+                {/* next/image (not Radix Avatar) so the photo is in the
+                    server-rendered HTML rather than mounted after hydration */}
+                <div className="ring-border/60 relative size-24 overflow-hidden rounded-full ring-2 transition-all duration-300 group-hover:ring-brand-blue-a9 sm:size-28">
+                  <Image
+                    src={member.photoUrl}
+                    alt={member.name}
+                    fill
+                    sizes="112px"
+                    className="object-cover"
+                  />
+                </div>
               </div>
 
               <div className="space-y-1">
