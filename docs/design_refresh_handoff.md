@@ -1,5 +1,12 @@
 # LIMIT.Lab Homepage — Design Refresh Handoff
 
+> ⚠️ **Historical record (2026-06-17). Parts of this are now out of date.**
+> This describes the #105–#108 design refresh as it stood in June 2026. For the current
+> state of the site, the open backlog, and a list of the specific claims below that no
+> longer hold, see **[`site_backlog.md`](./site_backlog.md)**. In particular: the palette
+> is not derived from the logo, the footer is 3 columns rather than 4, and
+> `.gradient-mesh` no longer exists.
+
 > **Status (2026-06-17, second pass):** Four PRs landed plus one in flight.
 > - **#105** (design refresh foundation) — **merged into develop**
 > - **#106** (Members card redesign with hover glow) — **merged into develop**
