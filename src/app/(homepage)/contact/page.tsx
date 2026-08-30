@@ -9,7 +9,7 @@ export default function ContactPage() {
     <div className="container mx-auto w-full max-w-4xl space-y-12 px-6 py-12 md:px-8">
       {/* Page header */}
       <header className="fade-in-up flex flex-col items-start gap-3">
-        <h1 className="gradient-text text-4xl font-extrabold tracking-tight md:text-5xl">
+        <h1 className="text-4xl font-extrabold tracking-tight text-foreground md:text-5xl">
           Contact Us
         </h1>
         <div className="section-accent" />
@@ -22,8 +22,7 @@ export default function ContactPage() {
 
       {/* Slack panel */}
       <section className="glass-strong relative overflow-hidden rounded-3xl p-8 shadow-lg sm:p-10 md:p-12">
-        <div className="gradient-mesh absolute inset-0" aria-hidden="true" />
-
+        {/* No tinted backdrop here on purpose — see the hero on the Top page. */}
         <div className="relative z-10 flex flex-col items-start gap-6 md:flex-row md:items-center md:gap-8">
           <div className="flex size-16 shrink-0 items-center justify-center rounded-2xl bg-brand-blue-a4 sm:size-20">
             <SiSlack className="size-8 text-brand-blue-11 sm:size-10" />
