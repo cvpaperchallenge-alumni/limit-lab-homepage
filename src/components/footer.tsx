@@ -4,9 +4,8 @@ import { useTheme } from 'next-themes'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { PiXLogo } from 'react-icons/pi'
-import { RxGithubLogo, RxCross1 } from 'react-icons/rx'
+import { RxGithubLogo } from 'react-icons/rx'
 import { RiGlobalLine } from 'react-icons/ri'
-import { SiGitconnected } from 'react-icons/si'
 import Link from 'next/link'
 import blackAlumniLogo from '../../public/alumni-logo-with-wide-black.png'
 import whiteAlumniLogo from '../../public/alumni-logo-with-wide-white.png'
@@ -15,148 +14,140 @@ import whiteCCLogo from '../../public/cvpaper-logo-white.png'
 import whiteLimitLabLogoWide from '../../public/limitlab-logo-white-wide.png'
 import blackLimitLabLogoWide from '../../public/limitlab-logo-black-wide.png'
 
-// shadcn/ui components
-import { Separator } from '@/components/ui/separator'
+const pageLinks = [
+  { label: 'Top', href: '/' },
+  { label: 'Publications', href: '/publications' },
+  { label: 'Events & Reports', href: '/events-reports' },
+  { label: 'Contact', href: '/contact' },
+]
 
 export function Footer() {
-  const { theme } = useTheme()
+  const { resolvedTheme } = useTheme()
   const [isDarkMode, setIsDarkMode] = useState(false)
-  const [hasHoverdAlumni, setHasHoveredAlumni] = useState(false)
-  const [hasHoverdCC, setHasHoveredCC] = useState(false)
 
   useEffect(() => {
-    if (theme) {
-      setIsDarkMode(theme === 'dark')
+    if (resolvedTheme) {
+      setIsDarkMode(resolvedTheme === 'dark')
     }
-  }, [theme])
+  }, [resolvedTheme])
 
   return (
-    <div className="flex min-h-44 w-full justify-center bg-secondary p-4 py-6 text-secondary-foreground sm:p-6">
-      <div className="flex w-full max-w-[1500px] flex-col items-center justify-between gap-6 sm:gap-4 md:flex-row">
-        {/* Placeholder logo */}
-        <div className="flex flex-col items-center gap-1 md:ml-4 md:items-center lg:ml-10">
-          <div className="flex items-center space-x-2">
+    <footer className="border-border/50 bg-background/60 mt-24 flex w-full justify-center border-t backdrop-blur-xl">
+      <div className="flex w-full max-w-[1500px] flex-col gap-12 px-6 py-12 md:py-16 lg:px-10">
+        {/* Top grid: brand + columns */}
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+          {/* Brand */}
+          <div className="flex flex-col items-start gap-4">
             <Image
-              alt="limit.lab logo"
-              className="h-20 w-auto sm:h-20"
-              priority={true}
+              alt="LIMIT.Lab logo"
+              className="h-16 w-auto"
+              priority={false}
               src={isDarkMode ? whiteLimitLabLogoWide : blackLimitLabLogoWide}
             />
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              Limited resources, unlimited impact with multimodal AI foundation
+              models. An international research collective.
+            </p>
           </div>
-          <div className="text-xs text-sub">
-            © 2025 LIMIT.Lab. All rights reserved.
-          </div>
-        </div>
 
-        {/* Mobile view for supported by text */}
-        <div className="flex flex-col items-center gap-2 md:hidden">
-          <div className="text-xs">Supported by</div>
-          <div className="flex flex-col items-center gap-px">
-            <Link
-              href="https://github.com/cvpaperchallenge-alumni"
-              target="_blank"
-              className="flex gap-2 text-xs text-accent-foreground"
-            >
-              cvpaper.challenge alumni community
-            </Link>
-            <RxCross1 className="size-2" />
-            <Link
-              href="https://xpaperchallenge.org/cv/"
-              target="_blank"
-              className="flex gap-2 text-xs text-accent-foreground"
-            >
-              cvpaper.challenge
-            </Link>
-          </div>
-        </div>
-
-        {/* Desktop view with logos */}
-        <div className="hidden md:mr-4 md:flex md:flex-col md:items-start md:gap-0 lg:mr-10">
-          <div className="pl-2 text-xs">Supported by </div>
-          <div
-            className="flex items-center gap-4"
-            onMouseEnter={() => setHasHoveredAlumni(true)}
-          >
-            <div className="group flex flex-col items-center gap-2">
-              <Image
-                alt="alumni logo"
-                className="h-12 w-auto sm:h-16"
-                priority={true}
-                src={isDarkMode ? whiteAlumniLogo : blackAlumniLogo}
-              />
-              <div
-                className={
-                  'flex items-center gap-2 text-icon-fill group-hover:animate-fade-in-top ' +
-                  (hasHoverdAlumni ? 'animate-fade-out-top' : 'invisible')
-                }
-              >
+          {/* Pages */}
+          <div className="flex flex-col gap-3">
+            <h3 className="text-base font-semibold tracking-tight text-foreground">
+              Pages
+            </h3>
+            <div className="flex flex-col gap-2">
+              {pageLinks.map((item) => (
                 <Link
-                  href="https://github.com/cvpaperchallenge-alumni"
-                  target="_blank"
+                  key={item.href}
+                  href={item.href}
+                  className="w-fit text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
-                  <RxGithubLogo className="size-5 hover:text-icon-accent" />
+                  {item.label}
                 </Link>
-                <Separator
-                  orientation="vertical"
-                  className="h-5 bg-muted-foreground"
-                />
-                <Link href="https://twitter.com/cvpcalumni" target="_blank">
-                  <PiXLogo className="size-5 hover:text-icon-accent" />
-                </Link>
-                <Separator
-                  orientation="vertical"
-                  className="h-5 bg-muted-foreground"
-                />
-                <Link
-                  href="https://note.com/gatheluck/n/nc469f2f35426"
-                  target="_blank"
-                >
-                  <RiGlobalLine className="size-4 hover:text-icon-accent sm:size-5" />
-                </Link>
-              </div>
+              ))}
             </div>
-            <SiGitconnected className="size-4 -translate-y-2 sm:size-5 sm:-translate-y-3" />
-            <div
-              className="group flex flex-col items-center gap-2"
-              onMouseEnter={() => setHasHoveredCC(true)}
-            >
-              <Image
-                alt="cvpaper challenge logo"
-                className="h-12 w-auto sm:h-16"
-                priority={true}
-                src={isDarkMode ? whiteCCLogo : blackCCLogo}
-              />
-              <div
-                className={
-                  'flex items-center gap-2 text-icon-fill group-hover:animate-fade-in-top ' +
-                  (hasHoverdCC ? 'animate-fade-out-top' : 'invisible')
-                }
-              >
-                <Link
-                  href="https://github.com/cvpaperchallenge"
-                  target="_blank"
-                >
-                  <RxGithubLogo className="size-4 hover:text-icon-accent sm:size-5" />
-                </Link>
-                <Separator
-                  orientation="vertical"
-                  className="h-4 bg-muted-foreground sm:h-5"
+          </div>
+
+          {/* Supported by */}
+          <div className="flex flex-col gap-3">
+            <h3 className="text-base font-semibold tracking-tight text-foreground">
+              Supported by
+            </h3>
+            <div className="flex flex-col gap-5">
+              <div className="flex flex-col gap-2">
+                <Image
+                  alt="cvpaper.challenge alumni logo"
+                  className="h-10 w-auto self-start"
+                  priority={false}
+                  src={isDarkMode ? whiteAlumniLogo : blackAlumniLogo}
                 />
-                <Link href="https://x.com/CVpaperChalleng" target="_blank">
-                  <PiXLogo className="size-4 hover:text-icon-accent sm:size-5" />
-                </Link>
-                <Separator
-                  orientation="vertical"
-                  className="h-4 bg-muted-foreground sm:h-5"
+                <div className="flex items-center gap-3 text-icon-fill">
+                  <Link
+                    href="https://github.com/cvpaperchallenge-alumni"
+                    target="_blank"
+                    aria-label="alumni GitHub"
+                  >
+                    <RxGithubLogo className="size-4 transition-colors hover:text-icon-accent" />
+                  </Link>
+                  <Link
+                    href="https://twitter.com/cvpcalumni"
+                    target="_blank"
+                    aria-label="alumni X"
+                  >
+                    <PiXLogo className="size-4 transition-colors hover:text-icon-accent" />
+                  </Link>
+                  <Link
+                    href="https://note.com/gatheluck/n/nc469f2f35426"
+                    target="_blank"
+                    aria-label="alumni website"
+                  >
+                    <RiGlobalLine className="size-4 transition-colors hover:text-icon-accent" />
+                  </Link>
+                </div>
+              </div>
+              <div className="flex flex-col gap-2">
+                <Image
+                  alt="cvpaper.challenge logo"
+                  className="h-10 w-auto self-start"
+                  priority={false}
+                  src={isDarkMode ? whiteCCLogo : blackCCLogo}
                 />
-                <Link href="https://xpaperchallenge.org/cv/" target="_blank">
-                  <RiGlobalLine className="size-4 hover:text-icon-accent sm:size-5" />
-                </Link>
+                <div className="flex items-center gap-3 text-icon-fill">
+                  <Link
+                    href="https://github.com/cvpaperchallenge"
+                    target="_blank"
+                    aria-label="cvpaper.challenge GitHub"
+                  >
+                    <RxGithubLogo className="size-4 transition-colors hover:text-icon-accent" />
+                  </Link>
+                  <Link
+                    href="https://x.com/CVpaperChalleng"
+                    target="_blank"
+                    aria-label="cvpaper.challenge X"
+                  >
+                    <PiXLogo className="size-4 transition-colors hover:text-icon-accent" />
+                  </Link>
+                  <Link
+                    href="https://xpaperchallenge.org/cv/"
+                    target="_blank"
+                    aria-label="cvpaper.challenge website"
+                  >
+                    <RiGlobalLine className="size-4 transition-colors hover:text-icon-accent" />
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Bottom strip */}
+        <div className="border-border/40 flex flex-col items-center justify-between gap-3 border-t pt-6 text-xs text-muted-foreground md:flex-row">
+          <div>
+            © {new Date().getFullYear()} LIMIT.Lab. All rights reserved.
+          </div>
+          <div>Built by cvpaper.challenge Dev Team</div>
         </div>
       </div>
-    </div>
+    </footer>
   )
 }

@@ -5,12 +5,10 @@ import Image from 'next/image'
 import { RxFile, RxGithubLogo, RxCalendar } from 'react-icons/rx'
 import { RiGlobalLine } from 'react-icons/ri'
 import Link from 'next/link'
-import { Separator } from '@radix-ui/react-separator'
 
 import { sampleEventsReports } from '@/data/eventsReportsPageData'
 
 // shadcn/ui components
-import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import {
   Select,
@@ -46,198 +44,192 @@ export default function EventsReportsPage() {
         conferenceFilter === 'all' || item.conference === conferenceFilter
       return typeMatch && yearMatch && conferenceMatch
     })
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()) // Sort by date in descending order (newest first)
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 
   return (
-    <div className="flex w-11/12 flex-1 flex-col items-center gap-6 py-8 sm:w-4/5 sm:gap-8">
-      {/* Page Title */}
-      <div className="w-full max-w-[1000px] text-center">
-        <h1 className="mb-2 text-2xl font-semibold leading-7 tracking-wider text-foreground shadow-background drop-shadow-md sm:text-3xl md:text-4xl md:leading-10">
+    <div className="container mx-auto w-full max-w-6xl space-y-12 px-6 py-12 md:px-8">
+      {/* Page header */}
+      <header className="fade-in-up flex flex-col items-start gap-3">
+        <h1 className="text-4xl font-extrabold tracking-tight text-foreground md:text-5xl">
           Events &amp; Reports
         </h1>
-        <p className="mx-auto mt-4 max-w-2xl text-sm text-sub sm:text-base">
+        <div className="section-accent" />
+        <p className="max-w-2xl text-sm text-muted-foreground sm:text-base">
           Explore our workshops, events, and published reports. Use the filters
           below to find activities by type, year, or conference.
         </p>
+      </header>
+
+      {/* Filters */}
+      <div className="glass flex flex-wrap items-end justify-end gap-3 rounded-2xl p-4 shadow-sm sm:gap-4 sm:p-5">
+        <div className="flex w-full flex-col items-start gap-1.5 sm:w-auto">
+          <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+            Type
+          </label>
+          <Select
+            value={typeFilter}
+            onValueChange={(val) => setTypeFilter(val)}
+          >
+            <SelectTrigger className="w-full sm:w-[140px]">
+              <SelectValue placeholder="Type" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">All</SelectItem>
+              {types.map((type) => (
+                <SelectItem key={type} value={type}>
+                  {type}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+
+        <div className="flex w-full flex-col items-start gap-1.5 sm:w-auto">
+          <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+            Year
+          </label>
+          <Select
+            value={yearFilter}
+            onValueChange={(val) => setYearFilter(val)}
+          >
+            <SelectTrigger className="w-full sm:w-[120px]">
+              <SelectValue placeholder="Year" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">All</SelectItem>
+              {years.map((y) => (
+                <SelectItem key={y} value={String(y)}>
+                  {y}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+
+        <div className="flex w-full flex-col items-start gap-1.5 sm:w-auto">
+          <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+            Conference
+          </label>
+          <Select
+            value={conferenceFilter}
+            onValueChange={(val) => setConferenceFilter(val)}
+          >
+            <SelectTrigger className="w-full sm:w-[200px]">
+              <SelectValue placeholder="Conference" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">All</SelectItem>
+              {conferences.map((conference) => (
+                <SelectItem key={conference} value={conference}>
+                  {conference}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
       </div>
-      <div className="flex w-full max-w-[1000px] flex-col items-center gap-5 rounded-3xl border border-block-border px-4 pb-8 pt-6 sm:gap-7 sm:px-8 sm:pb-12 sm:pt-8 md:px-10 md:pb-16 md:pt-10">
-        {/* Filters */}
-        <div className="flex w-full flex-wrap gap-3 self-end sm:flex-nowrap sm:gap-4 sm:self-end">
-          {/* Type Filter */}
-          <div className="flex w-full flex-col items-start gap-1 sm:w-auto sm:gap-2">
-            <div className="text-sm font-semibold sm:text-base">Type</div>
-            <Select
-              value={typeFilter}
-              onValueChange={(val) => setTypeFilter(val)}
-            >
-              <SelectTrigger className="w-full sm:w-[120px]">
-                <SelectValue placeholder="Type" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">All</SelectItem>
-                {types.map((type) => (
-                  <SelectItem key={type} value={type}>
-                    {type}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
 
-          {/* Year Filter */}
-          <div className="flex w-full flex-col items-start gap-1 sm:w-auto sm:gap-2">
-            <div className="text-sm font-semibold sm:text-base">Year</div>
-            <Select
-              value={yearFilter}
-              onValueChange={(val) => setYearFilter(val)}
-            >
-              <SelectTrigger className="w-full sm:w-[100px]">
-                <SelectValue placeholder="Year" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">All</SelectItem>
-                {years.map((y) => (
-                  <SelectItem key={y} value={String(y)}>
-                    {y}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
+      {/* Events & Reports list */}
+      <div className="space-y-5">
+        {filteredItems.map((item) => (
+          <article
+            key={item.id}
+            className="border-border/40 bg-background/40 hover:bg-background/60 group relative flex flex-col items-stretch gap-5 overflow-hidden rounded-2xl border p-4 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-brand-blue-a6 hover:shadow-[0_18px_40px_-12px_var(--blue-a6)] sm:p-5 md:flex-row md:items-start"
+          >
+            {/* Top radial accent — subtle baseline, brightens on hover */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-1/3 opacity-30 transition-opacity duration-500 group-hover:opacity-100"
+              style={{
+                background:
+                  'radial-gradient(ellipse at top, var(--blue-a4) 0%, transparent 70%)',
+              }}
+            />
 
-          {/* Conference Filter */}
-          <div className="flex w-full flex-col items-start gap-1 sm:w-auto sm:gap-2">
-            <div className="text-sm font-semibold sm:text-base">Conference</div>
-            <Select
-              value={conferenceFilter}
-              onValueChange={(val) => setConferenceFilter(val)}
-            >
-              <SelectTrigger className="w-full sm:w-[180px]">
-                <SelectValue placeholder="Conference" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">All</SelectItem>
-                {conferences.map((conference) => (
-                  <SelectItem key={conference} value={conference}>
-                    {conference}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-        </div>
+            {/* Image */}
+            <div className="ring-border/40 w-full overflow-hidden rounded-xl ring-1 transition-all duration-300 group-hover:ring-brand-blue-a6 md:w-1/3 md:min-w-60 lg:min-w-72">
+              <AspectRatio ratio={16 / 9}>
+                <Image
+                  src={item.imageUrl}
+                  alt={item.title}
+                  fill
+                  className="rounded-xl object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                  priority={item.id === 1}
+                />
+              </AspectRatio>
+            </div>
 
-        {/* Events & Reports List */}
-        <div className="flex w-full flex-col items-center gap-4">
-          {filteredItems.map((item) => (
-            <Card
-              key={item.id}
-              className="w-full place-content-center p-3 sm:p-4"
-            >
-              <CardContent className="flex h-full flex-col items-center gap-4 p-0 md:flex-row md:items-center">
-                {/* Item Image */}
-                <div className="w-full overflow-hidden rounded-md md:w-1/3 md:min-w-60 lg:min-w-80">
-                  <AspectRatio ratio={16 / 9}>
-                    <Image
-                      src={item.imageUrl}
-                      alt={item.title}
-                      fill
-                      className="rounded-md object-cover object-center"
-                      priority={item.id === 1}
-                    />
-                  </AspectRatio>
+            {/* Details */}
+            <div className="flex flex-1 flex-col justify-between gap-3 py-1">
+              <div className="space-y-3">
+                <div className="flex flex-wrap gap-2">
+                  <Badge variant="type" className="text-xs font-medium">
+                    {item.type}
+                  </Badge>
+                  {item.conference && (
+                    <Badge variant="conference" className="text-xs font-medium">
+                      {item.conference}
+                    </Badge>
+                  )}
+                  <Badge variant="year" className="text-xs font-medium">
+                    {item.year}
+                  </Badge>
                 </div>
 
-                {/* Item Details */}
-                <div className="flex w-full flex-1 flex-col items-start justify-between gap-3 py-1 md:h-full md:py-2">
-                  {/* Tags */}
-                  <div className="flex w-fit gap-2 self-end">
-                    <Badge
-                      variant="type"
-                      className="text-xs font-medium sm:text-sm"
-                    >
-                      {item.type}
-                    </Badge>
-                    {item.conference && (
-                      <Badge
-                        variant="conference"
-                        className="text-xs font-medium sm:text-sm"
-                      >
-                        {item.conference}
-                      </Badge>
-                    )}
-                    <Badge
-                      variant="year"
-                      className="text-xs font-medium sm:text-sm"
-                    >
-                      {item.year}
-                    </Badge>
-                  </div>
+                <h2 className="text-base font-semibold leading-snug tracking-tight transition-colors duration-300 group-hover:text-brand-blue-11 sm:text-lg md:text-xl">
+                  {item.title}
+                </h2>
 
-                  {/* Title and Date */}
-                  <div className="flex w-full flex-col gap-1">
-                    <div className="flex w-full flex-col gap-1">
-                      <h2 className="w-full text-base font-semibold leading-5 sm:text-lg sm:leading-6">
-                        {item.title}
-                      </h2>
-                      <Separator
-                        orientation="horizontal"
-                        className="h-px w-full bg-underline"
-                      />
-                    </div>
-                    <div className="flex items-center gap-1.5 text-xs text-foreground opacity-70">
-                      <RxCalendar className="size-3.5" />
-                      <span>{item.date}</span>
-                    </div>
-                    <div className="mt-1 w-full text-sm text-foreground opacity-75">
-                      {item.description}
-                    </div>
-                  </div>
-
-                  {/* Action Buttons */}
-                  <div className="flex w-full flex-wrap gap-2 sm:flex-nowrap sm:gap-4">
-                    {item.websiteUrl && (
-                      <Link
-                        href={item.websiteUrl}
-                        target="_blank"
-                        className="flex h-auto items-center gap-1 rounded-md border border-button-project bg-button-project px-2 py-1.5 text-button-project-foreground hover:bg-button-project-hovered hover:text-button-project-foreground-hovered sm:gap-2 sm:px-3 sm:py-2"
-                      >
-                        <RiGlobalLine className="size-4 sm:size-5" />
-                        <span className="text-xs font-medium sm:text-sm">
-                          Website
-                        </span>
-                      </Link>
-                    )}
-                    {item.pdfFileUrl && (
-                      <Link
-                        href={item.pdfFileUrl}
-                        target="_blank"
-                        className="flex h-auto items-center gap-1 rounded-md border border-button-pdf bg-button-pdf px-2 py-1.5 text-button-pdf-foreground hover:bg-button-pdf-hovered hover:text-button-pdf-foreground-hovered sm:gap-2 sm:px-3 sm:py-2"
-                      >
-                        <RxFile className="size-4 sm:size-5" />
-                        <span className="text-xs font-medium sm:text-sm">
-                          PDF
-                        </span>
-                      </Link>
-                    )}
-                    {item.githubUrl && (
-                      <Link
-                        href={item.githubUrl}
-                        target="_blank"
-                        className="flex h-auto items-center gap-1 rounded-md border border-button-github bg-button-github px-2 py-1.5 text-button-github-foreground hover:bg-button-github-hovered hover:text-button-github-foreground-hovered sm:gap-2 sm:px-3 sm:py-2"
-                      >
-                        <RxGithubLogo className="size-4 sm:size-5" />
-                        <span className="text-xs font-medium sm:text-sm">
-                          GitHub
-                        </span>
-                      </Link>
-                    )}
-                  </div>
+                <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                  <RxCalendar className="size-3.5 text-brand-blue-11" />
+                  <span>{item.date}</span>
                 </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+
+                <p className="text-foreground/80 text-sm leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
+
+              {/* Action buttons */}
+              <div className="flex flex-wrap gap-2 pt-2 sm:gap-3">
+                {item.websiteUrl && (
+                  <Link
+                    href={item.websiteUrl}
+                    target="_blank"
+                    className="flex items-center gap-1.5 rounded-lg border border-button-project bg-button-project px-3 py-1.5 text-button-project-foreground transition-all hover:-translate-y-0.5 hover:bg-button-project-hovered hover:text-button-project-foreground-hovered hover:shadow-md sm:gap-2"
+                  >
+                    <RiGlobalLine className="size-4" />
+                    <span className="text-xs font-medium sm:text-sm">
+                      Website
+                    </span>
+                  </Link>
+                )}
+                {item.pdfFileUrl && (
+                  <Link
+                    href={item.pdfFileUrl}
+                    target="_blank"
+                    className="flex items-center gap-1.5 rounded-lg border border-button-pdf bg-button-pdf px-3 py-1.5 text-button-pdf-foreground transition-all hover:-translate-y-0.5 hover:bg-button-pdf-hovered hover:text-button-pdf-foreground-hovered hover:shadow-md sm:gap-2"
+                  >
+                    <RxFile className="size-4" />
+                    <span className="text-xs font-medium sm:text-sm">PDF</span>
+                  </Link>
+                )}
+                {item.githubUrl && (
+                  <Link
+                    href={item.githubUrl}
+                    target="_blank"
+                    className="flex items-center gap-1.5 rounded-lg border border-button-github bg-button-github px-3 py-1.5 text-button-github-foreground transition-all hover:-translate-y-0.5 hover:bg-button-github-hovered hover:text-button-github-foreground-hovered hover:shadow-md sm:gap-2"
+                  >
+                    <RxGithubLogo className="size-4" />
+                    <span className="text-xs font-medium sm:text-sm">
+                      GitHub
+                    </span>
+                  </Link>
+                )}
+              </div>
+            </div>
+          </article>
+        ))}
       </div>
     </div>
   )

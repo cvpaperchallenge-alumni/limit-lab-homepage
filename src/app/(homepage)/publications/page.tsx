@@ -5,12 +5,10 @@ import Image from 'next/image'
 import { RxFile, RxGithubLogo } from 'react-icons/rx'
 import { RiGlobalLine } from 'react-icons/ri'
 import Link from 'next/link'
-import { Separator } from '@radix-ui/react-separator'
 
 import { samplePublications } from '@/data/publicationPageData'
 
 // shadcn/ui components
-import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import {
   Select,
@@ -42,181 +40,186 @@ export default function PublicationsPage() {
       const fieldMatch = fieldFilter === 'all' || pub.field === fieldFilter
       return confMatch && yearMatch && fieldMatch
     })
-    .sort((a, b) => b.id - a.id) // Sort by ID in descending order to add new publications at the top
+    .sort((a, b) => b.id - a.id)
 
   return (
-    <div className="flex w-11/12 flex-1 flex-col items-center gap-6 py-8 sm:w-4/5 sm:gap-8">
-      {/* Page Title */}
-      <div className="w-full max-w-[1000px] text-center">
-        <h1 className="mb-2 text-2xl font-semibold leading-7 tracking-wider text-foreground shadow-background drop-shadow-md sm:text-3xl md:text-4xl md:leading-10">
+    <div className="container mx-auto w-full max-w-6xl space-y-12 px-6 py-12 md:px-8">
+      {/* Page header */}
+      <header className="fade-in-up flex flex-col items-start gap-3">
+        <h1 className="text-4xl font-extrabold tracking-tight text-foreground md:text-5xl">
           Publications
         </h1>
-        <p className="mx-auto mt-4 max-w-2xl text-sm text-sub sm:text-base">
+        <div className="section-accent" />
+        <p className="max-w-2xl text-sm text-muted-foreground sm:text-base">
           Explore our latest research publications, showcasing advancements in
           various fields. Use the filters below to find publications by
           conference, year, or field of study.
         </p>
+      </header>
+
+      {/* Filters */}
+      <div className="glass flex flex-wrap items-end justify-end gap-3 rounded-2xl p-4 shadow-sm sm:gap-4 sm:p-5">
+        <div className="flex w-full flex-col items-start gap-1.5 sm:w-auto">
+          <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+            Conference
+          </label>
+          <Select
+            value={conferenceFilter}
+            onValueChange={(val) => setConferenceFilter(val)}
+          >
+            <SelectTrigger className="w-full sm:w-[140px]">
+              <SelectValue placeholder="Conference" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">All</SelectItem>
+              {conferences.map((conf) => (
+                <SelectItem key={conf} value={conf}>
+                  {conf}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+
+        <div className="flex w-full flex-col items-start gap-1.5 sm:w-auto">
+          <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+            Year
+          </label>
+          <Select
+            value={yearFilter}
+            onValueChange={(val) => setYearFilter(val)}
+          >
+            <SelectTrigger className="w-full sm:w-[120px]">
+              <SelectValue placeholder="Year" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">All</SelectItem>
+              {years.map((y) => (
+                <SelectItem key={y} value={String(y)}>
+                  {y}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+
+        <div className="flex w-full flex-col items-start gap-1.5 sm:w-auto">
+          <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+            Field
+          </label>
+          <Select
+            value={fieldFilter}
+            onValueChange={(val) => setFieldFilter(val)}
+          >
+            <SelectTrigger className="w-full sm:w-[200px]">
+              <SelectValue placeholder="Field" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">All</SelectItem>
+              {fields.map((f) => (
+                <SelectItem key={f} value={f}>
+                  {f}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
       </div>
-      <div className="flex w-full max-w-[1000px] flex-col items-center gap-5 rounded-3xl border border-block-border px-4 pb-8 pt-6 sm:gap-7 sm:px-8 sm:pb-12 sm:pt-8 md:px-10 md:pb-16 md:pt-10">
-        {/* Filters */}
-        <div className="flex w-full flex-wrap gap-3 self-end sm:flex-nowrap sm:gap-4 sm:self-end">
-          {/* Conference Filter */}
-          <div className="flex w-full flex-col items-start gap-1 sm:w-auto sm:gap-2">
-            <div className="text-sm font-semibold sm:text-base">Conference</div>
-            <Select
-              value={conferenceFilter}
-              onValueChange={(val) => setConferenceFilter(val)}
-            >
-              <SelectTrigger className="w-full sm:w-[100px]">
-                <SelectValue placeholder="Conference" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">All</SelectItem>
-                {conferences.map((conf) => (
-                  <SelectItem key={conf} value={conf}>
-                    {conf}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
 
-          {/* Year Filter */}
-          <div className="flex w-full flex-col items-start gap-1 sm:w-auto sm:gap-2">
-            <div className="text-sm font-semibold sm:text-base">Year</div>
-            <Select
-              value={yearFilter}
-              onValueChange={(val) => setYearFilter(val)}
-            >
-              <SelectTrigger className="w-full sm:w-[100px]">
-                <SelectValue placeholder="Year" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">All</SelectItem>
-                {years.map((y) => (
-                  <SelectItem key={y} value={String(y)}>
-                    {y}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
+      {/* Publication list */}
+      <div className="space-y-5">
+        {filteredPublications.map((pub) => (
+          <article
+            key={pub.id}
+            className="border-border/40 bg-background/40 hover:bg-background/60 group relative flex flex-col items-stretch gap-5 overflow-hidden rounded-2xl border p-4 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-brand-blue-a6 hover:shadow-[0_18px_40px_-12px_var(--blue-a6)] sm:p-5 md:flex-row md:items-start"
+          >
+            {/* Top radial accent — subtle baseline, brightens on hover */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-1/3 opacity-30 transition-opacity duration-500 group-hover:opacity-100"
+              style={{
+                background:
+                  'radial-gradient(ellipse at top, var(--blue-a4) 0%, transparent 70%)',
+              }}
+            />
 
-          {/* Field Filter */}
-          <div className="flex w-full flex-col items-start gap-1 sm:w-auto sm:gap-2">
-            <div className="text-sm font-semibold sm:text-base">Field</div>
-            <Select
-              value={fieldFilter}
-              onValueChange={(val) => setFieldFilter(val)}
-            >
-              <SelectTrigger className="w-full sm:w-[180px]">
-                <SelectValue placeholder="Field" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">All</SelectItem>
-                {fields.map((f) => (
-                  <SelectItem key={f} value={f}>
-                    {f}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-        </div>
+            {/* Image */}
+            <div className="ring-border/40 w-full overflow-hidden rounded-xl ring-1 transition-all duration-300 group-hover:ring-brand-blue-a6 md:w-1/3 md:min-w-60 lg:min-w-72">
+              <AspectRatio ratio={16 / 9}>
+                <Image
+                  src={pub.imageUrl}
+                  alt={pub.title}
+                  fill
+                  className="rounded-xl object-cover transition-transform duration-500 group-hover:scale-105"
+                  priority={pub.id === 1}
+                />
+              </AspectRatio>
+            </div>
 
-        {/* Publication List */}
-        <div className="flex w-full flex-col items-center gap-4">
-          {filteredPublications.map((pub) => (
-            <Card
-              key={pub.id}
-              className="w-full place-content-center p-3 sm:p-4"
-            >
-              <CardContent className="flex h-full flex-col items-center gap-4 p-0 md:flex-row md:items-start">
-                {/* Publication Image */}
-                <div className="w-full overflow-hidden rounded-md md:w-1/3 md:min-w-60 lg:min-w-80">
-                  <AspectRatio ratio={16 / 9}>
-                    <Image
-                      src={pub.imageUrl}
-                      alt={pub.title}
-                      fill
-                      className="rounded-md object-cover"
-                      priority={pub.id === 1}
-                    />
-                  </AspectRatio>
+            {/* Details */}
+            <div className="flex flex-1 flex-col justify-between gap-3 py-1">
+              <div className="space-y-3">
+                <div className="flex flex-wrap gap-2">
+                  <Badge variant="conference" className="text-xs font-medium">
+                    {pub.conference}
+                  </Badge>
+                  <Badge variant="year" className="text-xs font-medium">
+                    {pub.year}
+                  </Badge>
+                  <Badge variant="type" className="text-xs font-medium">
+                    {pub.field}
+                  </Badge>
                 </div>
 
-                {/* Publication Details */}
-                <div className="flex w-full flex-1 flex-col items-start justify-between gap-3 py-1 md:h-full md:py-2">
-                  {/* Tags */}
-                  <div className="flex w-fit gap-2 self-end">
-                    <Badge
-                      variant="conference"
-                      className="text-xs font-medium sm:text-sm"
-                    >
-                      {pub.conference}
-                    </Badge>
-                    <Badge
-                      variant="year"
-                      className="text-xs font-medium sm:text-sm"
-                    >
-                      {pub.year}
-                    </Badge>
-                  </div>
+                <h2 className="text-base font-semibold leading-snug tracking-tight transition-colors duration-300 group-hover:text-brand-blue-11 sm:text-lg md:text-xl">
+                  {pub.title}
+                </h2>
 
-                  {/* Title and Authors */}
-                  <div className="flex w-full flex-col gap-1">
-                    <div className="flex w-full flex-col gap-1">
-                      <h2 className="w-full text-base font-semibold leading-5 sm:text-lg sm:leading-6">
-                        {pub.title}
-                      </h2>
-                      <Separator
-                        orientation="horizontal"
-                        className="h-px w-full bg-underline"
-                      />
-                    </div>
-                    <div className="w-full text-xs text-sub">
-                      Authors: {pub.authors}
-                    </div>
-                  </div>
-
-                  {/* Action Buttons */}
-                  <div className="flex w-full flex-wrap gap-2 sm:flex-nowrap sm:gap-4">
-                    <Link
-                      href={pub.projectPageUrl}
-                      target="_blank"
-                      className="flex h-auto items-center gap-1 rounded-md border border-button-project bg-button-project px-2 py-1.5 text-button-project-foreground hover:bg-button-project-hovered hover:text-button-project-foreground-hovered sm:gap-2 sm:px-3 sm:py-2"
-                    >
-                      <RiGlobalLine className="size-4 sm:size-5" />
-                      <span className="text-xs font-medium sm:text-sm">
-                        Project Page
-                      </span>
-                    </Link>
-                    <Link
-                      href={pub.pdfFileUrl}
-                      target="_blank"
-                      className="flex h-auto items-center gap-1 rounded-md border border-button-pdf bg-button-pdf px-2 py-1.5 text-button-pdf-foreground hover:bg-button-pdf-hovered hover:text-button-pdf-foreground-hovered sm:gap-2 sm:px-3 sm:py-2"
-                    >
-                      <RxFile className="size-4 sm:size-5" />
-                      <span className="text-xs font-medium sm:text-sm">
-                        PDF
-                      </span>
-                    </Link>
-                    <Link
-                      href={pub.githubUrl}
-                      target="_blank"
-                      className="flex h-auto items-center gap-1 rounded-md border border-button-github bg-button-github px-2 py-1.5 text-button-github-foreground hover:bg-button-github-hovered hover:text-button-github-foreground-hovered sm:gap-2 sm:px-3 sm:py-2"
-                    >
-                      <RxGithubLogo className="size-4 sm:size-5" />
-                      <span className="text-xs font-medium sm:text-sm">
-                        GitHub
-                      </span>
-                    </Link>
-                  </div>
+                <div className="text-xs leading-relaxed text-muted-foreground sm:text-sm">
+                  {pub.authors}
                 </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+              </div>
+
+              {/* Action buttons */}
+              <div className="flex flex-wrap gap-2 pt-2 sm:gap-3">
+                {pub.projectPageUrl && (
+                  <Link
+                    href={pub.projectPageUrl}
+                    target="_blank"
+                    className="flex items-center gap-1.5 rounded-lg border border-button-project bg-button-project px-3 py-1.5 text-button-project-foreground transition-all hover:-translate-y-0.5 hover:bg-button-project-hovered hover:text-button-project-foreground-hovered hover:shadow-md sm:gap-2"
+                  >
+                    <RiGlobalLine className="size-4" />
+                    <span className="text-xs font-medium sm:text-sm">
+                      Project
+                    </span>
+                  </Link>
+                )}
+                {pub.pdfFileUrl && (
+                  <Link
+                    href={pub.pdfFileUrl}
+                    target="_blank"
+                    className="flex items-center gap-1.5 rounded-lg border border-button-pdf bg-button-pdf px-3 py-1.5 text-button-pdf-foreground transition-all hover:-translate-y-0.5 hover:bg-button-pdf-hovered hover:text-button-pdf-foreground-hovered hover:shadow-md sm:gap-2"
+                  >
+                    <RxFile className="size-4" />
+                    <span className="text-xs font-medium sm:text-sm">PDF</span>
+                  </Link>
+                )}
+                {pub.githubUrl && (
+                  <Link
+                    href={pub.githubUrl}
+                    target="_blank"
+                    className="flex items-center gap-1.5 rounded-lg border border-button-github bg-button-github px-3 py-1.5 text-button-github-foreground transition-all hover:-translate-y-0.5 hover:bg-button-github-hovered hover:text-button-github-foreground-hovered hover:shadow-md sm:gap-2"
+                  >
+                    <RxGithubLogo className="size-4" />
+                    <span className="text-xs font-medium sm:text-sm">
+                      GitHub
+                    </span>
+                  </Link>
+                )}
+              </div>
+            </div>
+          </article>
+        ))}
       </div>
     </div>
   )

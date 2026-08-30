@@ -156,6 +156,42 @@ const config = {
           '4': 'var(--chart-4)',
           '5': 'var(--chart-5)',
         },
+
+        // Brand palettes (Radix-style scales) — `brand-*` prefix avoids
+        // clobbering Tailwind's default blue/purple/gray scales used in
+        // existing tag-color classes like bg-blue-100.
+        'brand-blue': {
+          1: 'var(--blue-1)',
+          2: 'var(--blue-2)',
+          3: 'var(--blue-3)',
+          4: 'var(--blue-4)',
+          5: 'var(--blue-5)',
+          6: 'var(--blue-6)',
+          7: 'var(--blue-7)',
+          8: 'var(--blue-8)',
+          9: 'var(--blue-9)',
+          10: 'var(--blue-10)',
+          11: 'var(--blue-11)',
+          12: 'var(--blue-12)',
+          a1: 'var(--blue-a1)',
+          a2: 'var(--blue-a2)',
+          a3: 'var(--blue-a3)',
+          a4: 'var(--blue-a4)',
+          a5: 'var(--blue-a5)',
+          a6: 'var(--blue-a6)',
+          a7: 'var(--blue-a7)',
+          a8: 'var(--blue-a8)',
+          a9: 'var(--blue-a9)',
+          a10: 'var(--blue-a10)',
+          a11: 'var(--blue-a11)',
+          a12: 'var(--blue-a12)',
+        },
+        'brand-purple': {
+          1: 'var(--purple-1)',
+          9: 'var(--purple-9)',
+          11: 'var(--purple-11)',
+          12: 'var(--purple-12)',
+        },
       },
       screens: {
         xs: '350px'

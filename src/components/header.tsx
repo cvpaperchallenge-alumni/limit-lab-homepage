@@ -6,8 +6,6 @@ import { useEffect, useState } from 'react'
 import { RxMoon, RxSun, RxHamburgerMenu } from 'react-icons/rx'
 import Link from 'next/link'
 import { useRouter, usePathname } from 'next/navigation'
-import blackVAMark from '../../public/visual_atoms_1_black.png'
-import whiteVAMark from '../../public/visual_atoms_1_white.png'
 import whiteLimitLabLogoWide from '../../public/limitlab-logo-white-wide.png'
 import blackLimitLabLogoWide from '../../public/limitlab-logo-black-wide.png'
 
@@ -25,15 +23,18 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 
+const navItems = [
+  { key: 'top', label: 'Top', href: '/' },
+  { key: 'publication', label: 'Publications', href: '/publications' },
+  { key: 'events-reports', label: 'Events & Reports', href: '/events-reports' },
+  { key: 'contact', label: 'Contact', href: '/contact' },
+] as const
+
 export function Header() {
   const { resolvedTheme, setTheme } = useTheme()
   const [isDarkMode, setIsDarkMode] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
-  const [page, setPage] = useState('top')
-  const [hasHoveredTop, setHasHoveredTop] = useState(false)
-  const [hasHoveredPublications, setHasHoveredPublications] = useState(false)
-  const [hasHoveredEventsReports, setHasHoveredEventsReports] = useState(false)
-  const [hasHoveredContact, setHasHoveredContact] = useState(false)
+  const [page, setPage] = useState<string>('top')
   const router = useRouter()
   const pathname = usePathname()
 
@@ -51,180 +52,51 @@ export function Header() {
     else if (pathname.startsWith('/contact')) setPage('contact')
   }, [pathname])
 
-  useEffect(() => {
-    function handleResize() {
-      if (window.innerWidth < 768) {
-        setHasHoveredTop(false)
-        setHasHoveredPublications(false)
-        setHasHoveredEventsReports(false)
-        setHasHoveredContact(false)
-      }
-    }
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
-
   return (
-    <div className="flex h-auto min-h-20 w-full justify-center bg-secondary p-4 py-6 text-secondary-foreground sm:p-6">
-      <div className="flex w-full max-w-[1500px] flex-wrap justify-between">
-        {/* Logo + Title */}
-        <div className="flex justify-between gap-4 sm:gap-7">
-          <div className="flex items-center gap-2">
-            <Image
-              alt="limit.lab logo"
-              className="h-14 w-auto sm:h-14"
-              priority={true}
-              src={isDarkMode ? whiteLimitLabLogoWide : blackLimitLabLogoWide}
-            />
-            {/* <Separator
-              orientation="vertical"
-              className="ml-3 hidden bg-muted-foreground sm:ml-5 md:block"
-            /> */}
-          </div>
+    <header className="border-border/50 bg-background/70 fixed top-0 z-50 flex w-full justify-center border-b backdrop-blur-xl">
+      <div className="flex h-20 w-full max-w-[1500px] items-center justify-between px-4 sm:px-6 lg:px-8">
+        {/* Logo */}
+        <Link
+          href="/"
+          className="group flex items-center transition-transform hover:scale-[1.02]"
+        >
+          <Image
+            alt="LIMIT.Lab logo"
+            className="h-12 w-auto sm:h-14"
+            priority={true}
+            src={isDarkMode ? whiteLimitLabLogoWide : blackLimitLabLogoWide}
+          />
+        </Link>
 
-          {/* Navigation Links */}
-          <div className="hidden items-center justify-between space-x-5 md:flex">
-            <Button
-              variant="link"
-              asChild
-              className="group pl-0.5 font-semibold hover:animate-pulsate-fwd hover:no-underline"
-            >
+        {/* Desktop Nav */}
+        <nav className="hidden items-center gap-1 md:flex">
+          {navItems.map((item) => {
+            const isActive = page === item.key
+            return (
               <Link
-                href="/"
-                onMouseEnter={() => setHasHoveredTop(true)}
-                onMouseLeave={() => {}}
+                key={item.key}
+                href={item.href}
+                className={
+                  'rounded-lg px-4 py-2 text-sm transition-colors ' +
+                  (isActive
+                    ? 'bg-brand-blue-a4 font-semibold text-brand-blue-11'
+                    : 'text-foreground/70 font-medium hover:bg-brand-blue-a3 hover:text-foreground')
+                }
               >
-                <Image
-                  alt="VA mark"
-                  src={isDarkMode ? whiteVAMark : blackVAMark}
-                  width={32}
-                  height={32}
-                  className={
-                    `group-hover:animate-rotate-in-center ` +
-                    (hasHoveredTop ? 'animate-rotate-out-center' : 'invisible')
-                  }
-                />
-                <span
-                  className={
-                    page === 'top'
-                      ? 'text-accent-foreground'
-                      : 'text-sub group-hover:text-secondary-foreground'
-                  }
-                >
-                  Top
-                </span>
+                {item.label}
               </Link>
-            </Button>
-            <Button
-              variant="link"
-              asChild
-              className="group pl-0.5 font-semibold hover:animate-pulsate-fwd hover:no-underline"
-            >
-              <Link
-                href="/publications"
-                onMouseEnter={() => setHasHoveredPublications(true)}
-                onMouseLeave={() => {}}
-              >
-                <Image
-                  alt="VA mark"
-                  src={isDarkMode ? whiteVAMark : blackVAMark}
-                  width={32}
-                  height={32}
-                  className={
-                    `group-hover:animate-rotate-in-center ` +
-                    (hasHoveredPublications
-                      ? 'animate-rotate-out-center'
-                      : 'invisible')
-                  }
-                />
-                <span
-                  className={
-                    page === 'publication'
-                      ? 'text-accent-foreground'
-                      : 'text-sub group-hover:text-secondary-foreground'
-                  }
-                >
-                  Publications
-                </span>
-              </Link>
-            </Button>
-            <Button
-              variant="link"
-              asChild
-              className="group pl-0.5 font-semibold hover:animate-pulsate-fwd hover:no-underline"
-            >
-              <Link
-                href="/events-reports"
-                onMouseEnter={() => setHasHoveredEventsReports(true)}
-                onMouseLeave={() => {}}
-              >
-                <Image
-                  alt="VA mark"
-                  src={isDarkMode ? whiteVAMark : blackVAMark}
-                  width={32}
-                  height={32}
-                  className={
-                    `group-hover:animate-rotate-in-center ` +
-                    (hasHoveredEventsReports
-                      ? 'animate-rotate-out-center'
-                      : 'invisible')
-                  }
-                />
-                <span
-                  className={
-                    page === 'events-reports'
-                      ? 'text-accent-foreground'
-                      : 'text-sub group-hover:text-secondary-foreground'
-                  }
-                >
-                  Events &amp; Reports
-                </span>
-              </Link>
-            </Button>
-            <Button
-              variant="link"
-              asChild
-              className="group pl-0.5 font-semibold hover:animate-pulsate-fwd hover:no-underline"
-            >
-              <Link
-                href="/contact"
-                onMouseEnter={() => setHasHoveredContact(true)}
-                onMouseLeave={() => {}}
-              >
-                <Image
-                  alt="VA mark"
-                  src={isDarkMode ? whiteVAMark : blackVAMark}
-                  width={32}
-                  height={32}
-                  className={
-                    `group-hover:animate-rotate-in-center ` +
-                    (hasHoveredContact
-                      ? 'animate-rotate-out-center'
-                      : 'invisible')
-                  }
-                />
-                <span
-                  className={
-                    page === 'contact'
-                      ? 'text-accent-foreground'
-                      : 'text-sub group-hover:text-secondary-foreground'
-                  }
-                >
-                  Contact
-                </span>
-              </Link>
-            </Button>
-          </div>
-        </div>
+            )
+          })}
+        </nav>
 
-        {/* Theme Switcher */}
-        <div className="flex items-center space-x-4 sm:space-x-6">
+        {/* Right cluster: theme toggle + mobile menu */}
+        <div className="flex items-center gap-3 sm:gap-4">
           {isLoading ? (
-            <div className="flex w-16 flex-row justify-center sm:w-24">
+            <div className="flex w-16 justify-center">
               <Spinner size="small" />
             </div>
           ) : (
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center gap-2">
               <RxSun className="size-3.5 text-sun-icon sm:size-4" />
               <Switch
                 id="theme-mode"
@@ -243,50 +115,38 @@ export function Header() {
             </div>
           )}
           <div className="md:hidden">
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="icon">
-                  <RxHamburgerMenu className="size-6" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-56">
-                <DropdownMenuLabel>Pages</DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuRadioGroup value={page}>
-                  <DropdownMenuRadioItem
-                    value="top"
-                    isDarkMode={isDarkMode}
-                    onClick={() => router.push('/')}
-                  >
-                    Top
-                  </DropdownMenuRadioItem>
-                  <DropdownMenuRadioItem
-                    value="publication"
-                    isDarkMode={isDarkMode}
-                    onClick={() => router.push('/publications')}
-                  >
-                    Publications
-                  </DropdownMenuRadioItem>
-                  <DropdownMenuRadioItem
-                    value="events-reports"
-                    isDarkMode={isDarkMode}
-                    onClick={() => router.push('/events-reports')}
-                  >
-                    Events &amp; Reports
-                  </DropdownMenuRadioItem>
-                  <DropdownMenuRadioItem
-                    value="contact"
-                    isDarkMode={isDarkMode}
-                    onClick={() => router.push('/contact')}
-                  >
-                    Contact
-                  </DropdownMenuRadioItem>
-                </DropdownMenuRadioGroup>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            {isLoading ? (
+              <Button variant="ghost" size="icon" disabled aria-label="Menu">
+                <RxHamburgerMenu className="size-6" />
+              </Button>
+            ) : (
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" size="icon">
+                    <RxHamburgerMenu className="size-6" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-56">
+                  <DropdownMenuLabel>Pages</DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuRadioGroup value={page}>
+                    {navItems.map((item) => (
+                      <DropdownMenuRadioItem
+                        key={item.key}
+                        value={item.key}
+                        isDarkMode={isDarkMode}
+                        onClick={() => router.push(item.href)}
+                      >
+                        {item.label}
+                      </DropdownMenuRadioItem>
+                    ))}
+                  </DropdownMenuRadioGroup>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            )}
           </div>
         </div>
       </div>
-    </div>
+    </header>
   )
 }
