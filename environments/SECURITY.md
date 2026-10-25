@@ -1,6 +1,9 @@
 # コンテナ再ビルド時のセキュリティ確認（2026-10-25）
 
-今回の目的は、ローカルで適用したBrotli修正が再ビルドで失われないようにすること。
+この文書はPR #125の実施記録。2026-10-25、#125と#126のマージを確認した。
+Node移行は[後続記録](FRONTEND_SECURITY.md)、依存更新は[依存監査記録](DEPENDENCY_SECURITY.md)を参照。
+
+当時の目的は、ローカルで適用したBrotli修正が再ビルドで失われないようにすること。
 ホスト設定、認証情報、既存コンテナ、依存ロックは変更しない。既存タグ・成果物は
 バックアップとして保持し、新しいタグで構築・検証してから利用先を切り替える。
 この変更だけで既存コンテナや配布済みイメージが更新されるわけではない。
@@ -26,7 +29,7 @@ sh environments/check-container-security.sh terraform-security:review
 秘密情報をbuild contextに入れないため、Dockerfileだけの一時ディレクトリからのビルドを推奨する。
 ローカルlinux/arm64でビルド、Brotli/CAの最低版、Terraform/TFLint/curlの起動を確認。
 amd64の実行検証、クラウドへのplan/applyは未実施。フロントエンドのNode 23からの移行は
-別の互換性検証が必要で、このTerraform修正の完了をもって対策済みとはしない。
+その後PR #126で検証・マージ済み。このTerraform修正とは別に記録する。
 
 
 検査は先に作成し、修正前イメージでは未修正Node/システムBrotliまたは旧Playwright起動経路を
