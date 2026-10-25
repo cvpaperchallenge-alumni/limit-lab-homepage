@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=hashicorp/terraform:1.10.3
+ARG BASE_IMAGE=hashicorp/terraform:1.10.3@sha256:460267841b38628514b75c6b0eb1cebb2d2fb5d6b596087a9c277551c801e5f1
 FROM ${BASE_IMAGE}
 
 ARG APPLICATION_DIRECTORY=/home/limit-lab-homepage
@@ -7,8 +7,22 @@ ENV DEBIAN_FRONTEND="noninteractive" \
     LC_ALL="C.UTF-8" \
     LANG="C.UTF-8"
 
-# Install tflint. bash is required for the installation script.
-RUN apk add --no-cache bash curl 
-RUN curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash
+# Preserve the existing shell tooling and install verified TFLint below.
+# Minimum versions include the Brotli decoder and CA distrust fixes.
+RUN apk add --no-cache bash curl "brotli-libs>=1.1.1-r0" "ca-certificates-bundle>=20261020-r0"
+# Keep the existing TFLint version; the former master/install_linux.sh URL is gone.
+# Checksums are from the official v0.59.1 release (amd64 and arm64).
+ARG TARGETARCH
+RUN case "$TARGETARCH" in \
+      amd64) checksum=6108d84282292f11d793dc8038ce08fbc629dcd25324d6f13c63d8100b52e01f ;; \
+      arm64) checksum=426f998f9cbd0d738164ed0fb52e9ee268139dc52d8622c8c7a40afbea2c2811 ;; \
+      *) echo "Unsupported TFLint architecture: $TARGETARCH" >&2; exit 1 ;; \
+    esac \
+    && curl -fsSL "https://github.com/terraform-linters/tflint/releases/download/v0.59.1/tflint_linux_${TARGETARCH}.zip" -o /tmp/tflint.zip \
+    && echo "$checksum  /tmp/tflint.zip" | sha256sum -c - \
+    && busybox unzip -p /tmp/tflint.zip tflint > /usr/local/bin/tflint \
+    && chmod 0555 /usr/local/bin/tflint \
+    && rm /tmp/tflint.zip \
+    && tflint --version
 
 WORKDIR ${APPLICATION_DIRECTORY}
