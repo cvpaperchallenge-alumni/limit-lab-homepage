@@ -26,6 +26,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Audit production and development dependencies
+        run: npm audit --audit-level=low
+
       - name: Check the code format
         run: npm run format-check
 

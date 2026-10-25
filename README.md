@@ -1,3 +1,5 @@
+依存更新の根拠・検証は[依存セキュリティ記録](environments/DEPENDENCY_SECURITY.md)を参照してください。
+
 Node環境の準備・再構築は[フロントエンドのセキュリティ手順](environments/FRONTEND_SECURITY.md)を参照してください。
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
