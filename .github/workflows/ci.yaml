@@ -26,6 +26,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Check runtime security baseline
+        run: npm run test:security
+
       - name: Audit production and development dependencies
         run: npm audit --audit-level=low
 

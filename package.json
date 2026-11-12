@@ -10,7 +10,8 @@
     "format": "prettier --write src",
     "lint-check": "eslint --max-warnings=0 src",
     "format-check": "prettier --check src",
-    "inspect": "eslint-config-inspector"
+    "inspect": "eslint-config-inspector",
+    "test:security": "node environments/check-runtime-security.mjs"
   },
   "dependencies": {
     "@radix-ui/react-aspect-ratio": "^1.1.8",
@@ -25,7 +26,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.562.0",
-    "next": "15.5.28",
+    "next": "15.5.29",
     "next-themes": "^0.4.6",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
@@ -35,13 +36,13 @@
   "devDependencies": {
     "@eslint/config-inspector": "^3.5.0",
     "@eslint/eslintrc": "^3",
-    "@next/eslint-plugin-next": "15.5.28",
+    "@next/eslint-plugin-next": "15.5.29",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "autoprefixer": "^10.4.23",
     "eslint": "^9",
-    "eslint-config-next": "15.5.28",
+    "eslint-config-next": "15.5.29",
     "eslint-config-prettier": "^9.1.2",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^5.2.0",
@@ -56,7 +57,7 @@
     "typescript-eslint": "^8.50.1"
   },
   "engines": {
-    "node": ">=24.22.1 <25"
+    "node": ">=24.22.3 <25"
   },
   "overrides": {
     "next": {
@@ -67,6 +68,9 @@
     },
     "postcss-nested": {
       "postcss-selector-parser": "7.1.6"
+    },
+    "@typescript-eslint/typescript-estree": {
+      "minimatch": "11.0.1"
     }
   }
 }
