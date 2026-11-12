@@ -69,3 +69,5 @@ lockfileはルートengines以外の構造が元と完全一致し、依存パ�
 実ブラウザでの画面比較、linux/amd64、公開サイト・クラウドの検証は未実施。
 GitHub CIの結果はローカル成功と区別する。既存Next設定のdevIndicators.appIsrStatusに
 非推奨警告が出るが、今回のNode移行によるビルド失敗はない。
+
+2026-11-12: 上記は移行時の履歴。現在の最低版は[依存更新記録](DEPENDENCY_SECURITY.md)の末尾を参照。

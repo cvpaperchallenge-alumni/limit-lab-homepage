@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';
+import { brotliCompressSync, brotliDecompressSync } from 'node:zlib';
+const [major, minor, patch] = process.versions.node.split('.').map(Number);
+assert.ok(major === 24 && (minor > 22 || (minor === 22 && patch >= 3)), `Node 24.22.3+ required: ${process.version}`);
+const input = Buffer.from('Brotli regression');
+assert.deepEqual(brotliDecompressSync(brotliCompressSync(input)), input);
+console.log(process.version, 'runtime security baseline PASS');
+const { createRequire } = await import('node:module');
+const require = createRequire(import.meta.url);
+const next = require('next/package.json').version;
+const [nextMajor, nextMinor, nextPatch] = next.split('.').map(Number);
+assert.ok(nextMajor === 15 && (nextMinor > 5 || (nextMinor === 5 && nextPatch >= 29)), `Next.js 15.5.29+ required: ${next}`);
+console.log(next, 'Next.js security baseline PASS');

@@ -84,3 +84,22 @@ npm audit 0件は、登録済みのnpm監査項目が当日の依存木に見つ
 npm ls --allもexit 0。npm run inspectによる静的出力をネットワークなしで再確認した。
 4ページのHTTP200と不存在URLのHTTP404、Brotli/CA検査、正常TLSと問題証明書2経路の拒否が成功。
 これらはローカルlinux/arm64での結果。GitHub CI、amd64、公開環境は別に扱う。
+
+## 2026-11-12追記（現在の最低版）
+
+上記は10月25日の履歴。現在の基準はNode 24.22.3とNext.js/eslint-config-next/@next/eslint-plugin-next 15.5.29。
+[Node公式](https://nodejs.org/en/blog/release/v24.22.3)、[Next公式](https://github.com/vercel/next.js/releases/tag/v15.5.29)に基づく。
+Node・Nextの実インストール最低版検査を旧実体で失敗させてから更新し、CIへ追加した。
+Dockerfile digest/.node-version/enginesも24.22.3へ一致させ、既存Brotli/CA/PostCSS対策を保持する。
+
+変更前npm auditはmoderate 7件（minimatchとその依存元）で失敗。公式
+[GHSA-g3hv-75wg-m249](https://github.com/advisories/GHSA-g3hv-75wg-m249)の修正版11.0.1を
+@typescript-eslint/typescript-estree経路のみにoverrideした。上流最新も10系列を要求するための暫定措置。
+7件は独立した7脆弱性ではない。自動提案の古いtypescript-eslintへの変更は採用しない。
+メジャーを跨ぐoverrideのためlint・型検査・buildで互換性を検査し、上流対応後はoverrideの除去を再検討する。
+
+npm install後にlockとnode_modulesのNext版が不一致となったため、クリーンnpm ciで一致を確認して再検証した。
+旧実体による途中のbuild成功は更新後の成功に含めない。最終検証結果はPRに記録する。
+静的export/images.unoptimizedを維持し、本番の実バージョン確認・デプロイは別途行う。元の古いローカル作業ツリーと未追跡mise.tomlは保護する。
+
+11月12日の最終確認: clean npm ci後の最低版検査、lint、format、production build、build後のtsc、4ページHTTP200/不存在404が成功。linux/arm64コンテナのNext実体15.5.29、npm audit 0件、Brotli/CA検査、正常TLS成功と問題証明書2経路CERT_REVOKEDを確認。実ブラウザの画面比較とamd64、デプロイ後検証は未実施。
